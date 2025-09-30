@@ -7,13 +7,16 @@ import Mentor from "../Components/CourseDetails/Mentor";
 import Testimonials from "../Components/CourseDetails/Testimonials";
 import Overview from "../Components/CourseDetails/Overview";
 import CourseSidebar from "../Components/CourseDetails/CourseSidebar";
+import Header from "../Components/Header";
+
 
 function CoursePage() {
   return (
-    <div>
-      
+    <div >
+      <Header/>
       <CourseBanner />
       <Navbar />
+      
 
       <div className="container mx-auto px-6 py-4 grid grid-cols-1 lg:grid-cols-12 gap-12">
         {/* Left side (2/3 width → 8/12 columns) */}

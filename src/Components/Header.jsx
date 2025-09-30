@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { CiSearch } from "react-icons/ci";
 import { FiMenu, FiX } from "react-icons/fi";
 import { FaChalkboardTeacher, FaVideo } from "react-icons/fa";
-
+import GridViewIcon from '@mui/icons-material/GridView';
 // Data for Courses
 const courseData = {
   online: {
@@ -63,27 +63,28 @@ const Header = () => {
   };
 
   return (
-    <header className="w-full shadow-md bg-white sticky top-0 z-50">
-      <div className="container mx-auto flex justify-between items-center py-3 md:py-4 px-4 md:px-0">
+    <header className="w-full shadow-md bg-white top-0 z-50">
+      <div className="containe mx-auto flex justify-between items-center  md:px-0">
         {/* Logo + Course button */}
-        <div className="flex items-center gap-5 relative">
+        <div className="flex items-center py-3 md:py-5 px-4 bg-[#364D9D] gap-5 relative">
           
           <Link to="/">
           <img
             src="/GTR Logo.webp"
             alt="Logo"
-            className="h-12 w-auto bg-[#364D9D] px-3 rounded-lg"
+            className="h-16 w-full  size- px-8 "
           />
           </Link>
 
           {/* Mega Menu Trigger (Hover) */}
+        </div>
           <div
-            className="relative"
+            className="relative "
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
-            <button className="hidden md:flex items-center font-semibold gap-2 cursor-pointer text-gray-800 hover:text-[#364D9D] transition">
-              <img src="/widgets.png" alt="Course Icon" className="size-6" />
+            <button className="hidden md:flex items-center text-lg font-semibold gap-2 cursor-pointer text-gray-800 hover:text-[#364D9D] transition">
+               <GridViewIcon fontSize="medium" />
               Courses
             </button>
 
@@ -169,7 +170,7 @@ const Header = () => {
 
                   {/* Add Course Button */}
                   <div className="mt-4 flex justify-end">
-                    <Link to="/all-courses"  className="bg-[#364D9D] text-white px-4 py-2 rounded-lg hover:bg-[#2b3a7f] transition">
+                    <Link to="/all-courses"  className="bg-[#364D9D] text-white px-4 py-2 rounded-lg hover:bg-[#2b3a7f] transition font-lato" >
                       All Course
                     </Link >
                   </div>
@@ -177,28 +178,27 @@ const Header = () => {
               </div>
             )}
           </div>
-        </div>
 
         {/* Search Bar */}
         <div className="hidden md:flex items-center gap-3 border border-gray-300 p-2 rounded-full w-[35%] focus-within:shadow-md">
           <input
             type="text"
             placeholder="Search for courses..."
-            className="w-full text-sm px-2 focus:outline-none"
+            className="w-full text-sm p-1 focus:outline-none"
           />
           <CiSearch className="text-2xl text-gray-600 cursor-pointer hover:text-[#364D9D]" />
         </div>
 
         {/* Right Menu */}
         <div className="hidden md:flex items-center gap-6 font-medium">
-          <Link to="#" className="text-gray-700 hover:text-[#364D9D] transition">
-            Business Solution
+          <Link to="#" className="text-gray-700 hover:text-[#364D9D] transition ">
+            Interprises Solution
           </Link>
-          <Link to="#" className="text-gray-700 hover:text-[#364D9D] transition">
+          <Link to="#" className="text-gray-700 hover:text-[#364D9D] transition px-4">
             FAQ
           </Link>
           <Link to="#">
-            <button className="bg-[#C81D25] px-4 py-2 rounded-lg cursor-pointer text-white font-medium hover:bg-[#a9151c] transition">
+            <button className="bg-[#C81D25] px-5 me-12 py-2 rounded-lg cursor-pointer text-white font-medium hover:bg-[#a9151c] transition">
               Login / Signup
             </button>
           </Link>

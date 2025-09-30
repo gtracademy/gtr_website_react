@@ -22,7 +22,7 @@ const HiringPartners = () => {
 
   return (
     <div className="relative bg-white pt-12 px-4 sm:px-6 lg:px-8 pb-16">
-      <div className="max-w-7xl mx-auto">
+      <div className="w-full">
         <div className="flex justify-between items-center mb-8">
           <div>
             <h3 className="text-[#C81D25] text-2xl font-semibold">Associated with</h3>

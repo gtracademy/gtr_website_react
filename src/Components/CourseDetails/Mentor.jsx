@@ -8,17 +8,17 @@ const Mentor = () => {
         Know Your Mentor
       </h2>
       <div className="w-full flex flex-col md:flex-row items-center gap-8 md:gap-12 p-8 rounded-lg shadow-xl border border-gray-200">
-         
+     
         <img
           src={intructorImg}
           alt="Mentor"
           className="w-52 h-52 object-cover rounded-full shadow-lg border-4 border-[#C81D25]"
         />
-             
+       
         <div>
-                 
-          <h3 className="text-3xl font-bold text-[#364D9D]">Suresh Reddy</h3>   
-               
+         
+          <h3 className="text-3xl font-bold text-[#364D9D]">Suresh Reddy</h3>
+
           <ul className="text-gray-700 mt-4 leading-relaxed text-lg space-y-2">
             <li className="flex items-start">
               <span className="text-red-700 font-bold text-xl mr-2">•</span>
@@ -37,15 +37,14 @@ const Mentor = () => {
               Certified SAP Trainer with 100+ global sessions delivered
             </li>
             <li className="flex items-start">
-              <span className="text-red-700 font-bold text-xl mr-2">•</span>
+              <span className="text-red-700 font-bold text-xl mr-2">•</span> 
               Trusted mentor guiding professionals to SAP success
             </li>
           </ul>
-               
+        
         </div>
-           
+       
       </div>
-       
     </section>
   );
 };

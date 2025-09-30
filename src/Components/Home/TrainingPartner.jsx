@@ -6,7 +6,7 @@ const TrainingPartner = () => {
     <div className="bg-gradient-to-r from-white via-gray-200 to-[#0B3954]">
       {/* Header Bar */}
       <div className="bg-gradient-to-r from-[#0B3954] via-gray-700 to-red-800 h-1 w-full mb-8"></div>
-      <div className="max-w-7xl mx-auto pb-8 ">
+      <div className=" pb-8 ">
         <div className="mt-8">
           <h1 className="text-3xl md:text-[44px] font-serif font-bold text-[#0B3954] mb-4">
             Approved Training Partner

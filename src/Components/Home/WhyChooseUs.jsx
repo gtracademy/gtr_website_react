@@ -35,13 +35,13 @@ const whyItems = [
     title: 'Comprehensive Case Studies',
     description:
       'Learn from real-life industry scenarios to improve your decision-making.',
-    icon: '📊',
+    icon: '📊', 
   },
 ];
-
+ <div className="px-4  bg-gray-100 min-h-screen font-lato p-8"></div>
 const WhyChooseUs = () => {
   return (
-    <section className="py-16 px-4 md:px-16 bg-gradient-to-tr from-white to-gray-100">
+    <section className="py-16 px-4  md:pr-[86px] bg-gradient-to-tr from-white to-gray-100">
       {/* Heading */}
       <div className="text-start mb-14">
         <p className="text-red-600 text-md font-serif font-semibold uppercase tracking-wide">

@@ -4,7 +4,7 @@ import React from 'react';
 const NeedHelpSection = () => {
   return (
     <div className="bg-gray-100 p-8">
-      <div className="container mx-auto">
+      <div className="w-full">
         <h2 className="text-4xl font-serif font-bold text-red-700 mb-6">
           Need help ?
         </h2>

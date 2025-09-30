@@ -16,7 +16,7 @@ import {
 const Footer = () => {
   return (
     <footer className="bg-black text-white py-12 px-4 sm:px-6 lg:px-8 relative">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-[1500px] mx-auto">
         {/* Main Footer Sections */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-12 lg:gap-x-8 pb-10 border-b border-gray-700">
           {/* Column 1: GTR Academy Info */}

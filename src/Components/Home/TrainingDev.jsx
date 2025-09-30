@@ -1,18 +1,11 @@
-import React from 'react';
-// Import your images from the assets folder
-// import msmeLogo from './assets/msme-logo.cms';
-// import nasscomLogo from './assets/nasscom-logo.png';
-// import samGovLogo from './assets/sam-gov-logo.png';
-// import ibmLogo from './assets/ibm-logo.jpg';
-// import rootbixLogo from './assets/rootbix-logo.png';
-// import isoCertifiedLogo from './assets/iso-logo.avif';
+import React from "react";
 
 const TrainingDev = () => {
   return (
-    <div className="py-18 ">
+    <div className="py-18  ">
       <div className="bg-gradient-to-r from-[#0B3954] via-gray-700 to-red-800 h-1 w-full mb-20"></div>
 
-      <div className="max-w-7xl mx-auto">
+      <div className="w-full ">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
           {/* Left Section - Text and Button */}
           <div className="lg:w-2/3">
@@ -39,22 +32,46 @@ const TrainingDev = () => {
           <div className="lg:w-1/3 mt-12 w-full lg:mt-0 lg:pl-0">
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
               <div className="bg-white p-4 rounded-lg shadow-md flex justify-center items-center h-24">
-                <img src="/msme-logo.cms" alt="MSME Logo" className="max-h-full max-w-full" />
+                <img
+                  src="/msme-logo.cms"
+                  alt="MSME Logo"
+                  className="max-h-full max-w-full"
+                />
               </div>
               <div className="bg-white p-4 rounded-lg shadow-md flex justify-center items-center h-24">
-                <img src="/nasscom-logo.png" alt="NASSCOM Logo" className="max-h-full max-w-full" />
+                <img
+                  src="/nasscom-logo.png"
+                  alt="NASSCOM Logo"
+                  className="max-h-full max-w-full"
+                />
               </div>
               <div className="bg-white p-4 rounded-lg shadow-md flex justify-center items-center h-24">
-                <img src="sam-gov-logo.png" alt="SAM.gov Logo" className="max-h-full max-w-full" />
+                <img
+                  src="sam-gov-logo.png"
+                  alt="SAM.gov Logo"
+                  className="max-h-full max-w-full"
+                />
               </div>
               <div className="bg-white p-4 rounded-lg shadow-md flex justify-center items-center h-24">
-                <img src="/ibm-logo.jpg" alt="IBM Logo" className="max-h-full max-w-full" />
+                <img
+                  src="/ibm-logo.jpg"
+                  alt="IBM Logo"
+                  className="max-h-full max-w-full"
+                />
               </div>
               <div className="bg-white p-4 rounded-lg shadow-md flex justify-center items-center h-24">
-                <img src="/rootbix-logo.png" alt="Rootbix Infotech Logo" className="max-h-full max-w-full" />
+                <img
+                  src="/rootbix-logo.png"
+                  alt="Rootbix Infotech Logo"
+                  className="max-h-full max-w-full"
+                />
               </div>
               <div className="bg-white p-4 rounded-lg shadow-md flex justify-center items-center h-24">
-                <img src="/iso-logo.avif" alt="ISO Certified Logo" className="max-h-full max-w-full" />
+                <img
+                  src="/iso-logo.avif"
+                  alt="ISO Certified Logo"
+                  className="max-h-full max-w-full"
+                />
               </div>
             </div>
           </div>
