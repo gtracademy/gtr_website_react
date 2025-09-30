@@ -4,7 +4,7 @@ import aboutus from "../../assets/About us.webp"
 
 const AboutUs = () => {
   return (
-    <section className="flex flex-col md:flex-row bg-white  rounded-xl overflow-hidden my-10">
+    <section className="flex flex-col md:flex-row bg-white  rounded-xl overflow-hidden ">
       {/* Left Side - Image */}
       <div className="md:w-1/2 w-full">
         <img

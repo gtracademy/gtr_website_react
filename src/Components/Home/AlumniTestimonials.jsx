@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import { FaPlay, FaStar } from "react-icons/fa";
 import { IoArrowForwardOutline, IoArrowBackOutline } from "react-icons/io5";
-import alumniIco from "../../assets/alumni_icon.png"
+import alumniIco from "../../assets/alumni_icon.png";
 
 import testimonialImg from "../../assets/Group 21@2x.png";
 
@@ -60,33 +60,36 @@ const AlumniTestimonials = () => {
   const swiperRef = useRef(null);
 
   return (
-    <section id="testimonials" className="py-16 bg-white relative">
+    <section
+      id="testimonials"
+      className="bg-white relative px-4 sm:px-6 lg:px-8 py-10"
+    >
       {/* Title */}
-     <div className="mb-10 ms-6 sm:ms-12 md:ms-2">
-      <div className="flex items-center gap-3">
-        <img
-          src={alumniIco}
-          alt="alumni icon"
-          className="w-10 h-10 object-contain"
-        />
-        <h2 className="text-3xl md:text-4xl font-bold text-[#05254a]">
-          Alumni Diaries
-        </h2>
+      <div className="mb-6 sm:mb-10">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <img
+            src={alumniIco}
+            alt="alumni icon"
+            className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
+          />
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#05254a]">
+            Alumni Diaries
+          </h2>
+        </div>
+        <p className="text-red-600 text-base sm:text-lg font-semibold mt-1 sm:mt-2">
+          Celebrating Success Together
+        </p>
       </div>
-      <p className="text-red-600 text-lg font-semibold mt-2">
-        Celebrating Success Together
-      </p>
-    </div>
 
-      {/* Two-column layout */}
-      <div className="w-full sm:max-w-full mx-auto sm:mx-15 grid grid-cols-1 md:grid-cols-2 gap-10 items-center ms-4 sm:ms-12 md:ms-10">
+      {/* Grid: Swiper + Active Review */}
+      <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
         {/* Left Side: Swiper */}
-        <div className="relative">
+        <div className="relative w-full">
           <Swiper
             modules={[Pagination]}
             slidesPerView={1}
             breakpoints={{
-              768: { slidesPerView: 2 }, // 2 slides on md+
+              768: { slidesPerView: 2 },
             }}
             spaceBetween={20}
             loop={true}
@@ -103,22 +106,22 @@ const AlumniTestimonials = () => {
                   <img
                     src={item.img}
                     alt={item.name}
-                    className="w-full h-[300px] sm:h-[450px] md:h-[550px] object-cover object-top"
+                    className="w-full h-86 sm:h-106 md:h-132 object-cover object-top rounded-xl"
                   />
 
                   {/* Play Button */}
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <button className="bg-white/70 text-red-600 p-5 rounded-full hover:scale-110 transition">
-                      <FaPlay size={24} />
+                    <button className="bg-white/70 text-red-600 p-4 sm:p-5 rounded-full hover:scale-110 transition">
+                      <FaPlay size={20} sm={24} />
                     </button>
                   </div>
 
                   {/* Gradient + Text */}
-                  <div className="absolute bottom-0 w-full bg-gradient-to-t from-black via-black/70 to-transparent text-center p-3">
-                    <p className="text-yellow-400 font-semibold text-sm italic">
+                  <div className="absolute bottom-0 w-full bg-gradient-to-t from-black via-black/70 to-transparent text-center p-2 sm:p-3">
+                    <p className="text-yellow-400 font-semibold text-xs sm:text-sm italic">
                       “{item.text}”
                     </p>
-                    <h3 className="text-white text-lg font-bold">
+                    <h3 className="text-white text-sm sm:text-lg font-bold">
                       {item.name}
                     </h3>
                   </div>
@@ -127,37 +130,40 @@ const AlumniTestimonials = () => {
             ))}
           </Swiper>
 
-          {/* Custom Navigation */}
+          {/* Navigation Arrows */}
           <div
             onClick={() => swiperRef.current?.slidePrev()}
-            className="cursor-pointer absolute -left-4 sm:-left-6 md:-left-10 top-1/2 z-10 transform -translate-y-1/2"
+            className="cursor-pointer absolute -left-2 sm:-left-4 md:-left-10 top-1/2 z-10 transform -translate-y-1/2"
           >
-            <div className="text-xl p-2 rounded-full shadow bg-gray-500 hover:bg-gray-700 transition ease-in-out">
+            <div className="text-lg sm:text-xl p-1 sm:p-2 rounded-full shadow bg-gray-500 hover:bg-gray-700 transition">
               <IoArrowBackOutline color="white" />
             </div>
           </div>
 
           <div
             onClick={() => swiperRef.current?.slideNext()}
-            className="cursor-pointer absolute -right-4 sm:-right-5 md:-right-7 top-1/2 z-10 transform -translate-y-1/2"
+            className="cursor-pointer absolute -right-2 sm:-right-4 md:-right-7 top-1/2 z-10 transform -translate-y-1/2"
           >
-            <div className="text-xl p-2 rounded-full shadow bg-gray-500 hover:bg-gray-700 transition ease-in-out">
+            <div className="text-lg sm:text-xl p-1 sm:p-2 rounded-full shadow bg-gray-500 hover:bg-gray-700 transition">
               <IoArrowForwardOutline color="white" />
             </div>
           </div>
         </div>
 
         {/* Right Side: Active Review */}
-        <div className="bg-white shadow-md rounded-lg p-6 sm:p-8 md:p-10 border border-gray-200 ">
-          <h3 className="text-xl font-bold text-[#05254a]">
+        <div className="bg-white  rounded-lg p-4 sm:p-6 md:p-8 ">
+          <h3 className="text-lg sm:text-xl font-bold text-[#05254a]">
             {testimonials[activeIndex].review.person}
           </h3>
-          <div className="flex items-center gap-2 mt-2 mb-3">
+          <div className="flex items-center gap-1 sm:gap-2 mt-1 sm:mt-2 mb-2 sm:mb-3">
             {[...Array(testimonials[activeIndex].review.stars)].map((_, i) => (
-              <FaStar key={i} className="text-yellow-500" />
+              <FaStar
+                key={i}
+                className="text-yellow-500 text-sm sm:text-base"
+              />
             ))}
           </div>
-          <p className="text-gray-700 mb-3">
+          <p className="text-gray-700 text-sm sm:text-base mb-2 sm:mb-3">
             <span className="text-purple-700 font-bold">
               {testimonials[activeIndex].review.company}
             </span>
@@ -166,7 +172,7 @@ const AlumniTestimonials = () => {
               {testimonials[activeIndex].review.package}
             </span>
           </p>
-          <p className="text-gray-700 leading-relaxed">
+          <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
             {testimonials[activeIndex].review.feedback}
           </p>
         </div>

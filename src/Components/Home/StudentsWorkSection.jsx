@@ -41,12 +41,12 @@ const companyLogos = [
 
 const StudentsWorkSection = () => {
   return (
-    <section className="py-10 bg-gradient-to-b from-white to-gray-50">
-      <div className=" px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-[#0b2c4d]">
+    <section className="py-8 sm:py-10 bg-gradient-to-b from-white to-gray-50">
+      <div className="px-4 sm:px-6 lg:px-8 mb-6 sm:mb-8">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0b2c4d]">
           Where our students work
         </h2>
-        <p className="mt-3 text-gray-600 max-w-2xl ">
+        <p className="mt-2 sm:mt-3 text-gray-600 max-w-xl sm:max-w-2xl text-lg sm:text-lg">
           Achieve your dreams and shape your future with India’s trusted
           learning destination.
         </p>
@@ -56,8 +56,8 @@ const StudentsWorkSection = () => {
       <div className="w-full">
         <Swiper
           modules={[Autoplay]}
-          slidesPerView={6}
-          spaceBetween={30}
+          slidesPerView={2}
+          spaceBetween={20}
           autoplay={{
             delay: 0,
             disableOnInteraction: false,
@@ -66,19 +66,20 @@ const StudentsWorkSection = () => {
           loop={true}
           breakpoints={{
             320: { slidesPerView: 2, spaceBetween: 20 },
-            640: { slidesPerView: 3 },
-            768: { slidesPerView: 4 },
-            1024: { slidesPerView: 6 },
+            480: { slidesPerView: 3, spaceBetween: 25 },
+            640: { slidesPerView: 4, spaceBetween: 25 },
+            768: { slidesPerView: 5, spaceBetween: 30 },
+            1024: { slidesPerView: 6, spaceBetween: 35 },
           }}
           className="flex items-center"
         >
           {companyLogos.map((logo, index) => (
             <SwiperSlide key={index}>
-              <div className="flex justify-center items-center h-20">
+              <div className="flex justify-center items-center h-24 sm:h-28 md:h-32">
                 <img
                   src={logo}
                   alt={`Company logo ${index}`}
-                  className="h-10 w-auto opacity-70 hover:opacity-100 transition"
+                  className="h-8 sm:h-10 md:h-12 w-auto opacity-80 hover:opacity-100 transition"
                 />
               </div>
             </SwiperSlide>

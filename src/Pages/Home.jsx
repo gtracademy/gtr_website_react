@@ -18,31 +18,24 @@ const Home = () => {
     <>
       <div className="w-full shadow-md bg-white sticky top-0 z-50">
         <Header />
-     
-      </div >
-        <div>
-         <Hero />
-       </div>
+      </div>
+      <div>
+        <Hero />
+      </div>
 
-       <div className="mx-[2%]">
-        
-      <CourseFilter />
-       <StudentsWorkSection />
-      <WhyChooseUs />
-     
-      <AboutUs />
-      <PlacementProcess />
-      <AlumniTestimonials />
-      <TrainingDev />
-      <HiringPartners />
-
-      <FAQSection />
-      <TrainingPartner />
-      <NeedHelpSection />
-
-       </div>
-
-     
+      <div className="mx-[2%] mb-2">
+        <CourseFilter />
+        <HiringPartners />
+        <WhyChooseUs />
+        <AboutUs />
+        <PlacementProcess />
+        <AlumniTestimonials />
+        <TrainingDev />
+        <StudentsWorkSection />
+        <FAQSection />
+        <TrainingPartner />
+        <NeedHelpSection />
+      </div>
     </>
   );
 };

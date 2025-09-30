@@ -45,7 +45,8 @@ const coursesData = [
   // Popular Courses
   {
     title: "SAP FICO S/4HANA",
-    description: "Master SAP Financial Accounting with hands-on S/4HANA scenarios.",
+    description:
+      "Master SAP Financial Accounting with hands-on S/4HANA scenarios.",
     fee: "₹60,000",
     img: sAPFICO,
     category: ["SAP Functional", "Popular"],
@@ -59,14 +60,16 @@ const coursesData = [
   },
   {
     title: "VLSI",
-    description: "Explore Very Large Scale Integration design and verification techniques.",
+    description:
+      "Explore Very Large Scale Integration design and verification techniques.",
     fee: "₹60,000",
     img: dataAnalyst, // choose an image related to tech/data
     category: ["VLSI", "Popular"],
   },
   {
     title: "SAP BASIS S/4HANA",
-    description: "Understand SAP system administration and architecture in S/4HANA.",
+    description:
+      "Understand SAP system administration and architecture in S/4HANA.",
     fee: "₹60,000",
     img: sAPBASIS,
     category: ["SAP Technical", "Popular"],
@@ -80,7 +83,8 @@ const coursesData = [
   },
   {
     title: "Generative AI",
-    description: "Build intelligent systems using generative models and AI tools.",
+    description:
+      "Build intelligent systems using generative models and AI tools.",
     fee: "₹60,000",
     img: generativeAI,
     category: ["Data Science", "Popular"],
@@ -94,7 +98,8 @@ const coursesData = [
   },
   {
     title: "Data Analyst",
-    description: "Become a data analyst with skills in visualization and reporting.",
+    description:
+      "Become a data analyst with skills in visualization and reporting.",
     fee: "₹60,000",
     img: dataAnalyst,
     category: ["Data Science", "Popular"],
@@ -110,7 +115,8 @@ const coursesData = [
   },
   {
     title: "SAP BTP",
-    description: "Explore SAP Business Technology Platform for cloud solutions.",
+    description:
+      "Explore SAP Business Technology Platform for cloud solutions.",
     fee: "₹60,000",
     img: sAPBTP,
     category: ["SAP Technical"],
@@ -131,7 +137,8 @@ const coursesData = [
   },
   {
     title: "SAP CPI",
-    description: "Integrate cloud applications using SAP Cloud Platform Integration.",
+    description:
+      "Integrate cloud applications using SAP Cloud Platform Integration.",
     fee: "₹60,000",
     img: sAPCPI,
     category: ["SAP Technical"],
@@ -212,7 +219,8 @@ const coursesData = [
   // HR Courses
   {
     title: "HR Courses",
-    description: "Comprehensive HR training including payroll, recruitment, and compliance.",
+    description:
+      "Comprehensive HR training including payroll, recruitment, and compliance.",
     fee: "₹60,000",
     img: sapSFEC, // approximate image
     category: ["HR Courses"],
@@ -244,7 +252,6 @@ const coursesData = [
   },
 ];
 
-
 const CourseFilter = () => {
   const [selectedCategory, setSelectedCategory] = useState("Popular");
 
@@ -253,35 +260,35 @@ const CourseFilter = () => {
   );
 
   return (
-    <div className="px-4  bg-gray-100 min-h-screen font-sans p-8">
+    <div className="px-4 min-h-screen font-sans py-6 sm:py-8">
       {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8 ">
-        <div>
-          <h2 className="text-4xl font-bold text-red-700 mb-1 font-serif">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
+        <div className="text-center md:text-left">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-red-700 mb-1 font-serif">
             Select your goal
           </h2>
-          <p className="font-lato font-semibold text-[20px] leading-[29px] text-[#364D9D] max-w-lg mx-auto md:mx-0">
-            <span className="text-[#2D2D2D] font-semibold">100+ </span>Courses
-            available for you
+          <p className="font-lato font-semibold text-base sm:text-lg md:text-[20px] leading-relaxed text-[#364D9D] max-w-lg mx-auto md:mx-0">
+            <span className="text-[#2D2D2D] font-semibold">100+ </span>
+            Courses available for you
           </p>
         </div>
         <div className="relative w-full md:w-80">
           <input
             type="text"
             placeholder="Search for a Course"
-            className="w-full border border-gray-300 rounded-full px-4 py-2 pl-10 shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500"
+            className="w-full border border-gray-300 rounded-full px-4 py-2 pl-10 shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 text-sm sm:text-base"
           />
           <span className="absolute left-3 top-2.5 text-gray-500">🔍</span>
         </div>
       </div>
 
       {/* Category Tabs */}
-      <div className="flex flex-wrap gap-3 mb-8">
+      <div className="flex flex-wrap gap-2 sm:gap-3 mb-8 justify-center md:justify-start">
         {categories.map((cat, index) => (
           <button
             key={index}
             onClick={() => setSelectedCategory(cat)}
-            className={`px-5 py-2 rounded-xl text-sm font-medium transition duration-200 ${
+            className={`px-4 sm:px-8 py-3 rounded-xl text-xs sm:text-sm font-medium transition duration-200 ${
               selectedCategory === cat
                 ? "bg-[#364D9D] text-white shadow-md"
                 : "bg-gray-200 text-gray-700 hover:bg-gray-300"
@@ -297,60 +304,60 @@ const CourseFilter = () => {
         {filteredCourses.map((course, index) => (
           <div
             key={index}
-            className="relative w-[380px] h-[430px] overflow-hidden rounded-xl shadow-lg group cursor-pointer transition-transform duration-300 hover:scale-[1.015]"
+            className="relative w-full sm:w-[320px] md:w-[350px] lg:w-[380px] h-auto overflow-hidden rounded-xl shadow-lg group cursor-pointer transition-transform duration-300 hover:scale-[1.015]"
           >
             {/* Back Image Card (default view) */}
-            <div className="absolute inset-0 z-10 transition-opacity duration-500 group-hover:opacity-10">
+            <div className="relative z-10 transition-opacity duration-500 group-hover:opacity-10">
               <img
                 src={course.img}
                 alt="Course img"
-                className="w-full h-[220px] object-cover rounded-t-xl"
+                className="w-full h-40 sm:h-48 md:h-56 object-cover rounded-t-xl"
               />
-              <div className="absolute bottom-0 left-0 right-0 h-[220px] bg-white bg-opacity-50 rounded-b-xl p-4 text-white flex flex-col justify-start">
-                <h3 className="text-2xl text-[#2D2D2D] font-semibold">
+              <div className="bg-white bg-opacity-50 rounded-b-xl p-4">
+                <h3 className="text-lg sm:text-xl text-[#2D2D2D] font-semibold">
                   {course.title}
                 </h3>
-                <p className=" text-[#364D9D] py-2 line-clamp-3 text-[16px]">
+                <p className="text-sm sm:text-base text-[#364D9D] py-2 line-clamp-3">
                   {course.description}
                 </p>
                 <div className="h-0.5 bg-gray-700 my-2"></div>
-                <div className="flex justify-between items-center text-[#2D2D2D] gap-2 mt-2 py-2 px-4 text-lg lato-bold">
+                <div className="flex justify-between items-center text-[#2D2D2D] gap-2 mt-2 py-2 text-sm sm:text-base lato-bold">
                   <div className="flex items-center gap-2">
-                    <GiMoneyStack className="text-red-700 h-[25px] w-[25px]" />
-                    <span className="text-[20px]">Course Fee</span>
-                    <span className="font-semibold text-[20px] ">
-                      {course.fee}
-                    </span>
+                    <GiMoneyStack className="text-red-700 h-[20px] w-[20px] sm:h-[25px] sm:w-[25px]" />
+                    <span className="text-sm sm:text-lg">Fee</span>
+                    <span className="font-semibold">{course.fee}</span>
                   </div>
-                  <IoIosArrowDroprightCircle className="text-3xl text-black" />
+                  <IoIosArrowDroprightCircle className="text-2xl sm:text-3xl text-black" />
                 </div>
               </div>
             </div>
 
-            {/* Hover Card (on hover) */}
+            {/* Hover Card */}
             <div className="absolute inset-0 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[#004c7d] text-white rounded-xl flex flex-col justify-between">
-              <div className="bg-red-500 py-3">
-                <h2 className="text-2xl font-bold text-center mb-2">
+              <div className="bg-red-500 py-2 sm:py-3">
+                <h2 className="text-lg sm:text-2xl font-bold text-center mb-1 sm:mb-2">
                   {course.title}
                 </h2>
               </div>
-              <div className="p-4">
-                <p className="text-xl line-clamp-4">{course.description}</p>
-                <p className="mt-2 text-lg font-medium">
+              <div className="p-3 sm:p-4">
+                <p className="text-sm sm:text-lg line-clamp-4">
+                  {course.description}
+                </p>
+                <p className="mt-2 text-sm sm:text-lg font-medium">
                   Instructor: Suresh Reddy
                 </p>
               </div>
-              <div className="flex flex-col justify-between items-start p-4 ">
-                <div className="text-2xl font-semibold  ">
+              <div className="p-3 sm:p-4">
+                <div className="text-base sm:text-xl font-semibold">
                   <span>Course Fee: </span>
                   {course.fee}
                 </div>
               </div>
-              <div className="flex gap-2 p-4">
-                <button className="bg-white text-[#004c7d] px-3 py-2 rounded w-full text-xl font-semibold hover:bg-gray-200 transition">
+              <div className="flex gap-2 p-3 sm:p-4">
+                <button className="bg-white text-[#004c7d] px-2 sm:px-3 py-1.5 sm:py-2 rounded w-full text-sm sm:text-xl font-semibold hover:bg-gray-200 transition">
                   Brochure
                 </button>
-                <button className="bg-white text-[#004c7d] px-3 py-2 rounded w-full text-xl font-semibold hover:bg-gray-200 transition">
+                <button className="bg-white text-[#004c7d] px-2 sm:px-3 py-1.5 sm:py-2 rounded w-full text-sm sm:text-xl font-semibold hover:bg-gray-200 transition">
                   Know More →
                 </button>
               </div>
