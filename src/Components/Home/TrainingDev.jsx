@@ -41,7 +41,7 @@ const TrainingDev = () => {
               {[msme, nasscom, samgov, dun, rootbix, iso].map((logo, idx) => (
                 <div
                   key={idx}
-                  className="bg-white p-3 sm:p-4 rounded-lg shadow-md flex justify-center items-center h-20 sm:h-24 transform transition-transform duration-300 hover:scale-105"
+                  className="bg-white p-3  sm:p-4 rounded-lg shadow-md flex justify-center items-center h-20 sm:h-24 transform transition-transform duration-300 hover:scale-105"
                 >
                   <img
                     src={logo}

@@ -29,8 +29,8 @@ function CoursePage() {
         </div>
 
         {/* Right side (1/3 width → 4/12 columns, sticky sidebar) */}
-        <div className="lg:col-span-4">
-          <div className="sticky top-0">
+        <div className="lg:col-span-4 -mt-24">
+          <div className="sticky top-2">
             <CourseSidebar />
           </div>
         </div>

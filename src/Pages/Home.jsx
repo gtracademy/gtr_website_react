@@ -23,15 +23,15 @@ const Home = () => {
         <Hero />
       </div>
 
-      <div className="mx-[2%] mb-2">
+      <div className="mx-[2%] ">
         <CourseFilter />
-        <HiringPartners />
+        {/* <HiringPartners /> */}
         <WhyChooseUs />
+        <StudentsWorkSection />
         <AboutUs />
         <PlacementProcess />
         <AlumniTestimonials />
         <TrainingDev />
-        <StudentsWorkSection />
         <FAQSection />
         <TrainingPartner />
         <NeedHelpSection />

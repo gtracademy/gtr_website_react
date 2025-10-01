@@ -2,7 +2,7 @@ import React from "react";
 
 const WhoShouldJoin = () => {
   return (
-    <section id="who-join" className="py-12 bg-white max-w-7xl mx-auto">
+    <section id="who-join" className="pt-8 bg-white max-w-7xl mx-auto">
       
         <h2 className="text-3xl font-bold mb-6 text-[#0B3954] border-b-2 border-[#C81D25] pb-2 inline-block">
           Who Should Join This Course?

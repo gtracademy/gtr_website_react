@@ -28,6 +28,8 @@ import sAPPS from "../../assets/Course Images2/SAP PS.webp";
 import sapSFEC from "../../assets/Course Images2/sap SF EC.webp";
 // import sapSFONB from "../../assets/Course Images2/sap SF ONB.webp";
 // import sapsf from "../../assets/Course Images2/sap sf.webp";
+import { BsDownload } from "react-icons/bs";
+import { IoIosArrowRoundForward } from "react-icons/io";
 
 // Categories
 const categories = [
@@ -300,11 +302,11 @@ const CourseFilter = () => {
       </div>
 
       {/* Course Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 justify-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {filteredCourses.map((course, index) => (
           <div
             key={index}
-            className="relative w-full sm:w-[320px] md:w-[350px] lg:w-[380px] h-auto overflow-hidden rounded-xl shadow-lg group cursor-pointer transition-transform duration-300 hover:scale-[1.015]"
+            className="relative w-full h-auto overflow-hidden rounded-xl shadow-lg group cursor-pointer transition-transform duration-300 hover:scale-[1.015]"
           >
             {/* Back Image Card (default view) */}
             <div className="relative z-10 transition-opacity duration-500 group-hover:opacity-10">
@@ -354,11 +356,12 @@ const CourseFilter = () => {
                 </div>
               </div>
               <div className="flex gap-2 p-3 sm:p-4">
-                <button className="bg-white text-[#004c7d] px-2 sm:px-3 py-1.5 sm:py-2 rounded w-full text-sm sm:text-xl font-semibold hover:bg-gray-200 transition">
-                  Brochure
+                <button className="bg-white text-[#004c7d] px-2 sm:px-3 py-1.5 sm:py-2 rounded w-full text-sm sm:text-xl font-semibold hover:bg-gray-200 transform hover:scale-105 transition-transform duration-300 flex items-center justify-center gap-2">
+                  Brochure <BsDownload />
                 </button>
-                <button className="bg-white text-[#004c7d] px-2 sm:px-3 py-1.5 sm:py-2 rounded w-full text-sm sm:text-xl font-semibold hover:bg-gray-200 transition">
-                  Know More →
+
+                <button className="bg-white text-[#004c7d] px-2 sm:px-3 py-1.5 sm:py-2 rounded w-full text-sm sm:text-xl font-semibold hover:bg-gray-200 transform hover:scale-105 transition-transform duration-300 flex items-center justify-center">
+                  Know More <IoIosArrowRoundForward />
                 </button>
               </div>
             </div>

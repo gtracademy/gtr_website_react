@@ -41,7 +41,7 @@ const companyLogos = [
 
 const StudentsWorkSection = () => {
   return (
-    <section className="py-8 sm:py-10 bg-gradient-to-b from-white to-gray-50">
+    <section className="bg-gradient-to-b from-white to-gray-50">
       <div className="px-4 sm:px-6 lg:px-8 mb-6 sm:mb-8">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0b2c4d]">
           Where our students work

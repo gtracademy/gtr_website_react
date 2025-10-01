@@ -3,11 +3,11 @@ import intructorImg from "../../assets/image.png";
 
 const Mentor = () => {
   return (
-    <section id="mentor" className="py-12 max-w-7xl mx-auto bg-white">
+    <section id="mentor" className="pt-8 max-w-7xl mx-auto bg-white">
       <h2 className="text-3xl font-bold mb-6 text-[#0B3954] border-b-2 border-[#C81D25] pb-2 inline-block">
         Know Your Mentor
       </h2>
-      <div className="w-full flex flex-col md:flex-row items-center gap-8 md:gap-12 p-8 rounded-lg shadow-xl border border-gray-200">
+      <div className="w-full flex flex-col md:flex-row items-center gap-8 md:gap-12 p-8 rounded-lg shadow border border-gray-200">
      
         <img
           src={intructorImg}

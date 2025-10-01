@@ -9,7 +9,7 @@ const MegaMenu = () => {
   return (
     <div className="relative group">
       {/* Main Menu Trigger */}
-      <button className="flex items-center font-semibold gap-2 px-4 py-2 hover:text-[#C81D25]">
+      <button className="flex items-center font-semibold gap-2 px-4 py-2 hover:text-[#C81D25]"> 
         <FaBookOpen className="text-xl" />
         Courses
       </button>

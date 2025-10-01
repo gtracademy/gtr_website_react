@@ -3,7 +3,7 @@ import { FaCheckCircle } from "react-icons/fa";
 
 const Highlights = () => {
   return (
-    <section id="highlights" className="py-12 bg-white">
+    <section id="highlights" className="pt-8 bg-white">
       <h2 className="text-3xl font-bold mb-5 text-[#0B3954] border-b-2 border-[#C81D25] pb-2 inline-block">Highlights</h2>
       <ul className="list-none space-y-3 text-gray-700 text-lg">
         <li className="flex items-start space-x-2">
