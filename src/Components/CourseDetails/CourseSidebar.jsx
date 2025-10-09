@@ -27,15 +27,15 @@ const CourseSidebar = () => {
             </p>
           </div>
         </div>
-
+{/* 
         <div className="mt-6 flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0">
           <button className="flex-1 py-2 bg-[#C81D25] text-white rounded-lg font-bold text-lg hover:bg-red-700 transition">
             Enroll Now
           </button>
-          <button className="flex-1 bg-white border border-gray-600 text-[#364D9D] rounded-lg font-semibold text-lg hover:bg-gray-200 transition">
-            📄 Brochure
+          <button className="flex-1 bg-white border py-2 border-gray-600 text-[#364D9D] rounded-lg font-semibold text-lg hover:bg-gray-200 transition">
+            📄Download Brochure
           </button>
-        </div>
+        </div> */}
       </div>
 
       {/* Enquiry Form */}
@@ -67,7 +67,7 @@ const CourseSidebar = () => {
             type="submit"
             className="w-full bg-red-600 text-white py-2 rounded-lg font-semibold hover:bg-red-700 transition cursor-pointer"
           >
-            Continue →
+            Submit →
           </button>
         </form>
       </div>

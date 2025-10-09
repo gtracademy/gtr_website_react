@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 // import CourseSidebar from "./CourseSidebar";
 
+
 const Navbar = () => {
+
   const sections = [
     { id: "overview", label: "Overview" },
     { id: "highlights", label: "Highlights" },
@@ -31,8 +33,8 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="w-full z-1 sticky top-0 mt-5 ">
-        <div className="max-w-[1500px] mx-auto flex">
+      <nav className="w-full sticky top-0 mt-5 ">
+        <div className=" flex">
           {/* left side div in navbar */}
           <ul className="w-2/3 rounded-lg h-[5rem] bg-gray-100 flex items-center justify-start ps-5 py-3 space-x-6 overflow-x-auto border-b border-gray-300 shadow-sm whitespace-nowrap scrollbar-hide">
             {sections.map((sec) => (

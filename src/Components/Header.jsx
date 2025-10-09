@@ -2,209 +2,159 @@ import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { CiSearch } from "react-icons/ci";
 import { FiMenu, FiX } from "react-icons/fi";
-import { FaChalkboardTeacher, FaVideo } from "react-icons/fa";
-import GridViewIcon from '@mui/icons-material/GridView';
-// Data for Courses
-const courseData = {
-  online: {
-    "SAP Technical": [
-      "ABAP on HANA",
-      "SAP UI5/Fiori",
-      "SAP BASIS",
-      "SAP BTP",
-      "SAP S/4 HANA Development",
-    ],
-    "SAP Functional": ["SAP MM", "SAP SD", "SAP FICO", "SAP HCM", "SAP PP"],
-    "Data Science": [
-      "Python for Data Science",
-      "Machine Learning",
-      "Deep Learning",
-      "Power BI",
-      "Tableau",
-    ],
-  },
-  recorded: {
-    "SAP Technical": [
-      "ABAP Complete Guide",
-      "Fiori App Development",
-      "SAP Basis Automation",
-    ],
-    "SAP Functional": [
-      "MM with Real-time Scenarios",
-      "FICO for Beginners",
-      "SD Complete Training",
-    ],
-    "Data Science": [
-      "Recorded Python DS",
-      "ML Crash Course",
-      "Data Visualization Bootcamp",
-    ],
-  },
-};
+import GridViewIcon from "@mui/icons-material/GridView";
+import MegaMenu from "./MegaMenu"; // Make sure path is correct
+import { coursesData } from "./data/CourseData";
+import { RxCross2 } from "react-icons/rx";
+import { useSearch } from "./ContextApi/SearchContext";
+
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [showMegaMenu, setShowMegaMenu] = useState(false);
-  const [selectedMode, setSelectedMode] = useState("online"); // default Online
-  const [selectedCategory, setSelectedCategory] = useState("SAP Technical"); // default category
+  const { query, setQuery, setFilteredCourses, filteredCourses } = useSearch();
+
+  const [isOpen, setIsOpen] = useState(false); // Mobile Menu
+  const [showMegaMenu, setShowMegaMenu] = useState(false); // Mega Menu
+
+
   const timerRef = useRef(null);
 
-  // Handle show with delay
   const handleMouseEnter = () => {
-    if (timerRef.current) clearTimeout(timerRef.current);
+    clearTimeout(timerRef.current);
     setShowMegaMenu(true);
   };
 
-  // Handle hide with delay
   const handleMouseLeave = () => {
     timerRef.current = setTimeout(() => {
       setShowMegaMenu(false);
-    }, 200); // delay 200ms for smoother hover
+    }, 200);
+  };
+
+  const handleCoursesClick = () => {
+    setShowMegaMenu((prev) => !prev);
+  };
+
+  // 🔍 Handle search
+  const handleSearch = (e) => {
+    const value = e.target.value;
+    setQuery(value);
+
+    if (value.trim() === "") {
+      setFilteredCourses([]);
+    } else {
+      const results = coursesData.filter((course) =>
+        course.title.toLowerCase().includes(value.toLowerCase())
+      );
+      setFilteredCourses(results);
+    }
+  };
+
+  // 🔒 Clear search on select
+  const clearSearch = () => {
+    setQuery("");
+    setFilteredCourses([]);
   };
 
   return (
     <header className="w-full shadow-md bg-white top-0 z-50">
-      <div className="containe mx-auto flex justify-between items-center  md:px-0">
-        {/* Logo + Course button */}
-        <div className="flex items-center py-3 md:py-5 px-4 bg-[#364D9D] gap-5 relative">
-          
+      <div className="  flex justify-between items-center ">
+        {/* Logo */}
+        <div className="flex items-center py-3 md:py-5 bg-[#364D9D] px-4">
           <Link to="/">
-          <img
-            src="/GTR Logo.webp"
-            alt="Logo"
-            className="h-16 w-full  size- px-8 "
-          />
+            <img src="/GTR Logo.webp" alt="Logo" className="h-14 " />
           </Link>
-
-          {/* Mega Menu Trigger (Hover) */}
         </div>
-          <div
-            className="relative "
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
+
+        {/* Desktop: Courses + MegaMenu */}
+        <div
+          className="relative hidden md:block"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          <button
+            className="flex items-center text-lg font-semibold gap-2 cursor-pointer text-gray-800 hover:text-[#364D9D] transition"
+            onClick={handleCoursesClick}
           >
-            <button className="hidden md:flex items-center text-lg font-semibold gap-2 cursor-pointer text-gray-800 hover:text-[#364D9D] transition">
-               <GridViewIcon fontSize="medium" />
-              Courses
-            </button>
+            <GridViewIcon fontSize="medium" />
+            Courses
+          </button>
 
-            {/* Mega Menu */}
-            {showMegaMenu && (
-              <div className="absolute left-0 top-full mt-2 w-[1000px] bg-white shadow-xl border border-gray-200 rounded-xl p-6 grid grid-cols-4 gap-6 animate-fadeIn">
-                {/* Column 1 - Learning Modes */}
-                <div>
-                  <h3 className="font-semibold text-[#364D9D] mb-3">
-                    Learning Modes
-                  </h3>
-                  <ul className="space-y-2 text-gray-600">
-                    <li
-                      className={`flex items-center gap-2 cursor-pointer ${
-                        selectedMode === "online"
-                          ? "text-[#C81D25] font-semibold"
-                          : "hover:text-[#C81D25]"
-                      }`}
-                      onMouseEnter={() => {
-                        setSelectedMode("online");
-                        setSelectedCategory("SAP Technical");
-                      }}
-                    >
-                      <FaChalkboardTeacher /> Online
-                    </li>
-                    <li
-                      className={`flex items-center gap-2 cursor-pointer ${
-                        selectedMode === "recorded"
-                          ? "text-[#C81D25] font-semibold"
-                          : "hover:text-[#C81D25]"
-                      }`}
-                      onMouseEnter={() => {
-                        setSelectedMode("recorded");
-                        setSelectedCategory("SAP Technical");
-                      }}
-                    >
-                      <FaVideo /> Recorded
-                    </li>
-                  </ul>
-                </div>
+          {showMegaMenu && <MegaMenu onClose={() => setShowMegaMenu(false)} />}
+        </div>
 
-                {/* Column 2 - Categories */}
-                <div>
-                  <h3 className="font-semibold text-[#364D9D] mb-3">
-                    Categories
-                  </h3>
-                  <ul className="space-y-2 text-gray-600">
-                    {Object.keys(courseData[selectedMode]).map((cat) => (
-                      <li
-                        key={cat}
-                        className={`cursor-pointer ${
-                          selectedCategory === cat
-                            ? "text-[#C81D25] font-semibold"
-                            : "hover:text-[#C81D25]"
-                        }`}
-                        onMouseEnter={() => setSelectedCategory(cat)}
-                      >
-                        {cat}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Column 3 + 4 - Courses */}
-                <div className="col-span-2 flex flex-col justify-between">
-                  <div>
-                    <h3 className="font-semibold text-[#364D9D] mb-3">
-                      Courses
-                    </h3>
-                    <div className="grid grid-cols-2 gap-3 text-gray-600">
-                      {courseData[selectedMode][selectedCategory].map(
-                        (course, index) => (
-                          <Link to='/course-page'
-                            key={index}
-                            className="hover:text-[#C81D25] cursor-pointer"
-                          >
-                            {course}
-                          </Link >
-                        )
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Add Course Button */}
-                  <div className="mt-4 flex justify-end">
-                    <Link to="/all-courses"  className="bg-[#364D9D] text-white px-4 py-2 rounded-lg hover:bg-[#2b3a7f] transition font-lato" >
-                      All Course
-                    </Link >
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-
-        {/* Search Bar */}
-        <div className="hidden md:flex items-center gap-3 border border-gray-300 p-2 rounded-full w-[35%] focus-within:shadow-md">
+        {/* Desktop Search */}
+        {/* Desktop Search */}
+        <div className="hidden md:flex relative items-center gap-3 border border-gray-300 p-2 rounded-full w-[35%] focus-within:shadow-md">
           <input
             type="text"
             placeholder="Search for courses..."
             className="w-full text-sm p-1 focus:outline-none"
+            value={query}
+            onChange={handleSearch}
           />
-          <CiSearch className="text-2xl text-gray-600 cursor-pointer hover:text-[#364D9D]" />
+
+          {query ? (
+            <RxCross2
+              className="text-xl text-gray-500 cursor-pointer hover:text-[#364D9D] transition"
+              onClick={clearSearch}
+            />
+          ) : (
+            <CiSearch className="text-2xl text-gray-600 cursor-pointer hover:text-[#364D9D]" />
+          )}
+
+          {/* 🔽 Dropdown results */}
+          {filteredCourses.length > 0 && (
+            <ul className="absolute left-0 top-full mt-2 bg-white border border-gray-200 rounded-2xl shadow-2xl w-full  max-h-72 overflow-y-auto z-50 animate-fadeIn">
+              {filteredCourses.map((course) => (
+                <li key={course.slug}>
+                  <Link
+                    to={`/course/${course.slug}`}
+                    className="flex items-center gap-3 px-4 py-3 hover:bg-[#f5f8ff] text-gray-800 transition-all duration-200"
+                    onClick={clearSearch}
+                  >
+                    <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#e8ecff]">
+                      <course.icon className="text-[#364D9D] text-lg" />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="font-medium ">{course.title}</span>
+                      <span className="text-xs text-gray-500">
+                        {course.category[0]}
+                      </span>
+                    </div>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {query && filteredCourses.length === 0 && (
+            <div className="absolute left-[100px] top-full mt-2 bg-white border border-gray-200 rounded-2xl shadow-2xl w-full max-w-md p-4 text-center text-gray-500 z-50 text-sm animate-fadeIn">
+              No results found
+            </div>
+          )}
         </div>
 
-        {/* Right Menu */}
+        {/* Right Menu Desktop */}
         <div className="hidden md:flex items-center gap-6 font-medium">
-          <Link to="#" className="text-gray-700 hover:text-[#364D9D] transition ">
-            Interprises Solution
+          <Link
+            to="#"
+            className="text-gray-700 hover:text-[#364D9D] transition"
+          >
+            Enterprises Solution
           </Link>
-          <Link to="#" className="text-gray-700 hover:text-[#364D9D] transition px-4">
+          <Link
+            to="#"
+            className="text-gray-700 hover:text-[#364D9D] transition"
+          >
             FAQ
           </Link>
           <Link to="#">
-            <button className="bg-[#C81D25] px-5 me-12 py-2 rounded-lg cursor-pointer text-white font-medium hover:bg-[#a9151c] transition">
+            <button className="bg-[#C81D25] px-5 py-3 rounded-lg text-white font-medium hover:bg-[#a9151c] transition">
               Login / Signup
             </button>
           </Link>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu Toggle */}
         <div className="md:hidden flex items-center">
           <button onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? (
@@ -220,16 +170,13 @@ const Header = () => {
       {isOpen && (
         <div className="md:hidden bg-white border-t border-gray-200 shadow-lg">
           <div className="flex flex-col gap-4 px-6 py-5 font-medium">
-            <Link
-              to="#"
-              className="text-gray-700 hover:text-[#364D9D] transition"
-            >
-              Business Solution
+            <Link to="#" className="text-gray-700 hover:text-[#364D9D]">
+              Courses
             </Link>
-            <Link
-              to="#"
-              className="text-gray-700 hover:text-[#364D9D] transition"
-            >
+            <Link to="#" className="text-gray-700 hover:text-[#364D9D]">
+              Enterprises Solution
+            </Link>
+            <Link to="#" className="text-gray-700 hover:text-[#364D9D]">
               FAQ
             </Link>
             <Link to="#">
@@ -237,6 +184,8 @@ const Header = () => {
                 Login / Signup
               </button>
             </Link>
+
+            {/* Mobile Search */}
             <div className="flex items-center gap-3 border border-gray-300 p-2 rounded-full">
               <input
                 type="text"

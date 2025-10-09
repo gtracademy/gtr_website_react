@@ -178,19 +178,21 @@ const AlumniTestimonials = () => {
         </div>
       </div>
 
-      {/* Extra Styles for scaling center slide */} 
-      {/* <style jsx>{`
+      {/* Extra Styles for scaling center slide */}
+      <style jsx>{`
+
         .testimonial-swiper .swiper-slide {
           transform: scale(0.9);
           opacity: 0.5;
           transition: all 0.5s ease;
         }
+
         .testimonial-swiper .swiper-slide-active {
-          transform: scale(1);
+          transform: scale(1.05);
           opacity: 1;
           z-index: 10;
         }
-      `}</style> */}
+      `}</style>
     </section>
   );
 };

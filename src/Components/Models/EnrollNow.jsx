@@ -5,7 +5,7 @@ const EnrollNow = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 px-4">
+    <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-1000 px-4">
       <div className="bg-[#0B3954] rounded-lg shadow-lg w-full max-w-3xl p-6 relative">
         {/* Close Button */}
         <button

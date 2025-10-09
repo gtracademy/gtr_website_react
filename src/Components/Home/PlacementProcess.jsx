@@ -1,11 +1,31 @@
 import placementImage from "../../assets/Placement SVG/Placement Blue.svg";
 import placementMobileIcon from "../../assets/Placement SVG/Placement Blue Mobile.svg";
 
+import { useState,useEffect } from "react";
+
 const PlacementProcess = () => {
+
+  const [data,setData] = useState()
+  console.log(data);
+
+
+    useEffect(() => {
+    fetch('http://localhost:8080/api/course') // replace with your API
+      .then((res) => res.json())
+      .then((result) => {
+        setData(result);
+        
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+        
+      });
+  }, []);
 
 
 
   return (
+    <>
     <div className="w-full flex flex-col py-12 bg-white px-4 sm:px-6 lg:px-8">
       {/* Flex container for icon + text */}
       <div className="flex items-center mb-6 sm:mb-8">
@@ -31,6 +51,13 @@ const PlacementProcess = () => {
         />
       </picture>
     </div>
+
+
+
+
+    
+
+    </>
   );
 };
 

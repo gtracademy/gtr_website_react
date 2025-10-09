@@ -156,7 +156,7 @@ const Footer = () => {
         </div>
 
         {/* Our Courses Section */}
-        <div className="py-10 border-b border-gray-700">
+        {/* <div className="py-10 border-b border-gray-700">
           <h3 className="text-white text-xl font-semibold mb-6">Our Courses</h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-y-4 gap-x-6">
             {[
@@ -177,7 +177,7 @@ const Footer = () => {
               </a>
             ))}
           </div>
-        </div>
+        </div> */}
 
         {/* Copyright and Legal Links */}
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 space-y-4 md:space-y-0 text-sm text-gray-500">

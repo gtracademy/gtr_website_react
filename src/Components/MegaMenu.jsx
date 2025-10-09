@@ -1,127 +1,97 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { FaBookOpen, FaRegPlayCircle } from "react-icons/fa";
+import React, { useEffect, useRef, useState } from "react";
+import { FaDatabase, FaUserTie, FaMicrochip, FaPython, FaChartLine } from "react-icons/fa";
+import { Link } from "react-router-dom"; // ✅ Import Link for routing
+import { coursesData } from "./data/CourseData";
+import { BsDatabaseFillX } from "react-icons/bs";
 
-const MegaMenu = () => {
-  const [activeMenu, setActiveMenu] = useState(null);
-  const [activeSub, setActiveSub] = useState(null);
+
+const categories = [
+  "SAP Technical",
+  "SAP Functional",
+  "HR Courses",
+  "VLSI",
+  "Data Science",
+  "Python with Fast API",
+];
+
+const categoryIcons = {
+  "SAP Technical": <FaDatabase />,
+  "SAP Functional": <BsDatabaseFillX />,
+  "HR Courses": <FaUserTie />,
+  "VLSI": <FaMicrochip />,
+  "Data Science": <FaChartLine />,
+  "Python with Fast API": <FaPython />,
+};
+
+const MegaMenu = ({ onClose }) => {
+  const [activeCategory, setActiveCategory] = useState("SAP Technical");
+  const menuRef = useRef();
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        onClose();
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [onClose]);
+
+  const filteredCourses = activeCategory
+    ? coursesData.filter((course) => course.category.includes(activeCategory))
+    : [];
 
   return (
-    <div className="relative group">
-      {/* Main Menu Trigger */}
-      <button className="flex items-center font-semibold gap-2 px-4 py-2 hover:text-[#C81D25]"> 
-        <FaBookOpen className="text-xl" />
-        Courses
-      </button>
+    <div
+      ref={menuRef}
+      className="absolute left-0 top-full w-[900px] bg-white shadow-xl z-50 rounded-md border border-gray-200 mt-3 flex"
+    >
+      {/* Categories Sidebar */}
+      <div className="w-64 border-r border-gray-200 p-4 bg-gray-50">
+        <h3 className="text-md font-bold mb-3 text-gray-800">Categories</h3>
+        <nav className="flex flex-col gap-2">
+          {categories.map((category) => (
+            <button
+              key={category}
+              className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm transition-colors ${
+                activeCategory === category
+                  ? "bg-[#C81D25] text-white font-semibold"
+                  : "hover:bg-gray-100 text-gray-700"
+              }`}
+              onMouseEnter={() => setActiveCategory(category)}
+              onFocus={() => setActiveCategory(category)}
+            >
+              {categoryIcons[category]} {category}
+            </button>
+          ))}
+        </nav>
+      </div>
 
-      {/* Mega Menu */}
-      <div className="absolute left-0 top-full hidden group-hover:flex w-[900px] bg-white shadow-lg border-t border-gray-200 z-50">
-        
-        {/* Left Sidebar */}
-        <div className="w-56 border-r border-gray-200 p-4 space-y-4">
-          <button
-            className={`flex items-center gap-2 w-full text-left px-2 py-2 rounded-md ${
-              activeMenu === "live" ? "bg-gray-100 text-[#C81D25]" : "hover:bg-gray-50"
-            }`}
-            onMouseEnter={() => setActiveMenu("live")}
-          >
-            <FaRegPlayCircle /> Classroom / Live Online
-          </button>
-          <button
-            className={`flex items-center gap-2 w-full text-left px-2 py-2 rounded-md ${
-              activeMenu === "recorded" ? "bg-gray-100 text-[#C81D25]" : "hover:bg-gray-50"
-            }`}
-            onMouseEnter={() => setActiveMenu("recorded")}
-          >
-            <FaRegPlayCircle /> Recorded
-          </button>
-        </div>
-
-        {/* Middle Column - Categories */}
-        <div className="w-56 border-r border-gray-200 p-4">
-          {activeMenu === "live" && (
-            <div className="space-y-3">
-              <button
-                className={`block w-full text-left px-2 py-2 rounded-md ${
-                  activeSub === "sap" ? "bg-gray-100 text-[#C81D25]" : "hover:bg-gray-50"
-                }`}
-                onMouseEnter={() => setActiveSub("sap")}
-              >
-                SAP Technical
-              </button>
-              <button
-                className="block w-full text-left px-2 py-2 rounded-md hover:bg-gray-50"
-                onMouseEnter={() => setActiveSub("functional")}
-              >
-                SAP Functional
-              </button>
-              <button
-                className="block w-full text-left px-2 py-2 rounded-md hover:bg-gray-50"
-                onMouseEnter={() => setActiveSub("ds")}
-              >
-                Data Science
-              </button>
-            </div>
-          )}
-
-          {activeMenu === "recorded" && (
-            <div className="space-y-3">
-              <button className="block w-full text-left px-2 py-2 rounded-md hover:bg-gray-50">
-                Web Development
-              </button>
-              <button className="block w-full text-left px-2 py-2 rounded-md hover:bg-gray-50">
-                AI / ML
-              </button>
-            </div>
-          )}
-        </div>
-
-        {/* Right Side - Sub Menus */}
-        <div className="flex-1 grid grid-cols-2 gap-6 p-6">
-          {activeSub === "sap" && (
-            <>
-              <div>
-                <h4 className="font-semibold mb-2 text-gray-700">SAP Technical</h4>
-                <ul className="space-y-2 text-sm text-gray-600">
-                  <li><Link to="#">ABAP</Link></li>
-                  <li><Link to="#">BASIS</Link></li>
-                  <li><Link to="#">HANA</Link></li>
-                  <li><Link to="#">UI5/Fiori</Link></li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-semibold mb-2 text-gray-700">More SAP</h4>
-                <ul className="space-y-2 text-sm text-gray-600">
-                  <li><Link to="#">SAP Security</Link></li>
-                  <li><Link to="#">SAP GRC</Link></li>
-                  <li><Link to="#">SAP Cloud</Link></li>
-                </ul>
-              </div>
-            </>
-          )}
-
-          {activeSub === "functional" && (
-            <div>
-              <h4 className="font-semibold mb-2 text-gray-700">SAP Functional</h4>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li><Link to="#">SAP FICO</Link></li>
-                <li><Link to="#">SAP MM</Link></li>
-                <li><Link to="#">SAP SD</Link></li>
-              </ul>
-            </div>
-          )}
-
-          {activeSub === "ds" && (
-            <div>
-              <h4 className="font-semibold mb-2 text-gray-700">Data Science</h4>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li><Link to="#">Python</Link></li>
-                <li><Link to="#">Machine Learning</Link></li>
-                <li><Link to="#">Deep Learning</Link></li>
-              </ul>
-            </div>
-          )}
-        </div>
+      {/* Courses Panel */}
+      <div
+        className={`flex-1 p-4 ${
+          filteredCourses.length === 1
+            ? "flex flex-col gap-2"
+            : "grid grid-cols-2 gap-2"
+        } ${filteredCourses.length > 8 ? "max-h-[400px] overflow-y-scroll" : ""}`}
+      >
+        {filteredCourses.length > 0 ? (
+          filteredCourses.map(({ title, slug, icon: Icon }) => (
+            <Link
+              to={`/course/${slug}`}
+              key={slug}
+              className="flex items-center gap-2 border border-gray-200 rounded-md p-2 hover:shadow-sm transition-shadow bg-white text-sm hover:text-[#C81D25]"
+              onClick={onClose}
+            >
+              {/* Render the icon component */}
+              {Icon && <Icon className="text-[#C81D25] text-base" />}
+              <h6 className="font-medium text-gray-800">{title}</h6>
+            </Link>
+          ))
+        ) : (
+          <p className="text-gray-500 italic">No courses available.</p>
+        )}
       </div>
     </div>
   );

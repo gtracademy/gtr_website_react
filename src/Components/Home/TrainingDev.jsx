@@ -36,12 +36,12 @@ const TrainingDev = () => {
           </div>
 
           {/* Right Section - Logos */}
-          <div className="lg:w-1/3 w-full">
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6">
+          <div className="lg:w-1/2 w-full">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-0">
               {[msme, nasscom, samgov, dun, rootbix, iso].map((logo, idx) => (
                 <div
                   key={idx}
-                  className="bg-white p-3  sm:p-4 rounded-lg shadow-md flex justify-center items-center h-20 sm:h-24 transform transition-transform duration-300 hover:scale-105"
+                  className="bg-white p-0 rounded-lg  flex justify-center items-center h-24 sm:h-32 transform transition-all duration-300 hover:scale-105"
                 >
                   <img
                     src={logo}

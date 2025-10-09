@@ -42,7 +42,7 @@ const FAQSection = () => {
   };
 
   return (
-    <div className="relative h-[41rem] py-16 px-4 sm:px-6 lg:px-8 bg-[url('/FAQ-bg.png')] bg-contain bg-right w-full bg-no-repeat">
+    <div className="relative h-[45rem] px-4 sm:px-6 lg:px-8 bg-[url('/FAQ-bg.png')] bg-contain bg-right w-full bg-no-repeat">
       <div className="w-full relative z-10 flex flex-col lg:flex-row items-center lg:space-x-12">
         {/* Left Section - FAQ Content */}
         <div className="lg:w-1/2 w-full pr-0 lg:pr-10 mb-12 lg:mb-0">

@@ -52,7 +52,7 @@ const testimonials = [
         "The 21-day challenge transformed my preparation strategy. I recommend this to every aspiring SAP professional!",
     },
   },
-    {
+  {
     id: 3,
     name: "Shashank Singh",
     text: "GTR Academy has changed my life",
@@ -66,7 +66,7 @@ const testimonials = [
         "The 21-day challenge transformed my preparation strategy. I recommend this to every aspiring SAP professional!",
     },
   },
-      {
+  {
     id: 3,
     name: "Shashank Singh",
     text: "GTR Academy has changed my life",
@@ -87,9 +87,9 @@ const Testimonial = () => {
   const swiperRef = useRef(null);
 
   return (
-    <section id="testimonials" className="py-12 bg-white relative ">
+    <section id="testimonials" className="py-11 bg-white relative mb-4">
       {/* Title */}
-      <div className="mb-10">
+      <div className=" text-center md:text-left px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-[#05254a]">
           Student Testimonial
         </h2>
@@ -99,79 +99,87 @@ const Testimonial = () => {
       </div>
 
       {/* Swiper */}
-      <Swiper
-        modules={[Pagination]}
-        slidesPerView={3}
-        spaceBetween={30}
-        centeredSlides={true}
-        pagination={{ clickable: true }}
-        loop={true}
-        onBeforeInit={(swiper) => {
-          swiperRef.current = swiper;
-        }}
-        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-        className="max-w-6xl mx-auto testimonial-swiper"
-      >
-        {testimonials.map((item) => (
-          <SwiperSlide key={item.id}>
-            <div className="relative rounded-xl overflow-hidden shadow-lg transition-all duration-500">
-              {/* Image */}
-              <img
-                src={item.img}
-                alt={item.name}
-                className="w-full h-[491px] object-cover object-top"
-              />
+      <div className="relative max-w-6xl mx-auto px-6">
+        <Swiper
+          modules={[Pagination]}
+          slidesPerView={1}
+          spaceBetween={20}
+          centeredSlides={true}
+          pagination={{ clickable: true }}
+          loop={true}
+          onBeforeInit={(swiper) => {
+            swiperRef.current = swiper;
+          }}
+          onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+          className="testimonial-swiper"
+          breakpoints={{
+            640: { slidesPerView: 1, spaceBetween: 20 },
+            768: { slidesPerView: 2, spaceBetween: 25 },
+            1024: { slidesPerView: 3, spaceBetween: 30 },
+          }}
+        >
+          {testimonials.map((item) => (
+            <SwiperSlide key={item.id}>
+              <div className="relative rounded-xl overflow-hidden shadow-lg transition-all duration-500">
+                {/* Image */}
+                <img
+                  src={item.img}
+                  alt={item.name}
+                  className="w-full h-[260px] sm:h-[340px] md:h-[420px] lg:h-[480px] object-cover object-top"
+                />
 
-              {/* Play Button */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <button className="bg-white/70 text-red-600 p-6 rounded-full hover:scale-110 transition">
-                  <FaPlay size={30} />
-                </button>
+                {/* Play Button */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <button className="bg-white/70 text-red-600 p-5 sm:p-6 rounded-full hover:scale-110 transition">
+                    <FaPlay size={26} />
+                  </button>
+                </div>
+
+                {/* Gradient + Text */}
+                <div className="absolute bottom-0 w-full bg-gradient-to-t from-black via-black/70 to-transparent text-center p-3 sm:p-4">
+                  <p className="text-yellow-400 font-semibold text-sm sm:text-base italic">
+                    “{item.text}”
+                  </p>
+                  <h3 className="text-white text-lg sm:text-xl font-bold">
+                    {item.name}
+                  </h3>
+                </div>
               </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
 
-              {/* Gradient + Text */}
-              <div className="absolute bottom-0 w-full bg-gradient-to-t from-black via-black/70 to-transparent text-center p-4">
-                <p className="text-yellow-400 font-semibold text-lg italic">
-                  “{item.text}”
-                </p>
-                <h3 className="text-white text-xl font-bold">{item.name}</h3>
-              </div>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+        {/* Custom Navigation (Centered Arrows) */}
+        <button
+          onClick={() => swiperRef.current?.slidePrev()}
+          className="absolute left-0 md:-left-8 top-1/2 -translate-y-1/2 z-20 bg-gray-600 hover:bg-gray-800 text-white p-3 rounded-full shadow transition"
+        >
+          <IoArrowBackOutline size={22} />
+        </button>
 
-      {/* Custom Navigation */}
-      <div
-        onClick={() => swiperRef.current?.slidePrev()}
-        className="cursor-pointer absolute -left-4 top-[400px]  z-10 transform -translate-y-1/2" 
-      >
-        <div className="text-xl p-2 rounded-full shadow bg-gray-500 hover:bg-gray-700 transition ease-in-out">
-          <IoArrowBackOutline color="white" />
-        </div>
-      </div>
-
-      <div
-        onClick={() => swiperRef.current?.slideNext()}
-        className="cursor-pointer absolute -right-4 top-[400px] z-10 transform -translate-y-1/2"
-      >
-        <div className="text-xl p-2 rounded-full shadow bg-gray-500 hover:bg-gray-700 transition ease-in-out">
-          <IoArrowForwardOutline color="white" />
-        </div>
+        <button
+          onClick={() => swiperRef.current?.slideNext()}
+          className="absolute right-0 md:-right-8 top-1/2 -translate-y-1/2 z-20 bg-gray-600 hover:bg-gray-800 text-white p-3 rounded-full shadow transition"
+        >
+          <IoArrowForwardOutline size={22} />
+        </button>
       </div>
 
       {/* Active Review Box */}
-      <div className="mt-10 max-w-4xl mx-auto">
-        <div className="bg-white shadow-md rounded-lg p-6 border border-gray-200">
-          <h3 className="text-xl font-bold text-[#05254a]">
+      <div className="mt-12 sm:mt-16 max-w-lg sm:max-w-3xl lg:max-w-4xl mx-auto px-4">
+        <div className="bg-white shadow-md rounded-lg p-5 sm:p-6 border border-gray-200">
+          <h3 className="text-lg sm:text-xl font-bold text-[#05254a]">
             {testimonials[activeIndex].review.person}
           </h3>
-          <div className="flex items-center gap-2 mt-2 mb-3">
+          <div className="flex items-center gap-1 sm:gap-2 mt-2 mb-3">
             {[...Array(testimonials[activeIndex].review.stars)].map((_, i) => (
-              <FaStar key={i} className="text-yellow-500" />
+              <FaStar
+                key={i}
+                className="text-yellow-500 text-sm sm:text-base"
+              />
             ))}
           </div>
-          <p className="text-gray-700 mb-3">
+          <p className="text-gray-700 mb-3 text-sm sm:text-base">
             <span className="text-purple-700 font-bold">
               {testimonials[activeIndex].review.company}
             </span>
@@ -180,18 +188,18 @@ const Testimonial = () => {
               {testimonials[activeIndex].review.package}
             </span>
           </p>
-          <p className="text-gray-700 leading-relaxed">
+          <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
             {testimonials[activeIndex].review.feedback}
           </p>
         </div>
       </div>
 
-      {/* Extra Styles for scaling center slide */}
+      {/* Scaling Center Slide */}
       <style jsx>{`
         .testimonial-swiper .swiper-slide {
-          transform: scale(0.85);
-          opacity: 0.5;
-          transition: all 0.5s ease;
+          transform: scale(0.9);
+          opacity: 0.6;
+          transition: all 0.4s ease;
         }
         .testimonial-swiper .swiper-slide-active {
           transform: scale(1);
@@ -200,7 +208,7 @@ const Testimonial = () => {
         }
         .testimonial-swiper .swiper-slide-next,
         .testimonial-swiper .swiper-slide-prev {
-          opacity: 0.8;
+          opacity: 0.85;
         }
       `}</style>
     </section>
