@@ -25,7 +25,6 @@ import sAPMM from "../../assets/Course Images2/SAP MM.webp";
 import sAPPM from "../../assets/Course Images2/SAP PM.webp";
 import sAPPP from "../../assets/Course Images2/SAP PP.webp";
 
-import sapSFEC from "../../assets/Course Images2/sap SF EC.webp";
 // import sapSFONB from "../../assets/Course Images2/sap SF ONB.webp";
 // import sapsf from "../../assets/Course Images2/sap sf.webp";
 import { BsDownload } from "react-icons/bs";
@@ -224,7 +223,7 @@ const coursesData = [
     description:
       "Comprehensive HR training including payroll, recruitment, and compliance.",
     fee: "₹60,000",
-    img: sapSFEC, // approximate image
+    img: sAPPP, // approximate image
     category: ["HR Courses"],
   },
 
