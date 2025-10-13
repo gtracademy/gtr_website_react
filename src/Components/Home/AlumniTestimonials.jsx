@@ -62,7 +62,7 @@ const AlumniTestimonials = () => {
   return (
     <section
       id="testimonials"
-      className="bg-white relative px-4 sm:px-6 lg:px-8 py-10"
+      className="bg-white relative px-4 sm:px-6 lg:px-8"
     >
       {/* Title */}
       <div className="mb-6 sm:mb-10">

@@ -24,7 +24,7 @@ import sAPHCM from "../../assets/Course Images2/SAP HCM.webp";
 import sAPMM from "../../assets/Course Images2/SAP MM.webp";
 import sAPPM from "../../assets/Course Images2/SAP PM.webp";
 import sAPPP from "../../assets/Course Images2/SAP PP.webp";
-import sAPPS from "../../assets/Course Images2/SAP PS.webp";
+
 import sapSFEC from "../../assets/Course Images2/sap SF EC.webp";
 // import sapSFONB from "../../assets/Course Images2/sap SF ONB.webp";
 // import sapsf from "../../assets/Course Images2/sap sf.webp";
@@ -179,7 +179,7 @@ const coursesData = [
     title: "SAP TM S/4HANA",
     description: "Manage transportation processes using SAP TM.",
     fee: "₹60,000",
-    img: sAPPS, // approximate
+    img: sAPPP, // approximate
     category: ["SAP Functional"],
   },
   {

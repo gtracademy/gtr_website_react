@@ -61,7 +61,7 @@ const Hero = () => {
                   <span className="block md:hidden">Get Call</span>{" "}
                   {/* mobile */}
                   <span className="hidden md:block">
-                    Get Immediate Call
+                    Get Call Back
                   </span>{" "}
                   {/* desktop */}
                 </button>

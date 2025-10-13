@@ -53,7 +53,7 @@ const testimonials = [
     },
   },
   {
-    id: 3,
+    id: 4,
     name: "Shashank Singh",
     text: "GTR Academy has changed my life",
     img: testimonialImg,
@@ -67,7 +67,7 @@ const testimonials = [
     },
   },
   {
-    id: 3,
+    id: 5,
     name: "Shashank Singh",
     text: "GTR Academy has changed my life",
     img: testimonialImg,

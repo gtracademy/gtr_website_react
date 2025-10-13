@@ -4,17 +4,16 @@ import { CiSearch } from "react-icons/ci";
 import { FiMenu, FiX } from "react-icons/fi";
 import GridViewIcon from "@mui/icons-material/GridView";
 import MegaMenu from "./MegaMenu"; // Make sure path is correct
-import { coursesData } from "./data/CourseData";
 import { RxCross2 } from "react-icons/rx";
 import { useSearch } from "./ContextApi/SearchContext";
 
-
 const Header = () => {
-  const { query, setQuery, setFilteredCourses, filteredCourses } = useSearch();
+  const { query, setQuery, setFilteredCourses, filteredCourses } =
+    useSearch();
+
 
   const [isOpen, setIsOpen] = useState(false); // Mobile Menu
   const [showMegaMenu, setShowMegaMenu] = useState(false); // Mega Menu
-
 
   const timerRef = useRef(null);
 
@@ -33,20 +32,7 @@ const Header = () => {
     setShowMegaMenu((prev) => !prev);
   };
 
-  // 🔍 Handle search
-  const handleSearch = (e) => {
-    const value = e.target.value;
-    setQuery(value);
-
-    if (value.trim() === "") {
-      setFilteredCourses([]);
-    } else {
-      const results = coursesData.filter((course) =>
-        course.title.toLowerCase().includes(value.toLowerCase())
-      );
-      setFilteredCourses(results);
-    }
-  };
+  
 
   // 🔒 Clear search on select
   const clearSearch = () => {
@@ -82,14 +68,13 @@ const Header = () => {
         </div>
 
         {/* Desktop Search */}
-        {/* Desktop Search */}
         <div className="hidden md:flex relative items-center gap-3 border border-gray-300 p-2 rounded-full w-[35%] focus-within:shadow-md">
           <input
             type="text"
             placeholder="Search for courses..."
             className="w-full text-sm p-1 focus:outline-none"
             value={query}
-            onChange={handleSearch}
+            onChange={(e) => setQuery(e.target.value)}
           />
 
           {query ? (
@@ -101,35 +86,31 @@ const Header = () => {
             <CiSearch className="text-2xl text-gray-600 cursor-pointer hover:text-[#364D9D]" />
           )}
 
-          {/* 🔽 Dropdown results */}
+          {/* Dropdown results */}
           {filteredCourses.length > 0 && (
-            <ul className="absolute left-0 top-full mt-2 bg-white border border-gray-200 rounded-2xl shadow-2xl w-full  max-h-72 overflow-y-auto z-50 animate-fadeIn">
+            <ul className="absolute left-0 top-full mt-2 bg-white border border-gray-200 rounded-2xl shadow-2xl w-full max-h-72 overflow-y-auto z-50 animate-fadeIn">
               {filteredCourses.map((course) => (
-                <li key={course.slug}>
+                <li key={course.courseUrl}>
                   <Link
-                    to={`/course/${course.slug}`}
+                    to={`/course/${course.courseUrl}`}
                     className="flex items-center gap-3 px-4 py-3 hover:bg-[#f5f8ff] text-gray-800 transition-all duration-200"
                     onClick={clearSearch}
                   >
                     <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#e8ecff]">
-                      <course.icon className="text-[#364D9D] text-lg" />
+                      <span className="text-[#364D9D] text-lg font-bold">
+                        📘
+                      </span>
                     </div>
                     <div className="flex flex-col">
-                      <span className="font-medium ">{course.title}</span>
+                      <span className="font-medium">{course.courseTitle}</span>
                       <span className="text-xs text-gray-500">
-                        {course.category[0]}
+                        {course.courseCategory || "General"}
                       </span>
                     </div>
                   </Link>
                 </li>
               ))}
             </ul>
-          )}
-
-          {query && filteredCourses.length === 0 && (
-            <div className="absolute left-[100px] top-full mt-2 bg-white border border-gray-200 rounded-2xl shadow-2xl w-full max-w-md p-4 text-center text-gray-500 z-50 text-sm animate-fadeIn">
-              No results found
-            </div>
           )}
         </div>
 

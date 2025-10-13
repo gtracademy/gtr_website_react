@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import AboutUs from "./about_us/AboutUs";
 import {
   FaFacebookF,
   FaTwitter,
@@ -11,7 +13,6 @@ import {
   FaAngleRight,
   FaArrowUp,
 } from "react-icons/fa";
-
 
 const Footer = () => {
   return (
@@ -27,10 +28,14 @@ const Footer = () => {
               className="h-15 mb-6"
             />
             <p className="text-sm leading-relaxed mb-6">
-              Welcome to <span className="text-[#364D9D] font-bold text-lg">GTR Academy</span>, your ultimate destination for top-notch
-              online training and education. Since 2021, we have empowered
-              10,000+ students and facilitated 9200 placements, helping you step
-              up, learn today, and lead tomorrow!
+              Welcome to{" "}
+              <span className="text-[#364D9D] font-bold text-lg">
+                GTR Academy
+              </span>
+              , your ultimate destination for top-notch online training and
+              education. Since 2021, we have empowered 10,000+ students and
+              facilitated 9200 placements, helping you step up, learn today, and
+              lead tomorrow!
             </p>
             <div className="flex space-x-4">
               <a
@@ -155,30 +160,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Our Courses Section */}
-        {/* <div className="py-10 border-b border-gray-700">
-          <h3 className="text-white text-xl font-semibold mb-6">Our Courses</h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-y-4 gap-x-6">
-            {[
-              "SAP VIM",
-              "SAP BASIS",
-              "SAP BTP",
-              "Power BI with AI",
-              "SAP B1",
-              "SAP ABAP",
-              "Data Science",
-            ].map((course, index) => (
-              <a
-                key={index}
-                href="#"
-                className="text-gray-400 hover:text-red-600 transition-colors duration-300 text-sm"
-              >
-                {course}
-              </a>
-            ))}
-          </div>
-        </div> */}
-
         {/* Copyright and Legal Links */}
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 space-y-4 md:space-y-0 text-sm text-gray-500">
           <div className="text-center md:text-left">
@@ -237,7 +218,6 @@ const Footer = () => {
           className="bg-blue-800 p-3 rounded-xl shadow-lg hover:shadow-xl cursor-pointer transition-all duration-300"
         >
           <FaArrowUp />
-
         </button>
       </div>
     </footer>
