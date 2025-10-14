@@ -1,5 +1,5 @@
 // src/context/SearchProvider.jsx
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import SearchContext from "./SearchContext";
 
 export const SearchProvider = ({ children }) => {
@@ -16,7 +16,9 @@ export const SearchProvider = ({ children }) => {
     const fetchCourses = async () => {
       try {
         setLoading(true);
-        const res = await fetch("https://gtr-academy-backend.onrender.com/api/course");  
+        const res = await fetch(
+          "https://gtr-academy-backend.onrender.com/api/course"
+        );
         const data = await res.json();
 
         if (data.status && Array.isArray(data.course)) {
@@ -35,24 +37,37 @@ export const SearchProvider = ({ children }) => {
     fetchCourses();
   }, []);
 
+
+  // ✅ Filter logic memoized to avoid recomputation on every render
+  // const filteredCourses = useMemo(() => {
+  //   const trimmedQuery = query.trim().toLowerCase();
+  //   if (trimmedQuery === "") return [];
+
+  //   return courses.filter((course) =>
+  //     course.courseTitle?.toLowerCase().includes(trimmedQuery) ||
+  //     course.courseDescription?.toLowerCase().includes(trimmedQuery)
+  //   );
+  // }, [query, courses]);
+
+
+
   // ✅ Filter logic for search
+  const memoizedFilteredCourses = useMemo(() => {
+    const trimmedQuery = query.trim().toLowerCase();
+    if (trimmedQuery === "") return [];
+
+    return courses.filter(
+      (course) =>
+        course.courseTitle?.toLowerCase().includes(trimmedQuery) ||
+        course.courseDescription?.toLowerCase().includes(trimmedQuery)
+    );
+  }, [query, courses]); // Only recompute when query or courses change
+  
+
+  // Update state whenever memoized value changes
   useEffect(() => {
-    if (query.trim() === "") {
-      setFilteredCourses([]);
-      return;
-    }
-
-    const lowerQuery = query.toLowerCase();
-    const filtered = courses.filter((course) => {
-      // Adjust these keys based on your actual API response
-      return (
-        course.courseTitle?.toLowerCase().includes(lowerQuery) ||
-        course.courseDescription?.toLowerCase().includes(lowerQuery)
-      );
-    });
-
-    setFilteredCourses(filtered);
-  }, [query, courses]);
+    setFilteredCourses(memoizedFilteredCourses);
+  }, [memoizedFilteredCourses]);
 
   return (
     <SearchContext.Provider

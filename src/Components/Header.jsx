@@ -129,7 +129,7 @@ const Header = () => {
             FAQ
           </Link>
           <Link to="#">
-            <button className="bg-[#C81D25] px-5 py-3 rounded-lg text-white font-medium hover:bg-[#a9151c] transition">
+            <button className="bg-[#C81D25] px-5 py-3 mr-4 rounded-lg text-white font-medium hover:bg-[#a9151c] transition">
               Login / Signup
             </button>
           </Link>
