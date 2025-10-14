@@ -4,6 +4,7 @@ import "swiper/css";
 import "swiper/css/autoplay";
 import { Autoplay } from "swiper/modules";
 
+
 // Import your logos
 import accenture from "../../assets/Company Icon/accenture.png";
 import aramco from "../../assets/Company Icon/aramco.png";

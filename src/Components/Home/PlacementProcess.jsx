@@ -1,28 +1,7 @@
 import placementImage from "../../assets/Placement SVG/Placement Blue.svg";
 import placementMobileIcon from "../../assets/Placement SVG/Placement Blue Mobile.svg";
 
-import { useState,useEffect } from "react";
-
 const PlacementProcess = () => {
-
-  const [data,setData] = useState()
-  console.log(data);
-
-
-    useEffect(() => {
-    fetch('http://localhost:8080/api/course') // replace with your API
-      .then((res) => res.json())
-      .then((result) => {
-        setData(result);
-        
-      })
-      .catch((error) => {
-        console.error('Error fetching data:', error);
-        
-      });
-  }, []);
-
-
 
   return (
     <>

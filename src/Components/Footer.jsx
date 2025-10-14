@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import AboutUs from "./about_us/AboutUs";
 import {
   FaFacebookF,
   FaTwitter,
@@ -78,21 +77,21 @@ const Footer = () => {
             </h3>
             <ul className="space-y-3">
               {[
-                "Home",
-                "About Us",
-                "Contact Us",
-                "Blogs",
-                "FAQ",
-                "Faculty",
-              ].map((link, index) => (
+                { name: "Home", path: "/" },
+                { name: "About Us", path: "/about" },
+                { name: "Contact Us", path: "/contact" },
+                { name: "Blogs", path: "/blogs" },
+                { name: "FAQ", path: "/faq" },
+                { name: "Faculty", path: "/faculty" },
+              ].map((item, index) => (
                 <li key={index}>
-                  <a
-                    href="#"
+                  <Link
+                    to={item.path}
                     className="flex items-center text-gray-400 hover:text-red-600 transition-colors duration-300"
                   >
                     <FaAngleRight className="mr-2 text-red-600 text-sm" />{" "}
-                    {link}
-                  </a>
+                    {item.name}
+                  </Link>
                 </li>
               ))}
             </ul>
