@@ -14,6 +14,15 @@ import {
 } from "react-icons/fa";
 
 const Footer = () => {
+  const allHeaders = [
+    { name: "Home", path: "/" },
+    { name: "About Us", path: "/about" },
+    { name: "Contact Us", path: "/contact" },
+    { name: "Blogs", path: "/blogs" },
+    { name: "FAQ", path: "/faq" },
+    { name: "Faculty", path: "/faculty" },
+  ];
+
   return (
     <footer className="bg-black text-white py-12 px-4 sm:px-6 lg:px-8 relative">
       <div className="max-w-[1500px] mx-auto">
@@ -76,14 +85,7 @@ const Footer = () => {
               Useful Links
             </h3>
             <ul className="space-y-3">
-              {[
-                { name: "Home", path: "/" },
-                { name: "About Us", path: "/about" },
-                { name: "Contact Us", path: "/contact" },
-                { name: "Blogs", path: "/blogs" },
-                { name: "FAQ", path: "/faq" },
-                { name: "Faculty", path: "/faculty" },
-              ].map((item, index) => (
+              {allHeaders.map((item, index) => (
                 <li key={index}>
                   <Link
                     to={item.path}

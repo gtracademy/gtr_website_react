@@ -6,16 +6,48 @@ import GridViewIcon from "@mui/icons-material/GridView";
 import MegaMenu from "./MegaMenu"; // Make sure path is correct
 import { RxCross2 } from "react-icons/rx";
 import { useSearch } from "./ContextApi/SearchContext";
+import {
+  FaUserGraduate,
+  FaSchool,
+  FaBriefcase,
+  FaHandshake,
+  FaSmile,
+  FaChalkboardTeacher,
+  FaBlog,
+} from "react-icons/fa";
 
 const Header = () => {
-  const { query, setQuery, setFilteredCourses, filteredCourses } =
-    useSearch();
+  const { query, setQuery, setFilteredCourses, filteredCourses } = useSearch();
 
+  const [aboutOpen, setAboutOpen] = useState(false); // Dropdown state
 
   const [isOpen, setIsOpen] = useState(false); // Mobile Menu
   const [showMegaMenu, setShowMegaMenu] = useState(false); // Mega Menu
 
   const timerRef = useRef(null);
+  const aboutTimerRef = useRef(null); // Timer for About dropdown
+
+  const aboutusHeader = [
+    { icon: <FaUserGraduate />, label: "Our Mentors" },
+    { icon: <FaSchool />, label: "Education Institution" },
+    { icon: <FaBriefcase />, label: "Career" },
+    { icon: <FaChalkboardTeacher />, label: "Corporate Training" },
+    { icon: <FaHandshake />, label: "Hire from Us" },
+    { icon: <FaBlog />, label: "Blog" },
+    { icon: <FaSmile />, label: "Life at GTR" },
+  ];
+
+  // About dropdown handlers
+  const handleAboutMouseEnter = () => {
+    clearTimeout(aboutTimerRef.current);
+    setAboutOpen(true);
+  };
+
+  const handleAboutMouseLeave = () => {
+    aboutTimerRef.current = setTimeout(() => {
+      setAboutOpen(false);
+    }, 200);
+  };
 
   const handleMouseEnter = () => {
     clearTimeout(timerRef.current);
@@ -31,8 +63,6 @@ const Header = () => {
   const handleCoursesClick = () => {
     setShowMegaMenu((prev) => !prev);
   };
-
-  
 
   // 🔒 Clear search on select
   const clearSearch = () => {
@@ -115,6 +145,7 @@ const Header = () => {
         </div>
 
         {/* Right Menu Desktop */}
+
         <div className="hidden md:flex items-center gap-6 font-medium">
           <Link
             to="#"
@@ -122,12 +153,44 @@ const Header = () => {
           >
             Enterprises Solution
           </Link>
-          <Link
-            to="#"
-            className="text-gray-700 hover:text-[#364D9D] transition"
+
+          {/* About Us Dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={handleAboutMouseEnter}
+            onMouseLeave={handleAboutMouseLeave}
           >
-            FAQ
-          </Link>
+            <Link
+              to="/about"
+              className="text-gray-700 hover:text-[#364D9D] font-semibold transition"
+            >
+              About Us
+            </Link>
+
+            {aboutOpen && (
+              <div className="absolute left-1/2 transform -translate-x-1/2 top-full mt-3 w-80 bg-white border border-gray-200 rounded-xl shadow-lg z-50 animate-fadeIn">
+                <ul className="grid grid-cols-1 gap-2 p-4">
+                  {aboutusHeader.map((item) => (
+                    <li key={item.label}>
+                      <Link
+                        to="#"
+                        className="flex justify-between items-center px-4 py-2 rounded-lg hover:bg-[#f5f8ff] hover:text-[#364D9D] text-gray-800 font-medium transition-all transform hover:translate-x-2"
+                      >
+                        <div className="flex items-center gap-2">
+                          <span className="text-[#364D9D] text-lg">
+                            {item.icon}
+                          </span>
+                          <span>{item.label}</span>
+                        </div>
+                        <span className="text-gray-400 font-bold">{">"}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+
           <Link to="#">
             <button className="bg-[#C81D25] px-5 py-3 mr-4 rounded-lg text-white font-medium hover:bg-[#a9151c] transition">
               Login / Signup
@@ -158,7 +221,7 @@ const Header = () => {
               Enterprises Solution
             </Link>
             <Link to="#" className="text-gray-700 hover:text-[#364D9D]">
-              FAQ
+              About Us
             </Link>
             <Link to="#">
               <button className="bg-[#C81D25] w-full py-2 rounded-lg text-white font-medium hover:bg-[#a9151c] transition">

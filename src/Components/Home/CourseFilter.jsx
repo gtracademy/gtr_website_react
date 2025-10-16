@@ -19,11 +19,12 @@ import sAPCPI from "../../assets/Course Images2/SAP CPI.webp";
 import sAPDataMigrationandBODS from "../../assets/Course Images2/SAP Data Migration & BODS.webp";
 import sAPDatasphere from "../../assets/Course Images2/SAP Datasphere.webp";
 import sAPEWM from "../../assets/Course Images2/SAP EWM.webp";
-import sAPFICO from "../../assets/Course Images2/SAP FICO.webp";
+// import sAPFICO from "../../assets/Course Images2/SAP FICO.webp";
 import sAPHCM from "../../assets/Course Images2/SAP HCM.webp";
 import sAPMM from "../../assets/Course Images2/SAP MM.webp";
 import sAPPM from "../../assets/Course Images2/SAP PM.webp";
 import sAPPP from "../../assets/Course Images2/SAP PP.webp";
+import dataAnalystic from "../../assets/Data Analytics 1 - Copy.jpg"
 
 // import sapSFONB from "../../assets/Course Images2/sap SF ONB.webp";
 // import sapsf from "../../assets/Course Images2/sap sf.webp";
@@ -49,7 +50,7 @@ const coursesData = [
     description:
       "Master SAP Financial Accounting with hands-on S/4HANA scenarios.",
     fee: "₹60,000",
-    img: sAPFICO,
+    img: dataAnalystic,
     category: ["SAP Functional", "Popular"],
   },
   {
@@ -312,7 +313,7 @@ const CourseFilter = () => {
               <img
                 src={course.img}
                 alt="Course img"
-                className="w-full h-40 sm:h-48 md:h-56 object-cover rounded-t-xl"
+                className="w-full h-40 sm:h-48 md:h-56 object-fill rounded-t-xl"
               />
               <div className="bg-white bg-opacity-50 rounded-b-xl p-4">
                 <h3 className="text-lg sm:text-xl text-[#2D2D2D] font-semibold">
