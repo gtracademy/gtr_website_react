@@ -38,7 +38,8 @@ const Header = () => {
     },
     { icon: <FaHandshake />, label: "Hire from Us", path: "/hire" },
     { icon: <FaBlog />, label: "Blog", path: "/blog" },
-    { icon: <FaSmile />, label: "Life at GTR", path: "/life-at-gtr" },
+    
+    // { icon: <FaSmile />, label: "Life at GTR", path: "/life-at-gtr" },
   ];
 
   // About dropdown handlers

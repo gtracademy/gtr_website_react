@@ -16,7 +16,8 @@ const CareerPage = lazy(() => import("./Components/dropdown_pages/Career"));
 const CorporatePage = lazy(() => import("./Components/dropdown_pages/CorporateTraining"));
 const EducationPage = lazy(() => import("./Components/dropdown_pages/EducationInstitute"));
 const HiringPage = lazy(() => import("./Components/dropdown_pages/HireFromUs"));
-const LifeAtGtrpages = lazy(() => import("./Components/dropdown_pages/LifeAtGtrpages"));
+
+// const LifeAtGtrpages = lazy(() => import("./Components/dropdown_pages/LifeAtGtrpages"));
 
 function App() {
   return (
@@ -33,7 +34,8 @@ function App() {
           <Route path="/corporate-training" element={<CorporatePage />} />
           <Route path="/education" element={<EducationPage />} />
           <Route path="/hire" element={<HiringPage />} />
-          <Route path="/life-at-gtr" element={<LifeAtGtrpages />} />
+          
+          {/* <Route path="/life-at-gtr" element={<LifeAtGtrpages />} /> */}
         </Route>
       </Routes>
     </Suspense>

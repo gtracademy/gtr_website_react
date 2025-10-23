@@ -7,7 +7,9 @@ import intructorImg from "../../assets/image.png";
 import MobileBannerImg from "../../assets/Blue.webp";
 import EnrollNow from "../Models/EnrollNow";
 import { useSearch } from "../ContextApi/SearchContext";
+
 // import { BsDownload, BsFilePdf, BsYoutube } from "react-icons/bs";
+
 import { SiYoutubemusic } from "react-icons/si";
 import BrochureForm from "../Models/BrochureForm";
 
