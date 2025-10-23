@@ -7,12 +7,17 @@ import intructorImg from "../../assets/image.png";
 import MobileBannerImg from "../../assets/Blue.webp";
 import EnrollNow from "../Models/EnrollNow";
 import { useSearch } from "../ContextApi/SearchContext";
+// import { BsDownload, BsFilePdf, BsYoutube } from "react-icons/bs";
+import { SiYoutubemusic } from "react-icons/si";
+import BrochureForm from "../Models/BrochureForm";
 
 const CourseBanner = () => {
   const { slug } = useParams(); // ✅ get slug from URL
   const { courses } = useSearch(); // ✅ get all courses from context
 
   const [isModalOpen, setModalOpen] = useState(false);
+  const [isModalOpens, setModalOpens] = useState(false);
+
   const [course, setCourse] = useState(null);
 
   // ✅ find the course by its slug or URL
@@ -30,8 +35,6 @@ const CourseBanner = () => {
     return <p>Loading course details...</p>; // while API fetch is in progress
   }
 
-  console.log(course);
-
   return (
     <section
       id="course-banner"
@@ -39,11 +42,11 @@ const CourseBanner = () => {
     >
       {/* Mobile Background Image */}
       <div
-        className="absolute inset-0 md:hidden bg-center bg-cover opacity-15 z-0"
+        className="absolute inset-0 md:hidden bg-center bg-cover opacity-15 "
         style={{ backgroundImage: `url(${MobileBannerImg})` }}
       ></div>
 
-      <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
+      <div className="relative flex flex-col md:flex-row items-center gap-8">
         {/* Left Side Content */}
         <div className="w-full md:w-1/2 mb-4">
           <h2 className="text-3xl md:text-5xl font-extrabold mb-4 text-gray-900 leading-tight">
@@ -64,7 +67,7 @@ const CourseBanner = () => {
               <span>
                 Instructor:{" "}
                 <span className="font-bold">
-                  {course?.instructorName || "Instructor Name Coming Soon"}
+                  {course?.mentor?.name || "Instructor Name Coming Soon"}
                 </span>
               </span>
             </div>
@@ -75,14 +78,17 @@ const CourseBanner = () => {
                 <span>
                   Course Fee:
                   <span className="text-black font-extrabold text-2xl ml-1">
-                    ₹{course?.coursePrice.online || "Price Not Available"}
+                    ₹{course?.coursePrice.offline || "Price Not Available"}
                   </span>
                 </span>
               </div>
 
               <div className="flex items-center space-x-3 text-2xl">
                 <CiShare2 className="text-red-600 cursor-pointer hover:scale-110 transition" />
-                <button className="flex items-center border-[brown] border px-3 py-1 rounded-2xl text-[#a9151c] font-bold text-lg cursor-pointer hover:scale-110 transition-all">
+                <button className="flex items-center border-[brown] border gap-2 px-3 py-1 rounded-2xl text-[#a9151c] font-bold text-lg cursor-pointer hover:scale-110 transition-all">
+                  <span>
+                    <SiYoutubemusic />
+                  </span>
                   Watch Video
                 </button>
               </div>
@@ -98,10 +104,10 @@ const CourseBanner = () => {
               Enroll Now
             </button>
             <a
-              href={course?.courseBrochure || "#"}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-4 border-2 border-gray-300 text-gray-800 rounded-md font-semibold text-lg flex items-center justify-center gap-3 hover:bg-gray-100 transition-all transform hover:scale-105 shadow-md"
+              className="w-full py-4 border-2 cursor-pointer border-gray-300 text-gray-800 rounded-md font-semibold text-lg flex items-center justify-center gap-3 hover:bg-gray-100 transition-all transform hover:scale-105 shadow-md"
+              onClick={() => setModalOpens(true)}
             >
               Download Brochure <BsDownload className="text-red-600 text-xl" />
             </a>
@@ -122,6 +128,11 @@ const CourseBanner = () => {
       <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-red-700 via-gray-400 to-[#0B3954]"></div>
 
       <EnrollNow isOpen={isModalOpen} onClose={() => setModalOpen(false)} />
+      <BrochureForm
+        isOpen={isModalOpens}
+        onClose={() => setModalOpens(false)}
+        brochureUrl={course?.courseBrochure || "#"}
+      />
     </section>
   );
 };

@@ -1,19 +1,18 @@
-// import aboutusimg1 from "../../assets/aboutus_1.jpg";
-// import aboutusimg2 from "../../assets/aboutus_2.jpg";
-// import aboutusimg3 from "../../assets/aboutus_3.jpg";
+import aboutusimg1 from "../../assets/aboutus_1.jpg";
+import aboutusimg2 from "../../assets/aboutus_2.jpg";
+import aboutusimg3 from "../../assets/aboutus_3.jpg";
 
 import aboutusimg4 from "../../assets/aboutus3.jpg";
-import aboutusbanner from "../../assets/About us.png"
-import Header from "../Header";
+import aboutusbanner from "../../assets/About us.png";
+import NeedHelpSection from "../Home/NeedHelpSection";
 
 const AboutUs = () => {
   return (
     <>
-    <div className="w-full shadow-md bg-white sticky top-0 z-50"><Header/></div>
 
       <div className="font-sans min-h-screen ">
         {/* Header */}
-            <div className="w-full">
+        <div className="w-full">
           <img
             src={aboutusbanner}
             alt="About Us Banner"
@@ -22,7 +21,7 @@ const AboutUs = () => {
         </div>
 
         {/* Image Row placed AFTER header but visually overlaps */}
-        {/* <div className="relative -mt-20 flex justify-center flex-wrap gap-4 px-4">
+        <div className="relative -mt-20 flex justify-center flex-wrap gap-4 px-4">
           {[aboutusimg1, aboutusimg2, aboutusimg3, aboutusimg4].map(
             (img, index) => (
               <div
@@ -43,36 +42,38 @@ const AboutUs = () => {
               </div>
             )
           )}
-        </div> */}
+        </div>
 
         {/* Section 1 */}
         <section className=" py-16 px-6 md:px-20">
-          <h3 className="text-2xl md:text-3xl font-semibold mb-6">
-            We make sure your idea & creation delivered properly
+          <h3 className="text-2xl md:text-4xl font-semibold mb-4">
+            We ensure our ideas and creations are delivered in the best way to
+            empower students’ careers.
           </h3>
           <div className="grid md:grid-cols-2 gap-8 text-gray-600 text-justify">
             <p>
-              <strong>Rasta Infotech</strong> is a leading digital solutions
-              provider specializing in custom software development, enterprise
-              technology consulting, and industry-specific digital
-              transformation. We help businesses across sectors—including
-              healthcare, life sciences, manufacturing, travel and
-              transportation, energy, and utilities—leverage modern technologies
-              to achieve operational excellence and sustainable growth.
+              Welcome to <strong>GTR Academy</strong>, your ultimate destination
+              for top-notch online training and education. Since 2021, we have
+              empowered 10000+ students and facilitated 9200+ placements,
+              helping you step up, learn today, and lead tomorrow! Founded by
+              experts with experience in leading global firms, GTR Academy
+              offers expertly curated courses led by industry professionals. Our
+              mission is to provide quality practical training to students not
+              just in India but across the globe.
             </p>
             <p>
-              With a strong foundation in cloud computing, AI/ML, IoT, and data
-              analytics, we deliver scalable, secure, and future-ready platforms
-              that solve real-world challenges. Our team of experienced
-              engineers, designers, and strategists work collaboratively to
-              build solutions that are not only technically robust but also
-              aligned with your business goals.
+              Our intensive bootcamps, led by industry experts from Microsoft,
+              Deloitte, PwC, Tesla, IBM, and EY, specialize in ERP and Data
+              Science, providing students with real-world insights. We offer
+              personalized mentorship, industry-relevant projects, and a robust
+              alumni network to ensure you are job-ready and excel in your
+              professional journey.
             </p>
           </div>
         </section>
 
         {/* Section 2 */}
-        <section className="py-1 px-6 md:px-20 bg-white">
+        <section className="py-1 px-6 md:px-20 bg-white mb-4">
           <div className="flex flex-col md:flex-row items-center gap-12">
             {/* Left: Image - takes 50% width */}
             <div className="w-full md:w-1/2 ">
@@ -83,30 +84,36 @@ const AboutUs = () => {
               />
               <p className="mt-4 text-center text-sm text-gray-600 italic">
                 “Making an impact, together” <br />
-                <span className="font-medium text-gray-800">Rasta Founder</span>
+                <span className="font-medium text-gray-800">GTR Founder</span>
               </p>
             </div>
 
             {/* Right: Content - takes 50% width */}
             <div className="w-full md:w-1/2">
-              <h3 className="text-3xl font-semibold mb-6">
-                We empower small business owners
+              <h3 className="text-3xl font-semibold mb-4">
+                We Focus on Student Training and Placement
               </h3>
               <p className="text-gray-700 mb-4 text-lg leading-relaxed text-justify">
-                At <strong>Rasta Infotech</strong>, we believe that small
-                businesses are the backbone of innovation and community growth.
-                Our mission is to empower entrepreneurs and small business
-                owners with affordable, scalable, and smart digital solutions
-                that help them compete in today’s fast-paced market.
+                <strong>GTR Academy</strong> is also a preferred choice for
+                recruitment by numerous corporations in fields such as SAP and
+                Salesforce Solutions, Embedded Systems, and Data Science. Our
+                extensive network of over 190 companies ensures robust placement
+                support for our candidates.
               </p>
               <blockquote className="border-l-4 border-yellow-400 pl-4 text-gray-700 italic text-justify">
-                “Whether you're launching a startup, running a local shop, or
-                expanding your online presence, we provide the tools and
-                technology to help you succeed.”
+                “Our commitment to quality training, distinguished trainers, and
+                transparent dealings sets us apart. We dedicate ourselves to
+                providing excellence in all our programs, whether it’s
+                top-quality training, placement support, or the results of
+                exam-based programs. This dedication is reflected in our glowing
+                reviews on Google, Facebook, and LinkedIn.”
               </blockquote>
             </div>
           </div>
+         
         </section>
+         <NeedHelpSection/>
+        
       </div>
     </>
   );

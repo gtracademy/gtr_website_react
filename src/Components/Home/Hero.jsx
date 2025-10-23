@@ -35,13 +35,13 @@ const Hero = () => {
             </p>
 
             {/* Sticker Call Form - Design copy */}
-            <div className="relative flex justify-start">
-              <form className="group bg-white/90 backdrop-blur-sm p-3 rounded-2xl w-full max-w-[650px] flex items-center gap-2 shadow-[0_4px_20px_rgba(0,0,0,0.08)] border border-gray-200 sticky top-4 z-50">
+            <div className="relative flex justify-start px-4 sm:px-6 md:px-0">
+              <form className="group bg-white/90 backdrop-blur-sm p-3 sm:p-4 rounded-2xl w-full max-w-[650px] flex flex-col sm:flex-row items-center gap-3 sm:gap-2 shadow-[0_4px_20px_rgba(0,0,0,0.08)] border border-gray-200 sticky top-4 z-50">
                 {/* Country code selector */}
                 <select
                   name="countryCode"
                   defaultValue="+91"
-                  className="px-3 py-2 rounded-lg border border-gray-300 bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#f5d76e]/60 focus:border-[#f5d76e]/60"
+                  className="w-full sm:w-auto px-3 py-2 rounded-lg border border-gray-300 bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#f5d76e]/60 focus:border-[#f5d76e]/60"
                 >
                   <option value="+91">🇮🇳 +91</option>
                   <option value="+1">🇺🇸 +1</option>
@@ -61,16 +61,16 @@ const Hero = () => {
                   onInput={(e) => {
                     e.target.value = e.target.value.replace(/\D/g, "");
                   }}
-                  className="flex-1 px-3 py-2 rounded-lg text-gray-700 placeholder-gray-400 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#f5d76e]/60 focus:border-[#f5d76e]/60 bg-white"
+                  className="w-full flex-1 px-3 py-2 rounded-lg text-gray-700 placeholder-gray-400 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#f5d76e]/60 focus:border-[#f5d76e]/60 bg-white"
                 />
 
                 {/* Submit button */}
                 <button
                   type="submit"
-                  className="bg-[#f5d76e] text-[#0b3954] px-5 py-2 rounded-lg font-semibold shadow-md hover:bg-[#ffeb99] transition-all duration-300 hover:scale-[1.03]"
+                  className="w-full sm:w-auto bg-[#f5d76e] text-[#0b3954] px-5 py-2 rounded-lg font-semibold shadow-md hover:bg-[#ffeb99] transition-all duration-300 hover:scale-[1.03]"
                 >
-                  <span className="block md:hidden">Get Call</span>
-                  <span className="hidden md:block">Get Call Back</span>
+                  <span className="block sm:hidden">Get Call</span>
+                  <span className="hidden sm:block">Get Call Back</span>
                 </button>
 
                 {/* Animated sticker badge */}

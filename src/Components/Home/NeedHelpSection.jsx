@@ -1,7 +1,13 @@
-// src/components/NeedHelpSection.jsx
-import React from 'react';
+import React, { useState } from 'react';
+// import BookFreeCall from './BookFreeCall'; // adjust the path if needed
+import BookFreeCall from "../Models/BookFreeCall"
 
 const NeedHelpSection = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
   return (
     <div className="bg-gray-100 p-8">
       <div className="w-full">
@@ -23,12 +29,18 @@ const NeedHelpSection = () => {
             <p className="text-white text-lg md:text-xl mb-6">
               Share your details, and we'll reach out at a time that works best for you.
             </p>
-            <button className="bg-[#C81D25] hover:bg-red-700 cursor-pointer text-white font-bold py-3 px-6 rounded-md transition duration-300 ease-in-out transform hover:scale-105">
+            <button
+              onClick={openModal} // ✅ open modal on click
+              className="bg-[#C81D25] hover:bg-red-700 cursor-pointer text-white font-bold py-3 px-6 rounded-md transition duration-300 ease-in-out transform hover:scale-105"
+            >
               Request a callback
             </button>
           </div>
         </div>
       </div>
+
+      {/* Modal Component */}
+      <BookFreeCall isOpen={isModalOpen} onClose={closeModal} />
     </div>
   );
 };

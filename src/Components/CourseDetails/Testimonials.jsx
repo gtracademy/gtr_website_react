@@ -87,7 +87,7 @@ const Testimonial = () => {
   const swiperRef = useRef(null);
 
   return (
-    <section id="testimonials" className="py-11 bg-white relative mb-4">
+    <section id="testimonials" className="py-11 bg-white relative mb-4 ">
       {/* Title */}
       <div className=" text-center md:text-left px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-[#05254a]">
@@ -99,7 +99,7 @@ const Testimonial = () => {
       </div>
 
       {/* Swiper */}
-      <div className="relative max-w-6xl mx-auto px-6">
+      <div className="relative max-w-6xl mx-auto px-6 z-0">
         <Swiper
           modules={[Pagination]}
           slidesPerView={1}
@@ -152,14 +152,14 @@ const Testimonial = () => {
         {/* Custom Navigation (Centered Arrows) */}
         <button
           onClick={() => swiperRef.current?.slidePrev()}
-          className="absolute left-0 md:-left-8 top-1/2 -translate-y-1/2 z-20 bg-gray-600 hover:bg-gray-800 text-white p-3 rounded-full shadow transition"
+          className="absolute left-0 md:-left-8 top-1/2 -translate-y-1/2 bg-gray-600 hover:bg-gray-800 text-white p-3 rounded-full shadow transition"
         >
           <IoArrowBackOutline size={22} />
         </button>
 
         <button
           onClick={() => swiperRef.current?.slideNext()}
-          className="absolute right-0 md:-right-8 top-1/2 -translate-y-1/2 z-20 bg-gray-600 hover:bg-gray-800 text-white p-3 rounded-full shadow transition"
+          className="absolute right-0 md:-right-8 top-1/2 -translate-y-1/2  bg-gray-600 hover:bg-gray-800 text-white p-3 rounded-full shadow transition"
         >
           <IoArrowForwardOutline size={22} />
         </button>
@@ -204,7 +204,7 @@ const Testimonial = () => {
         .testimonial-swiper .swiper-slide-active {
           transform: scale(1);
           opacity: 1;
-          z-index: 10;
+          
         }
         .testimonial-swiper .swiper-slide-next,
         .testimonial-swiper .swiper-slide-prev {

@@ -213,7 +213,7 @@ const Footer = () => {
       </div>
 
       {/* Scroll to Top Button */}
-      <div className="fixed bottom-6 right-6 z-50">
+      <div className="fixed bottom-6 right-6">
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="bg-blue-800 p-3 rounded-xl shadow-lg hover:shadow-xl cursor-pointer transition-all duration-300"

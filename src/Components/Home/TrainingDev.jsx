@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import nasscom from "../../assets/nasscom.webp";
 import iso from "../../assets/iso.webp";
 import msme from "../../assets/msme.webp";
 import rootbix from "../../assets/rootbix.webp";
 import dun from "../../assets/dun.webp";
 import samgov from "../../assets/sam-gov.webp";
+import BookFreeCall from "../Models/BookFreeCall";
 
 const TrainingDev = () => {
+     const [isModalOpen, setIsModalOpen] = useState(false);
+  
+    const openModal = () => setIsModalOpen(true);
+    const closeModal = () => setIsModalOpen(false);
   return (
     <div className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
       {/* Top Gradient Divider */}
@@ -30,7 +35,9 @@ const TrainingDev = () => {
               <li>Fully Customized, Instructor-Led Programs</li>
               <li>Flexible Scheduling – Learn on Your Own Terms</li>
             </ul>
-            <button className="bg-[#C81D25] text-white font-semibold py-2 sm:py-3 px-4 sm:px-6 rounded-md shadow-md hover:bg-red-700 transition duration-300">
+            <button className="bg-[#C81D25] text-white font-semibold py-2 sm:py-3 px-4 sm:px-6 rounded-md shadow-md hover:bg-red-700 transition duration-300"
+              onClick={openModal}>
+               
               Request a callback
             </button>
           </div>
@@ -54,6 +61,7 @@ const TrainingDev = () => {
           </div>
         </div>
       </div>
+       <BookFreeCall isOpen={isModalOpen} onClose={closeModal} />
     </div>
   );
 };

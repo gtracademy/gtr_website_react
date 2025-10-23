@@ -28,13 +28,17 @@ const Header = () => {
   const aboutTimerRef = useRef(null); // Timer for About dropdown
 
   const aboutusHeader = [
-    { icon: <FaUserGraduate />, label: "Our Mentors" },
-    { icon: <FaSchool />, label: "Education Institution" },
-    { icon: <FaBriefcase />, label: "Career" },
-    { icon: <FaChalkboardTeacher />, label: "Corporate Training" },
-    { icon: <FaHandshake />, label: "Hire from Us" },
-    { icon: <FaBlog />, label: "Blog" },
-    { icon: <FaSmile />, label: "Life at GTR" },
+    { icon: <FaUserGraduate />, label: "Our Mentors", path: "/mentors" },
+    { icon: <FaSchool />, label: "Education Institution", path: "/education" },
+    { icon: <FaBriefcase />, label: "Career", path: "/career" },
+    {
+      icon: <FaChalkboardTeacher />,
+      label: "Corporate Training",
+      path: "/corporate-training",
+    },
+    { icon: <FaHandshake />, label: "Hire from Us", path: "/hire" },
+    { icon: <FaBlog />, label: "Blog", path: "/blog" },
+    { icon: <FaSmile />, label: "Life at GTR", path: "/life-at-gtr" },
   ];
 
   // About dropdown handlers
@@ -168,12 +172,12 @@ const Header = () => {
             </Link>
 
             {aboutOpen && (
-              <div className="absolute left-1/2 transform -translate-x-1/2 top-full mt-3 w-80 bg-white border border-gray-200 rounded-xl shadow-lg z-50 animate-fadeIn">
+              <div className="absolute left-1/2 transform -translate-x-1/2 top-full mt-8 w-80 bg-white  rounded-b-lg shadow-lg z-50 animate-fadeIn">
                 <ul className="grid grid-cols-1 gap-2 p-4">
                   {aboutusHeader.map((item) => (
                     <li key={item.label}>
                       <Link
-                        to="#"
+                        to={item.path}
                         className="flex justify-between items-center px-4 py-2 rounded-lg hover:bg-[#f5f8ff] hover:text-[#364D9D] text-gray-800 font-medium transition-all transform hover:translate-x-2"
                       >
                         <div className="flex items-center gap-2">

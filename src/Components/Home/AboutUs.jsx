@@ -1,8 +1,11 @@
 // src/components/AboutUs.jsx
 import React from "react";
 import aboutus from "../../assets/About us.webp"
+import { useNavigate } from "react-router-dom";
+
 
 const AboutUs = () => {
+  const navigate = useNavigate();
   return (
     <section className="flex flex-col md:flex-row bg-white  rounded-xl overflow-hidden ">
       {/* Left Side - Image */}
@@ -31,7 +34,8 @@ const AboutUs = () => {
           cultivate a new generation of professionals who are not just
           job-ready but future-ready.
         </p>
-        <button className="bg-blue-700 hover:bg-blue-800 text-white px-5 py-2 rounded transition duration-300 w-fit">
+        <button className="bg-blue-700 hover:bg-blue-800 text-white px-5 py-2 rounded transition duration-300 w-fit "
+         onClick={() => navigate("/about")}>
           Read More
         </button>
       </div>

@@ -1,7 +1,19 @@
-import React from "react";
-import { FaHeart, FaUserTie, FaMoneyBillWave, FaClock, FaArrowRight } from "react-icons/fa";
+import React, { useState } from "react";
+import {
+  FaHeart,
+  FaUserTie,
+  FaMoneyBillWave,
+  FaClock,
+  FaArrowRight,
+} from "react-icons/fa";
+import BookFreeCall from "../Models/BookFreeCall";
 
 const CourseSidebar = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
   return (
     <>
       {/* Course Info Card */}
@@ -27,7 +39,7 @@ const CourseSidebar = () => {
             </p>
           </div>
         </div>
-{/* 
+        {/* 
         <div className="mt-6 flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0">
           <button className="flex-1 py-2 bg-[#C81D25] text-white rounded-lg font-bold text-lg hover:bg-red-700 transition">
             Enroll Now
@@ -81,13 +93,19 @@ const CourseSidebar = () => {
           <h3 className="text-lg font-bold text-gray-800">Talk to an Expert</h3>
         </div>
         <p className="text-gray-600 mb-4">
-          Have questions or need guidance? Our experts are here to help you make the right choice.
+          Have questions or need guidance? Our experts are here to help you make
+          the right choice.
         </p>
-        <button className="w-full bg-[#C81D25] text-white px-5 py-3 rounded-lg font-semibold flex items-center justify-center space-x-2 hover:bg-red-700 transition">
+        <button
+          className="w-full bg-[#C81D25] text-white px-5 py-3 rounded-lg font-semibold flex items-center justify-center space-x-2 hover:bg-red-700 transition"
+          onClick={openModal}
+        >
           <span>Request a callback</span>
           <FaArrowRight />
         </button>
       </div>
+
+      <BookFreeCall isOpen={isModalOpen} onClose={closeModal} />
     </>
   );
 };

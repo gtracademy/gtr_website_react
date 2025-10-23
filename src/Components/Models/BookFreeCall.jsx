@@ -5,7 +5,7 @@ const BookFreeCall = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 px-4">
+    <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-100 px-4">
       <div className="bg-white rounded-2xl overflow-hidden w-full max-w-3xl shadow-xl relative grid md:grid-cols-2">
         
         {/* Left Image Section */}

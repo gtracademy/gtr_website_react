@@ -46,7 +46,7 @@ const FAQSection = () => {
       <div className="w-full relative z-10 flex flex-col lg:flex-row items-center lg:space-x-12">
         {/* Left Section - FAQ Content */}
         <div className="lg:w-1/2 w-full pr-0 lg:pr-10 mb-12 lg:mb-0">
-          <h2 className="text-4xl font-extrabold text-[#C81D25] font-serif mb-8">
+          <h2 className="text-4xl font-extrabold text-[#C81D25] font-serif mb-8 p-4">
             Frequently Asked Questions ?
           </h2>
 

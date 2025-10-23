@@ -4,7 +4,6 @@ import "swiper/css";
 import "swiper/css/autoplay";
 import { Autoplay } from "swiper/modules";
 
-
 // Import your logos
 import accenture from "../../assets/Company Icon/accenture.png";
 import aramco from "../../assets/Company Icon/aramco.png";
@@ -43,9 +42,10 @@ const companyLogos = [
 const StudentsWorkSection = () => {
   return (
     <section className="bg-gradient-to-b from-white to-gray-50">
-      <div className="px-4 sm:px-6 lg:px-8 mb-6 sm:mb-8">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0b2c4d]">
+      <div className="px-4 sm:px-6 lg:px-8 mb-6 sm:mb-8 ">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0b2c4d] inline-block relative pb-1">
           Where our students work
+          <span className="absolute left-0 bottom-0 h-[2px] w-full rounded-full gradient-underline"></span>
         </h2>
         <p className="mt-2 sm:mt-3 text-gray-600 max-w-xl sm:max-w-2xl text-lg sm:text-lg">
           Achieve your dreams and shape your future with India’s trusted
