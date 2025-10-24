@@ -42,11 +42,11 @@ const FAQSection = () => {
   };
 
   return (
-    <div className="relative h-[45rem] px-4 sm:px-6 lg:px-8 bg-[url('/FAQ-bg.png')] bg-contain bg-right w-full bg-no-repeat">
+    <div className="relative h-[45rem] px-4 sm:px-6 lg:px-8 bg-[url('/FAQ-bg.png')] bg-contain bg-right w-full bg-no-repeat p-14">
       <div className="w-full relative z-10 flex flex-col lg:flex-row items-center lg:space-x-12">
         {/* Left Section - FAQ Content */}
-        <div className="lg:w-1/2 w-full pr-0 lg:pr-10 mb-12 lg:mb-0">
-          <h2 className="text-4xl font-extrabold text-[#C81D25] font-serif mb-8 p-4">
+        <div className="lg:w-1/2 w-full pr-0 lg:pr-10 mb-12 lg:mb-0 pb-12">
+          <h2 className="text-4xl font-extrabold text-[#C81D25] font-serif mb-8 ">
             Frequently Asked Questions ?
           </h2>
 

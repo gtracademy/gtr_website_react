@@ -4,6 +4,9 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const BrochureForm = ({ isOpen = true, onClose, brochureUrl }) => {
+
+  console.log(brochureUrl);
+  
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
