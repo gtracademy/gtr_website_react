@@ -19,6 +19,9 @@ import {
 const Header = () => {
   const { query, setQuery, setFilteredCourses, filteredCourses } = useSearch();
 
+  console.log(filteredCourses);
+  
+
   const [aboutOpen, setAboutOpen] = useState(false); // Dropdown state
 
   const [isOpen, setIsOpen] = useState(false); // Mobile Menu
@@ -137,7 +140,7 @@ const Header = () => {
                       </span>
                     </div>
                     <div className="flex flex-col">
-                      <span className="font-medium">{course.courseTitle}</span>
+                      <span className="font-medium">{course?.courseKeyword}</span>
                       <span className="text-xs text-gray-500">
                         {course.courseCategory || "General"}
                       </span>

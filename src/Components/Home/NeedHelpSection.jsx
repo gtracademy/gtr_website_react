@@ -1,46 +1,52 @@
-import React, { useState } from 'react';
-// import BookFreeCall from './BookFreeCall'; // adjust the path if needed
-import BookFreeCall from "../Models/BookFreeCall"
+import React from "react";
+import { FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import roundCircleimg from "../../assets/Round Blue.webp";
+import needhelpimg from "../../assets/needhelp.png";
 
 const NeedHelpSection = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
-
   return (
-    <div className="bg-gray-100 p-8">
-      <div className="w-full">
-        <h2 className="text-4xl font-serif font-bold text-red-700 mb-6">
-          Need help ?
-        </h2>
-        <div className="relative bg-white rounded-lg shadow-lg overflow-hidden flex flex-col md:flex-row items-stretch">
-          {/* Image Section */}
-          <div className="md:w-1/3 flex-shrink-0">
-            <img
-              src="https://img.freepik.com/free-photo/businesswoman-call-center-office_1098-984.jpg?semt=ais_hybrid&w=740&q=80"
-              alt="Customer Support Agent"
-              className="w-full h-[35vh] object-cover"
-            />
-          </div>
-
-          {/* Content Section */}
-          <div className="md:w-2/3 bg-gradient-to-r from-[#136494] to-[#0B3954] p-8 flex flex-col justify-center items-center text-center">
-            <p className="text-white text-lg md:text-xl mb-6">
-              Share your details, and we'll reach out at a time that works best for you.
-            </p>
-            <button
-              onClick={openModal} // ✅ open modal on click
-              className="bg-[#C81D25] hover:bg-red-700 cursor-pointer text-white font-bold py-3 px-6 rounded-md transition duration-300 ease-in-out transform hover:scale-105"
-            >
-              Request a callback
-            </button>
-          </div>
-        </div>
+    <div className="flex bg-black rounded-4xl m-2 ">
+      {/* Left Section - Image */}
+      <div className="w-full md:w-1/2 h-full">
+        <img
+          src={needhelpimg}
+          alt="Need Help"
+          className="w-full h-full object-cover"
+        />
       </div>
 
-      {/* Modal Component */}
-      <BookFreeCall isOpen={isModalOpen} onClose={closeModal} />
+      {/* Right Section */}
+      <div className="relative w-full md:w-1/2 bg-black text-white p-12 md:p-20 flex flex-col justify-center">
+        {/* Background round circles */}
+        <img
+          src={roundCircleimg}
+          alt="Round Design"
+          className="absolute top-0 right-0 w-60 opacity-30"
+        />
+        <img
+          src={roundCircleimg}
+          alt="Round Design"
+          className="absolute bottom-0 left-10 w-60 opacity-30"
+        />
+
+        {/* Content */}
+        <div className="relative z-10">
+          <p className="text-lg text-gray-300 mb-4">
+            Share your details, and we'll reach out at a time that works best for you.
+          </p>
+          <div className="flex items-center gap-3 mb-3">
+            <FaPhoneAlt className="text-blue-500" />
+            <span className="text-white text-lg">+91 9650518049</span>
+          </div>
+          <div className="flex items-center gap-3 mb-6">
+            <FaEnvelope className="text-blue-500" />
+            <span className="text-white text-lg">connect@gtracademy.org</span>
+          </div>
+          <button className="bg-[#2563eb] hover:bg-[#1e40af] text-white font-medium py-3 px-6 rounded-xl transition-all">
+            Request a callback
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
