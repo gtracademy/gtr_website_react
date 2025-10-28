@@ -13,7 +13,7 @@ const CorporateTrainingPage = () => {
       {/* <div
         className="relative bg-cover bg-center h-[260px] flex flex-col items-center justify-center text-white"
         style={{
-          backgroundImage: `url(${bannerBg})`,
+          backgroundImage: `url(${./corporate training})`,
         }}
       >
         <div className="absolute inset-0 bg-blue-900/70"></div>

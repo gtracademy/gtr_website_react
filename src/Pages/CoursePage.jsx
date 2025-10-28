@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import CourseBanner from "../Components/CourseDetails/CourseBanner";
 import Curriculum from "../Components/CourseDetails/Curriculum";
 import WhoShouldJoin from "../Components/CourseDetails/WhoShouldJoin";
-import Mentor from "../Components/CourseDetails/Mentor";
+// import Mentor from "../Components/CourseDetails/Mentor";
 import Testimonials from "../Components/CourseDetails/Testimonials";
 import Overview from "../Components/CourseDetails/Overview";
 import CourseSidebar from "../Components/CourseDetails/CourseSidebar";
@@ -68,7 +68,7 @@ function CoursePage() {
           <Overview />
           <Curriculum course={course} />
           <WhoShouldJoin />
-          <Mentor />
+          {/* <Mentor /> */}
           <Testimonials />
         </div>
 

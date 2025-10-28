@@ -1,82 +1,46 @@
-// src/context/SearchProvider.jsx
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import SearchContext from "./SearchContext";
 
 export const SearchProvider = ({ children }) => {
-  const [query, setQuery] = useState("");
-  const [filteredCourses, setFilteredCourses] = useState([]);
-
   const [courses, setCourses] = useState([]);
-
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const fetchTimerRef = useRef(null);
 
-  // ✅ Fetch course data from API
+  // ✅ Fetch course data from API with basic debounce (prevents multiple re-fetch)
   useEffect(() => {
     const fetchCourses = async () => {
       try {
         setLoading(true);
-        const res = await fetch(
-          "https://gtr-academy-backend.onrender.com/api/course"
-        );
+        const res = await fetch("https://gtr-academy-backend.onrender.com/api/course");
         const data = await res.json();
 
         if (data.status && Array.isArray(data.course)) {
-          setCourses(data.course); // ✅ Correctly store the course array
+          setCourses(data.course);
+          setError(null);
         } else {
           setCourses([]);
           setError("Unexpected response format");
         }
       } catch (err) {
+        console.error("Course Fetch Error:", err);
         setError(err.message || "Failed to fetch courses");
       } finally {
         setLoading(false);
       }
     };
 
-    fetchCourses();
+    // Debounce API fetch (just safety — avoid too many reloads)
+    if (fetchTimerRef.current) clearTimeout(fetchTimerRef.current);
+    fetchTimerRef.current = setTimeout(() => fetchCourses(), 300);
+
+    return () => clearTimeout(fetchTimerRef.current);
   }, []);
-
-
-  // ✅ Filter logic memoized to avoid recomputation on every render
-  // const filteredCourses = useMemo(() => {
-  //   const trimmedQuery = query.trim().toLowerCase();
-  //   if (trimmedQuery === "") return [];
-
-  //   return courses.filter((course) =>
-  //     course.courseTitle?.toLowerCase().includes(trimmedQuery) ||
-  //     course.courseDescription?.toLowerCase().includes(trimmedQuery)
-  //   );
-  // }, [query, courses]);
-
-
-
-  // ✅ Filter logic for search
-  const memoizedFilteredCourses = useMemo(() => {
-    const trimmedQuery = query.trim().toLowerCase();
-    if (trimmedQuery === "") return [];
-
-    return courses.filter(
-      (course) =>
-        course.courseTitle?.toLowerCase().includes(trimmedQuery) ||
-        course.courseDescription?.toLowerCase().includes(trimmedQuery)
-    );
-  }, [query, courses]); // Only recompute when query or courses change
-  
-
-  // Update state whenever memoized value changes
-  useEffect(() => {
-    setFilteredCourses(memoizedFilteredCourses);
-  }, [memoizedFilteredCourses]);
 
   return (
     <SearchContext.Provider
       value={{
-        query,
-        setQuery,
-        filteredCourses,
-        setFilteredCourses,
-        courses,
+        courses,   // ✅ shared only for reading
         loading,
         error,
       }}

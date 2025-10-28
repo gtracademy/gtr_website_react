@@ -64,7 +64,8 @@ const CourseBanner = () => {
 
           {/* Instructor + Fee + Icons */}
           <div className="flex flex-col space-y-6 mb-6 pl-1">
-            <div className="flex items-center text-lg text-gray-800 font-medium">
+            
+            {/* <div className="flex items-center text-lg text-gray-800 font-medium">
               <FaUserTie className="text-red-600 text-2xl mr-2" />
               <span>
                 Instructor:{" "}
@@ -72,7 +73,7 @@ const CourseBanner = () => {
                   {course?.mentor?.name || "Instructor Name Coming Soon"}
                 </span>
               </span>
-            </div>
+            </div> */}
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 w-full max-w-lg">
               <div className="flex items-center text-lg text-gray-800 font-medium">

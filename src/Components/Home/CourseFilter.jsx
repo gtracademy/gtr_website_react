@@ -1,72 +1,70 @@
-import React, { useState, useMemo } from "react";
-import {
-  IoIosArrowDroprightCircle,
-  IoIosArrowRoundForward,
-} from "react-icons/io";
-import { BsDownload } from "react-icons/bs";
+import React, { useState, useMemo, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { useSearch } from "../ContextApi/SearchContext";
 import { RxCross2 } from "react-icons/rx";
 import { CiSearch } from "react-icons/ci";
-import { Link } from "react-router-dom";
+import { IoIosArrowDroprightCircle, IoIosArrowRoundForward } from "react-icons/io";
+import { BsDownload } from "react-icons/bs";
 import BrochureForm from "../Models/BrochureForm";
 
 const CourseFilter = () => {
-  const { courses, query, setQuery, setFilteredCourses, filteredCourses } =
-    useSearch();
-
+  const { courses } = useSearch(); // ✅ Use shared data only
   const [isModalOpens, setModalOpens] = useState(false);
-
-  const [selectedCategory, setSelectedCategory] = useState("SAP Technical");
   const [selectedCourse, setSelectedCourse] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState("SAP Technical");
 
-  // ✅ Extract unique categories dynamically from API data (without "All")
-  const categories = useMemo(() => {
-    const unique = new Set(courses.map((c) => c.courseCategory || "Others"));
-    return [...unique]; // removed "All"
-  }, [courses]);
+  // Local search
+  const [query, setQuery] = useState("");
+  const [filteredCourses, setFilteredCourses] = useState([]);
+  const debounceRef = useRef(null);
 
-  // ✅ Filter courses based on selected category
-  const filteredCoursess = useMemo(() => {
-    // Only show courses from the selected category
-    return courses.filter(
-      (course) => course.courseCategory === selectedCategory
-    );
-  }, [courses, selectedCategory]);
+  // Debounced search
+  useEffect(() => {
+    if (debounceRef.current) clearTimeout(debounceRef.current);
+    debounceRef.current = setTimeout(() => {
+      const trimmed = query.trim().toLowerCase();
+      if (trimmed === "") return setFilteredCourses([]);
+
+      const results = courses.filter(
+        (course) =>
+          course.courseTitle?.toLowerCase().includes(trimmed) ||
+          course.courseDescription?.toLowerCase().includes(trimmed)
+      );
+      setFilteredCourses(results);
+    }, 300);
+
+    return () => clearTimeout(debounceRef.current);
+  }, [query, courses]);
 
   const clearSearch = () => {
     setQuery("");
     setFilteredCourses([]);
   };
 
+  // Categories
+  const categories = useMemo(() => {
+    const unique = new Set(courses.map((c) => c.courseCategory || "Others"));
+    return [...unique];
+  }, [courses]);
+
+  const filteredByCategory = useMemo(() => {
+    return courses.filter((course) => course.courseCategory === selectedCategory);
+  }, [courses, selectedCategory]);
+
   return (
     <>
       <div className="px-4 min-h-screen font-sans py-6 sm:py-8">
-        {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
           <div className="text-center md:text-left">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-red-700 mb-1 font-serif">
               Select your goal
             </h2>
-
             <p className="font-lato font-semibold text-base sm:text-lg md:text-[20px] leading-relaxed text-[#364D9D] max-w-lg mx-auto md:mx-0">
-              {/* <span className="text-[#2D2D2D] font-semibold">
-              {courses.length}+{" "}
-            </span> */}
               Courses available for you
             </p>
           </div>
-          {/* <div className="relative w-full md:w-80">
-          <input
-            type="text"
-            placeholder="Search for a Course"
-            className="w-full border border-gray-300 rounded-full px-4 py-2 pl-10 shadow-sm focus:outline-none focus:ring-2 focus:ring-red-500 text-sm sm:text-base"
-          />
-          <span className="absolute left-3 top-2.5 text-gray-500">🔍</span>
-        </div> */}
 
-          {/* course search section */}
-
-          {/* Desktop Search */}
+          {/* Search Input */}
           <div className="hidden md:flex relative items-center gap-3 border border-gray-300 p-2 rounded-full w-[35%] focus-within:shadow-md">
             <input
               type="text"
@@ -75,17 +73,12 @@ const CourseFilter = () => {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
             />
-
             {query ? (
-              <RxCross2
-                className="text-xl text-gray-500 cursor-pointer hover:text-[#364D9D] transition"
-                onClick={clearSearch}
-              />
+              <RxCross2 className="text-xl text-gray-500 cursor-pointer hover:text-[#364D9D]" onClick={clearSearch} />
             ) : (
               <CiSearch className="text-2xl text-gray-600 cursor-pointer hover:text-[#364D9D]" />
             )}
 
-            {/* Dropdown results */}
             {filteredCourses.length > 0 && (
               <ul className="absolute left-0 top-full mt-2 bg-white border border-gray-200 rounded-2xl shadow-2xl w-full max-h-72 overflow-y-auto z-50 animate-fadeIn">
                 {filteredCourses.map((course) => (
@@ -96,17 +89,11 @@ const CourseFilter = () => {
                       onClick={clearSearch}
                     >
                       <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#e8ecff]">
-                        <span className="text-[#364D9D] text-lg font-bold">
-                          📘
-                        </span>
+                        <span className="text-[#364D9D] text-lg font-bold">📘</span>
                       </div>
                       <div className="flex flex-col">
-                        <span className="font-medium">
-                          {course.courseTitle}
-                        </span>
-                        <span className="text-xs text-gray-500">
-                          {course.courseCategory || "General"}
-                        </span>
+                        <span className="font-medium">{course.courseKeyword}</span>
+                        <span className="text-xs text-gray-500">{course.courseCategory || "General"}</span>
                       </div>
                     </Link>
                   </li>
@@ -118,14 +105,12 @@ const CourseFilter = () => {
 
         {/* Category Tabs */}
         <div className="flex flex-wrap gap-2 sm:gap-3 mb-8 justify-center md:justify-start">
-          {categories.map((cat, index) => (
+          {categories.map((cat) => (
             <button
-              key={index}
+              key={cat}
               onClick={() => setSelectedCategory(cat)}
               className={`px-4 sm:px-8 py-3 rounded-xl text-xs sm:text-sm font-medium transition duration-200 ${
-                selectedCategory === cat
-                  ? "bg-[#364D9D] text-white shadow-md"
-                  : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                selectedCategory === cat ? "bg-[#364D9D] text-white shadow-md" : "bg-gray-200 text-gray-700 hover:bg-gray-300"
               }`}
             >
               {cat}
@@ -133,9 +118,9 @@ const CourseFilter = () => {
           ))}
         </div>
 
-        {/* Course Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {filteredCoursess?.map((course, index) => (
+        {/* Course Grid */}
+         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {filteredByCategory?.map((course, index) => (
             <div
               key={index}
               className="relative w-full h-auto overflow-hidden rounded-xl shadow-lg group cursor-pointer transition-transform duration-300 hover:scale-[1.015]"
@@ -222,11 +207,15 @@ const CourseFilter = () => {
           ))}
         </div>
       </div>
-      <BrochureForm
-        isOpen={isModalOpens}
-        onClose={() => setModalOpens(false)}
-        brochureUrl={selectedCourse}
-      />
+
+      {/* Brochure Modal */}
+      {isModalOpens && (
+        <BrochureForm
+          isOpen={isModalOpens}
+          onClose={() => setModalOpens(false)}
+          brochureUrl={selectedCourse?.courseBrochure?.cloud}
+        />
+      )}
     </>
   );
 };
