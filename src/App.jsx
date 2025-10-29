@@ -3,20 +3,43 @@ import { Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import MainLayout from "./Components/Layout/MainLayout";
 
-// import MentorsPage from "./Components/dropdown_pages/MentorSection";
+// Lazy load all footer pages
+const TermsConditions = lazy(() =>
+  import("./Components/all_footer_section/TermsConditions")
+);
+const RefundPolicy = lazy(() =>
+  import("./Components/all_footer_section/RefundPolicy")
+);
+const AccessibilityStatement = lazy(() =>
+  import("./Components/all_footer_section/AccessibilityStatement")
+);
+const CookiesSetting = lazy(() =>
+  import("./Components/all_footer_section/CookiesSetting")
+);
+const PrivacyPolicy = lazy(() =>
+  import("./Components/all_footer_section/PrivacyPolicy")
+);
 
 // Lazy load pages
 const Home = lazy(() => import("./Pages/Home"));
 const AboutUs = lazy(() => import("./Components/about_us/AboutUs"));
 const CoursePage = lazy(() => import("./Pages/CoursePage"));
-const CourseDetails = lazy(() => import("./Components/AllCourses/CourseDetails"));
+const CourseDetails = lazy(() =>
+  import("./Components/AllCourses/CourseDetails")
+);
 
 // Dropdown Pages
-const MentorsPage = lazy(() => import("./Components/dropdown_pages/MentorSection"));
+const MentorsPage = lazy(() =>
+  import("./Components/dropdown_pages/MentorSection")
+);
 const BlogPage = lazy(() => import("./Components/dropdown_pages/Blog"));
 const CareerPage = lazy(() => import("./Components/dropdown_pages/Career"));
-const CorporatePage = lazy(() => import("./Components/dropdown_pages/CorporateTraining"));
-const EducationPage = lazy(() => import("./Components/dropdown_pages/EducationInstitute"));
+const CorporatePage = lazy(() =>
+  import("./Components/dropdown_pages/CorporateTraining")
+);
+const EducationPage = lazy(() =>
+  import("./Components/dropdown_pages/EducationInstitute")
+);
 const HiringPage = lazy(() => import("./Components/dropdown_pages/HireFromUs"));
 
 // const LifeAtGtrpages = lazy(() => import("./Components/dropdown_pages/LifeAtGtrpages"));
@@ -36,8 +59,17 @@ function App() {
           <Route path="/corporate-training" element={<CorporatePage />} />
           <Route path="/education" element={<EducationPage />} />
           <Route path="/hire" element={<HiringPage />} />
-          
           {/* <Route path="/life-at-gtr" element={<LifeAtGtrpages />} /> */}
+
+          {/* Footer Section Routes */}
+          <Route path="/terms-conditions" element={<TermsConditions />} />
+          <Route path="/refund-policy" element={<RefundPolicy />} />
+          <Route
+            path="/accessibility-statement"
+            element={<AccessibilityStatement />}
+          />
+          <Route path="/cookies-setting" element={<CookiesSetting />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Route>
       </Routes>
     </Suspense>

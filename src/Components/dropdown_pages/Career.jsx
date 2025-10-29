@@ -206,7 +206,7 @@ const Career = () => {
       </section>
 
       {/* MEET EXPERTS */}
-      <section className="py-16 px-6 lg:px-20 flex flex-col lg:flex-row items-center gap-8">
+      {/* <section className="py-16 px-6 lg:px-20 flex flex-col lg:flex-row items-center gap-8">
         <div className="lg:w-1/2">
           <h3 className="text-2xl font-bold mb-4">Meet our industry experts</h3>
           <p className="text-gray-600">
@@ -215,40 +215,57 @@ const Career = () => {
           </p>
         </div>
         <img src={careerimg2} alt="Experts" className="rounded-xl shadow-md lg:w-1/2" />
+      </section> */}
+
+       <section className="py-20 px-6 lg:px-20 flex flex-col lg:flex-row items-center gap-10">
+        <div className="lg:w-1/2 flex justify-center">
+          <img
+            src={groupimg16}
+            alt="FAQ"
+            className="rounded-xl shadow-md w-[400px] md:w-[450px] lg:w-[480px] h-auto object-contain"
+          />
+        </div>
+
+        <div className="lg:w-1/2 w-full">
+          <h3 className="text-3xl font-bold mb-8 text-[#12265A]">
+            Frequently Asked Questions (FAQs)
+          </h3>
+
+          {faqs.map((faq, index) => (
+            <div
+              key={index}
+              className="border-b border-gray-200 py-4 cursor-pointer"
+              onClick={() => toggleFAQ(index)}
+            >
+              <div className="flex justify-between items-center">
+                <h4 className="text-lg font-medium text-gray-800">
+                  {faq.question}
+                </h4>
+                {openIndex === index ? (
+                  <FaChevronUp className="text-gray-600" />
+                ) : (
+                  <FaChevronDown className="text-gray-600" />
+                )}
+              </div>
+
+              {openIndex === index && (
+                <p className="mt-2 text-gray-600 leading-relaxed transition-all duration-300">
+                  {faq.answer}
+                </p>
+              )}
+            </div>
+          ))}
+        </div>
       </section>
+
+       
+
+      
 
       {/* CURRENT OPENINGS */}
       <section className="py-16 px-6 lg:px-20">
-        <h3 className="text-2xl font-bold text-center mb-8">Current Openings</h3>
 
-        <div className="overflow-x-auto border rounded-lg mb-10">
-          <table className="min-w-full text-sm text-left">
-            <thead className="bg-blue-600 text-white">
-              <tr>
-                <th className="py-3 px-4">Position</th>
-                <th className="py-3 px-4">Location</th>
-                <th className="py-3 px-4">Type</th>
-                <th className="py-3 px-4">Apply By</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="border-b">
-                <td className="py-3 px-4">Academic Counselor</td>
-                <td className="py-3 px-4">Noida</td>
-                <td className="py-3 px-4">Full-Time</td>
-                <td className="py-3 px-4">15 May 2025</td>
-              </tr>
-              <tr>
-                <td className="py-3 px-4">Business Counselor</td>
-                <td className="py-3 px-4">Noida</td>
-                <td className="py-3 px-4">Full-Time</td>
-                <td className="py-3 px-4">15 May 2025</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
 
-        {/* APPLICATION FORM */}
         <div className="flex flex-col lg:flex-row gap-10 items-center">
           <img
             src={careerimg2}
@@ -322,10 +339,42 @@ const Career = () => {
             </button>
           </form>
         </div>
+
+        <h3 className="text-2xl font-bold text-center mb-8 pt-6">Current Openings</h3>
+
+        <div className="overflow-x-auto border rounded-lg mb-10">
+          <table className="min-w-full text-sm text-left">
+            <thead className="bg-blue-600 text-white">
+              <tr>
+                <th className="py-3 px-4">Position</th>
+                <th className="py-3 px-4">Location</th>
+                <th className="py-3 px-4">Type</th>
+                <th className="py-3 px-4">Apply By</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="border-b">
+                <td className="py-3 px-4">Academic Counselor</td>
+                <td className="py-3 px-4">Noida</td>
+                <td className="py-3 px-4">Full-Time</td>
+                <td className="py-3 px-4">15 May 2025</td>
+              </tr>
+              <tr>
+                <td className="py-3 px-4">Business Counselor</td>
+                <td className="py-3 px-4">Noida</td>
+                <td className="py-3 px-4">Full-Time</td>
+                <td className="py-3 px-4">15 May 2025</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        {/* APPLICATION FORM */}
+       
       </section>
 
-      {/* ✅ FAQ SECTION (Updated) */}
-      <section className="py-20 px-6 lg:px-20 flex flex-col lg:flex-row items-center gap-10">
+      {/* ✅ FORM Section (Updated) */}
+      {/* <section className="py-20 px-6 lg:px-20 flex flex-col lg:flex-row items-center gap-10">
         <div className="lg:w-1/2 flex justify-center">
           <img
             src={groupimg16}
@@ -364,7 +413,7 @@ const Career = () => {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

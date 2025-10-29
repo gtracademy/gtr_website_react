@@ -17,10 +17,6 @@ const Footer = () => {
   const allHeaders = [
     { name: "Home", path: "/" },
     { name: "About Us", path: "/about" },
-    { name: "Contact Us", path: "/contact" },
-    { name: "Blogs", path: "/blogs" },
-    { name: "FAQ", path: "/faq" },
-    { name: "Faculty", path: "/faculty" },
   ];
 
   return (
@@ -106,14 +102,12 @@ const Footer = () => {
             </h3>
             <ul className="space-y-3">
               {["Delhi NCR", "Bangalore"].map((center, index) => (
-                <li key={index}>
-                  <a
-                    href="#"
-                    className="flex items-center text-gray-400 hover:text-red-600 transition-colors duration-300"
-                  >
-                    <FaAngleRight className="mr-2 text-red-600 text-sm" />{" "}
-                    {center}
-                  </a>
+                <li
+                  key={index}
+                  className="flex items-center text-gray-400 hover:text-red-600 transition-colors duration-300 cursor-default"
+                >
+                  <FaAngleRight className="mr-2 text-red-600 text-sm" />{" "}
+                  {center}
                 </li>
               ))}
             </ul>
@@ -140,10 +134,9 @@ const Footer = () => {
               <p className="flex items-center text-gray-400">
                 <FaEnvelope className="mr-3 text-red-600" />
                 <span>
-            
                   <a
                     href="mailto:connect@gtracademy.org"
-                    className="hover:underline hover:text-blue-300 transition duration-200" 
+                    className="hover:underline hover:text-blue-300 transition duration-200"
                   >
                     connect@gtracademy.org
                   </a>
@@ -187,36 +180,36 @@ const Footer = () => {
             </p>
           </div>
           <div className="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-2">
-            <a
-              href="#"
+            <Link
+              to="/terms-conditions"
               className="hover:text-white transition-colors duration-300"
             >
               Terms & Conditions
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              to="/privacy-policy"
               className="hover:text-white transition-colors duration-300"
             >
               Privacy Policy
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              to="/refund-policy"
               className="hover:text-white transition-colors duration-300"
             >
               Refund policy
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              to="/accessibility-statement"
               className="hover:text-white transition-colors duration-300"
             >
               Accessibility Statement
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              to="/cookies-setting"
               className="hover:text-white transition-colors duration-300"
             >
               Cookies Setting
-            </a>
+            </Link>
           </div>
         </div>
       </div>

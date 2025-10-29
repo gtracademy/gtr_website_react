@@ -3,7 +3,9 @@ import { FaCheckCircle } from "react-icons/fa";
 // import hireHero from "../../assets/hire-hero.jpg"; // replace with your image
 
 import hirefromus from "../../assets/hirefromusimg.webp"; // replace with your image
-import teampec from "../../assets/careerImg-3.jpeg"
+
+// import teampec from "../../assets/careerImg-3.jpeg"
+
 import StudentsWorkSection from "../Home/StudentsWorkSection";
 
 const HireFromUs = () => {
@@ -112,7 +114,7 @@ const HireFromUs = () => {
       </section>
 
       {/* Meet Our Team */}
-      <section className="py-16 px-6 lg:px-16 flex flex-col lg:flex-row items-center justify-between gap-8">
+      {/* <section className="py-16 px-6 lg:px-16 flex flex-col lg:flex-row items-center justify-between gap-8">
         <div className="lg:w-1/2 space-y-4">
           <h2 className="text-3xl font-bold">Meet our dedicated team</h2>
           <p className="text-gray-600 text-sm leading-relaxed">
@@ -127,7 +129,7 @@ const HireFromUs = () => {
             className="rounded-md shadow-md w-[80%]"
           />
         </div>
-      </section>
+      </section> */}
 
       {/* Contact Form Section */}
       <section className="bg-gray-50 py-16 px-6 lg:px-20">

@@ -1,8 +1,8 @@
-import aboutusimg1 from "../../assets/aboutus_1.jpg";
-import aboutusimg2 from "../../assets/aboutus_2.jpg";
-import aboutusimg3 from "../../assets/aboutus_3.jpg";
+import aboutusimg1 from "../../assets/aboutusimg1.jpg";
+import aboutusimg2 from "../../assets/aboutusimg2.png";
+import aboutusimg3 from "../../assets/aboutusimg3.jpg";
 
-import aboutusimg4 from "../../assets/aboutus3.jpg";
+import aboutusimg4 from "../../assets/aboutusimg4.jpg";
 import aboutusbanner from "../../assets/About us.png";
 import NeedHelpSection from "../Home/NeedHelpSection";
 
