@@ -1,6 +1,6 @@
 import React from "react";
 import { FaCheckCircle } from "react-icons/fa";
-// import bannerBg from "../../assets/corporate-banner.jpg";
+import bannerBg from "../../assets/corporate training.webp";
 import trainingImg from "../../assets/corporateTrainingimg.jpg";
 import groupimg16 from "../../assets/image-16.jpg";
 
@@ -10,10 +10,10 @@ const CorporateTrainingPage = () => {
     <div className="font-sans text-gray-800">
       {/* ======== Banner Section ======== */}
       
-      {/* <div
-        className="relative bg-cover bg-center h-[260px] flex flex-col items-center justify-center text-white"
+       <div
+        className="relative bg-cover bg-center h-[380px] flex flex-col items-center justify-center text-white"
         style={{
-          backgroundImage: `url(${./corporate training})`,
+          backgroundImage: `url(${bannerBg})`,
         }}
       >
         <div className="absolute inset-0 bg-blue-900/70"></div>
@@ -25,7 +25,7 @@ const CorporateTrainingPage = () => {
             Empowering Teams, Elevating Performance
           </p>
         </div>
-      </div> */}
+      </div> 
 
       {/* ======== Intro Section ======== */}
       <div className="py-16 px-6 lg:px-20 bg-white">

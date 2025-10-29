@@ -15,12 +15,14 @@ import BrochureForm from "../Models/BrochureForm";
 
 const CourseBanner = () => {
   const { slug } = useParams(); // ✅ get slug from URL
+  
   const { courses } = useSearch(); // ✅ get all courses from context
 
   const [isModalOpen, setModalOpen] = useState(false);
   const [isModalOpens, setModalOpens] = useState(false);
 
   const [course, setCourse] = useState(null);
+  
 
   // ✅ find the course by its slug or URL
   useEffect(() => {

@@ -32,7 +32,7 @@ export const SearchProvider = ({ children }) => {
 
     // Debounce API fetch (just safety — avoid too many reloads)
     if (fetchTimerRef.current) clearTimeout(fetchTimerRef.current);
-    fetchTimerRef.current = setTimeout(() => fetchCourses(), 300);
+    fetchTimerRef.current = setTimeout(() => fetchCourses(), 200);
 
     return () => clearTimeout(fetchTimerRef.current);
   }, []);

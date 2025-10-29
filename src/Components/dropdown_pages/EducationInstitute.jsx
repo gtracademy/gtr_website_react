@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaPlus, FaMinus } from "react-icons/fa";
-import saptraining from "../../assets/Sap-Training-Photo.png";
-import dataScience from "../../assets/Data-Science-Traing-photo.png";
-import generativeai from "../../assets/Master-Gen-AI-live-training.webp";
-import VLSI from "../../assets/VLSI.webp";
-import powerBi from "../../assets/Power-BI.webp";
-import campusEngagementImg from "../../assets/capus-engagement-1.jpg";
+import saptraining from "../../assets/Sap-Training-.png";
+import dataScience from "../../assets/Data-Science-.png";
+import generativeai from "../../assets/Ai.png";
+import VLSI from "../../assets/vlsi.png";
+import powerBi from "../../assets/Power-BI-1CnsXBs-.png";
+import campusEngagementImg from "../../assets/capus-engagement.png";
+import educationbanner from "../../assets/education_banner.png";
 
 const EducationInstitute = () => {
   const [openIndex, setOpenIndex] = useState(0);
@@ -41,34 +42,37 @@ const EducationInstitute = () => {
   return (
     <div className="w-full font-lato text-[#002147]">
       {/* Hero Section */}
-      <section className="relative bg-[#004c7d] text-white py-16 md:py-20 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between">
+      <section
+        className="relative text-white py-16 md:py-28 px-6 md:px-12 bg-fill bg-center bg-no-repeat p-4"
+        style={{
+          backgroundImage: `url(${educationbanner})`,
+        }}
+      >
+        <div className="absolute inset-0 bg-black/50"></div>{" "}
+        {/* Optional dark overlay for text readability */}
+        <div className="relative max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between">
           <div className="lg:w-2/3">
             <h1 className="text-3xl md:text-5xl font-bold leading-tight">
               Start Learning Today, <br /> Make Your Student Future Ready
             </h1>
           </div>
-          <div className="lg:w-1/3 mt-8 lg:mt-0 flex justify-center">
-            <img
-              src="/student-hero.png"
-              alt="Student"
-              className="w-72 md:w-80 lg:w-96"
-            />
-          </div>
+          <div className="lg:w-1/3 mt-8 lg:mt-0 flex justify-center"></div>
         </div>
       </section>
 
       {/* About The Course */}
       <section className="py-16 px-6 md:px-12 max-w-7xl mx-auto">
-        <h2 className="text-2xl md:text-3xl font-bold mb-6">
+        <h2 className="text-2xl md:text-3xl font-bold mb-4">
           About The Course
         </h2>
-        <p className="text-gray-700 leading-relaxed mb-8">
-          Making college students future ready by empowering SAP and Data
-          Science knowledge. GTR Academy helps institutions bridge the gap
-          between academic learning and professional readiness through
-          cutting-edge programs, hands-on projects, and mentorship from industry
-          experts.
+        <p className="text-gray-700 leading-relaxed mb-4">
+          <strong>Making college student future ready by empowering SAP and Data Science
+          knowledge</strong> <br></br>
+          Are you a college student eager to enhance your skills and
+          prepare for the future job market? GTR Academy is excited to introduce
+          our SAP and Data Science training programs, specifically designed to
+          equip college students with the knowledge and expertise needed to
+          excel in today’s dynamic and competitive industries.
         </p>
       </section>
 

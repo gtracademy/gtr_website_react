@@ -9,7 +9,6 @@ import NeedHelpSection from "../Home/NeedHelpSection";
 const AboutUs = () => {
   return (
     <>
-
       <div className="font-sans min-h-screen ">
         {/* Header */}
         <div className="w-full">
@@ -45,30 +44,45 @@ const AboutUs = () => {
         </div>
 
         {/* Section 1 */}
-        <section className=" py-16 px-6 md:px-20">
-          <h3 className="text-2xl md:text-4xl font-semibold mb-4">
-            We ensure our ideas and creations are delivered in the best way to
-            empower students’ careers.
-          </h3>
-          <div className="grid md:grid-cols-2 gap-8 text-gray-600 text-justify">
-            <p>
-              Welcome to <strong>GTR Academy</strong>, your ultimate destination
-              for top-notch online training and education. Since 2021, we have
-              empowered 10000+ students and facilitated 9200+ placements,
-              helping you step up, learn today, and lead tomorrow! Founded by
-              experts with experience in leading global firms, GTR Academy
-              offers expertly curated courses led by industry professionals. Our
-              mission is to provide quality practical training to students not
-              just in India but across the globe.
-            </p>
-            <p>
-              Our intensive bootcamps, led by industry experts from Microsoft,
-              Deloitte, PwC, Tesla, IBM, and EY, specialize in ERP and Data
-              Science, providing students with real-world insights. We offer
-              personalized mentorship, industry-relevant projects, and a robust
-              alumni network to ensure you are job-ready and excel in your
-              professional journey.
-            </p>
+        <section className="py-1 px-6 md:px-20 bg-white m-8">
+          <div className="flex flex-col md:flex-row items-center gap-12">
+            {/* Left: Image - takes 50% width */}
+
+            {/* Right: Content - takes 50% width */}
+            <div className="w-full md:w-1/2">
+              <h3 className="text-3xl font-semibold mb-4">
+                We Focus on Student Training and Placement
+              </h3>
+              <p>
+                Welcome to <strong>GTR Academy</strong>, your ultimate
+                destination for top-notch online training and education. Since
+                2021, we have empowered 10000+ students and facilitated 9200+
+                placements, helping you step up, learn today, and lead tomorrow!
+                Founded by experts with experience in leading global firms, GTR
+                Academy offers expertly curated courses led by industry
+                professionals. Our mission is to provide quality practical
+                training to students not just in India but across the globe.
+              </p>
+              <p>
+                Our intensive bootcamps, led by industry experts from Microsoft,
+                Deloitte, PwC, Tesla, IBM, and EY, specialize in ERP and Data
+                Science, providing students with real-world insights. We offer
+                personalized mentorship, industry-relevant projects, and a
+                robust alumni network to ensure you are job-ready and excel in
+                your professional journey.
+              </p>
+            </div>
+            <div className="w-full md:w-1/2 ">
+              <img
+                src={aboutusimg4}
+                alt="Founder"
+                className="w-full h-auto rounded-xl shadow-lg object-fit"
+              />
+              {/* <p className="mt-4 text-center text-sm text-gray-600 italic">
+                “Making an impact, together” <br />
+                <span className="font-medium text-gray-800">GTR Founder</span>
+              </p> */}
+            </div>
           </div>
         </section>
 
@@ -110,10 +124,8 @@ const AboutUs = () => {
               </blockquote>
             </div>
           </div>
-         
         </section>
-         <NeedHelpSection/>
-        
+        <NeedHelpSection />
       </div>
     </>
   );

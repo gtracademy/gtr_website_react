@@ -135,12 +135,21 @@ const Footer = () => {
               </p>
               <p className="flex items-center text-gray-400">
                 <FaPhoneAlt className="mr-3 text-red-600" />
-                <span>09650518049</span>
+                <span>+91 9650518049</span>
               </p>
               <p className="flex items-center text-gray-400">
                 <FaEnvelope className="mr-3 text-red-600" />
-                <span>connect@gtracademy.org</span>
+                <span>
+            
+                  <a
+                    href="mailto:connect@gtracademy.org"
+                    className="hover:underline hover:text-blue-300 transition duration-200" 
+                  >
+                    connect@gtracademy.org
+                  </a>
+                </span>
               </p>
+
               <div className="flex space-x-3 mt-4">
                 <a href="#">
                   <img

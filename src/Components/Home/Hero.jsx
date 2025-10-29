@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import BookCallModal from "../Models/BookFreeCall";
 import MobileBannerImg from "../../assets/Blue.webp";
-import desktopbannerimg from "../../assets/banner-1437x549.png";
+import desktopbannerimg from "../../assets/update-banner.png";
 
 const Hero = () => {
   const [isModalOpen, setIsModelOpen] = useState(false);

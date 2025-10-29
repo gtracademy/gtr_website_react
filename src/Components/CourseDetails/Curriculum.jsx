@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 const Curriculum = ({ course }) => {
   const [openIndex, setOpenIndex] = useState(null);
+  const [showAll, setShowAll] = useState(false); // ✅ New state for Read More
 
   if (
     !course ||
@@ -15,6 +16,11 @@ const Curriculum = ({ course }) => {
     );
   }
 
+  // ✅ Show only first 10 unless "showAll" is true
+  const displayedCurriculum = showAll
+    ? course.courseCurriculum
+    : course.courseCurriculum.slice(0, 10);
+
   return (
     <section id="curriculum" className="max-w-7xl mx-auto">
       <h2 className="text-3xl font-bold mb-6 text-[#0B3954] border-b-2 border-[#C81D25] pb-2 inline-block">
@@ -22,7 +28,7 @@ const Curriculum = ({ course }) => {
       </h2>
 
       <div className="space-y-4">
-        {course.courseCurriculum.map((item, index) => (
+        {displayedCurriculum.map((item, index) => (
           <div
             key={item._id}
             className={`border border-gray-300 rounded-xl overflow-hidden shadow-sm transition-all duration-300 ease-in-out ${
@@ -70,6 +76,18 @@ const Curriculum = ({ course }) => {
           </div>
         ))}
       </div>
+
+      {/* ✅ Read More / Show Less Button */}
+      {course.courseCurriculum.length > 10 && (
+        <div className="text-center mt-6">
+          <button
+            onClick={() => setShowAll(!showAll)}
+            className="bg-[#0B3954] text-white px-6 py-2 rounded-lg font-semibold hover:bg-[#092c43] transition-all duration-300"
+          >
+            {showAll ? "Show Less" : "Read More"}
+          </button>
+        </div>
+      )}
     </section>
   );
 };

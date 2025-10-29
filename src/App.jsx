@@ -3,6 +3,8 @@ import { Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import MainLayout from "./Components/Layout/MainLayout";
 
+// import MentorsPage from "./Components/dropdown_pages/MentorSection";
+
 // Lazy load pages
 const Home = lazy(() => import("./Pages/Home"));
 const AboutUs = lazy(() => import("./Components/about_us/AboutUs"));
