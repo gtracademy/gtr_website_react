@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSearch } from "../ContextApi/SearchContext";
 import { useParams } from "react-router-dom";
 
-const VideoModal = ({ isOpen, onClose, videoUrl }) => {
+const WatchVideo = ({ isOpen, onClose, videoUrl }) => {
   const { courses } = useSearch();
   const { slug } = useParams();
   const [course, setCourse] = useState(null);
@@ -73,4 +73,4 @@ const VideoModal = ({ isOpen, onClose, videoUrl }) => {
   );
 };
 
-export default VideoModal;
+export default WatchVideo;

@@ -12,7 +12,7 @@ import { useSearch } from "../ContextApi/SearchContext";
 
 import { SiYoutubemusic } from "react-icons/si";
 import BrochureForm from "../Models/BrochureForm";
-import VideoModal from "../Models/videoModal";
+import WatchVideo from "../Models/WatchVideo";
 
 
 const CourseBanner = () => {
@@ -143,7 +143,7 @@ const CourseBanner = () => {
         onClose={() => setModalOpens(false)}
         brochureUrl={course?.courseBrochure || "#"}
       />
-      <VideoModal
+      <WatchVideo
         isOpen={isVideoModalOpens}
         onClose={() => setVideoModalOpens(false)}
         videoUrl={
