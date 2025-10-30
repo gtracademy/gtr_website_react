@@ -100,7 +100,7 @@ const CourseBanner = () => {
                     <SiYoutubemusic />
                   </span>
                   Watch Video
-                </button>
+                </button> 
               </div>
             </div>
           </div>

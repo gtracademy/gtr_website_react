@@ -17,6 +17,8 @@ const Footer = () => {
   const allHeaders = [
     { name: "Home", path: "/" },
     { name: "About Us", path: "/about" },
+    { name: "Contact Us", path: "/contact" },
+
   ];
 
   return (
@@ -43,31 +45,31 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a
-                href="#"
+                href="https://www.facebook.com/gtracademy.edu/"
                 className="text-gray-400 hover:text-red-600 transition-colors duration-300"
               >
                 <FaFacebookF className="text-lg" />
               </a>
               <a
-                href="#"
+                href="https://x.com/i/flow/login?redirect_after_login=%2FGTR_Academy"
                 className="text-gray-400 hover:text-red-600 transition-colors duration-300"
               >
                 <FaTwitter className="text-lg" />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/authwall?trk=bf&trkInfo=AQEYkLjq6z8O4QAAAZZYSxnYB9rPjxb55ARYh4DYIvds7NdjXOPB4w_7PXaXMFJ-_SL8pJFfvDVp3L5E-f6TNONqlxFaZ8GCHMTCZexqgsRbj-ij6pjIdeb2wE4xbw4JqlOPKak=&original_referer=&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2Fgtr-academy%2F"
                 className="text-gray-400 hover:text-red-600 transition-colors duration-300"
               >
                 <FaLinkedinIn className="text-lg" />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/gtr_academy_trainings/"
                 className="text-gray-400 hover:text-red-600 transition-colors duration-300"
               >
                 <FaInstagram className="text-lg" />
               </a>
               <a
-                href="#"
+                href="https://www.youtube.com/@GTR-Academy"
                 className="text-gray-400 hover:text-red-600 transition-colors duration-300"
               >
                 <FaYoutube className="text-lg" />

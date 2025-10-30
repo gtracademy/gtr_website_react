@@ -3,6 +3,8 @@ import { Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import MainLayout from "./Components/Layout/MainLayout";
 
+// import ContactUs from "./Components/contact_us/ContactUs";
+
 // Lazy load all footer pages
 const TermsConditions = lazy(() =>
   import("./Components/all_footer_section/TermsConditions")
@@ -23,6 +25,8 @@ const PrivacyPolicy = lazy(() =>
 // Lazy load pages
 const Home = lazy(() => import("./Pages/Home"));
 const AboutUs = lazy(() => import("./Components/about_us/AboutUs"));
+const ContactUs = lazy(() => import("./Components/contact_us/ContactUs"));
+
 const CoursePage = lazy(() => import("./Pages/CoursePage"));
 const CourseDetails = lazy(() =>
   import("./Components/AllCourses/CourseDetails")
@@ -51,6 +55,8 @@ function App() {
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutUs />} />
+          <Route path="/contact" element={<ContactUs />} />
+
           <Route path="/all-courses" element={<CourseDetails />} />
           <Route path="/course/:slug" element={<CoursePage />} />
           <Route path="/mentors" element={<MentorsPage />} />
