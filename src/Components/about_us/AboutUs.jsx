@@ -1,5 +1,5 @@
-import aboutusimg1 from "../../assets/aboutusimg1.jpg";
-import aboutusimg2 from "../../assets/aboutusimg2.png";
+import aboutusimg1 from "../../assets/aboutusimg1.png";
+import aboutusimg2 from "../../assets/aboutusimg2.jpg";
 import aboutusimg3 from "../../assets/aboutusimg3.jpg";
 
 import aboutusimg4 from "../../assets/aboutusimg4.jpg";
@@ -21,7 +21,7 @@ const AboutUs = () => {
 
         {/* Image Row placed AFTER header but visually overlaps */}
         <div className="relative -mt-20 flex justify-center flex-wrap gap-4 px-4">
-          {[aboutusimg1, aboutusimg2, aboutusimg3, aboutusimg4].map(
+          {[aboutusimg2, aboutusimg1, aboutusimg3, aboutusimg4].map(
             (img, index) => (
               <div
                 key={index}
@@ -76,7 +76,7 @@ const AboutUs = () => {
               <img
                 src={aboutusimg4}
                 alt="Founder"
-                className="w-full h-auto rounded-xl shadow-lg object-fit"
+                className="w-full h-[560px] rounded-xl shadow-lg object-cover"
               />
               {/* <p className="mt-4 text-center text-sm text-gray-600 italic">
                 “Making an impact, together” <br />
@@ -90,13 +90,13 @@ const AboutUs = () => {
         <section className="py-1 px-6 md:px-20 bg-white mb-4">
           <div className="flex flex-col md:flex-row items-center gap-12">
             {/* Left: Image - takes 50% width */}
-            <div className="w-full md:w-1/2 ">
+            <div className="w-full md:w-1/2">
               <img
-                src={aboutusimg4}
+                src={aboutusimg1}
                 alt="Founder"
-                className="w-full h-auto rounded-xl shadow-lg object-fit"
+                className="w-full h-[560px] rounded-xl shadow-lg object-cover"
               />
-              <p className="mt-4 text-center text-sm text-gray-600 italic">
+              <p className="mt-4 text-center text-sm md:text-base text-gray-600 italic">
                 “Making an impact, together” <br />
                 <span className="font-medium text-gray-800">GTR Founder</span>
               </p>

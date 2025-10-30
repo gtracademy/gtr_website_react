@@ -4,13 +4,12 @@ import bannerBg from "../../assets/corporate training.webp";
 import trainingImg from "../../assets/corporateTrainingimg.jpg";
 import groupimg16 from "../../assets/image-16.jpg";
 
-
 const CorporateTrainingPage = () => {
   return (
     <div className="font-sans text-gray-800">
       {/* ======== Banner Section ======== */}
-      
-       <div
+
+      <div
         className="relative bg-cover bg-center h-[380px] flex flex-col items-center justify-center text-white"
         style={{
           backgroundImage: `url(${bannerBg})`,
@@ -25,66 +24,89 @@ const CorporateTrainingPage = () => {
             Empowering Teams, Elevating Performance
           </p>
         </div>
-      </div> 
+      </div>
 
       {/* ======== Intro Section ======== */}
       <div className="py-16 px-6 lg:px-20 bg-white">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
-          {/* Left - Image */}
-          <img
-            src={trainingImg}
-            alt="Corporate Training"
-            className="rounded-xl shadow-lg"
-          />
+        <div className="max-w-7xl mx-auto">
+          {/* ======== Top Section (Image + Checklist) ======== */}
+          <div className="grid md:grid-cols-2 gap-10 items-center mb-10">
+            {/* Left - Image */}
+            <img
+              src={trainingImg}
+              alt="Corporate Training"
+              className="rounded-xl shadow-lg w-full object-cover"
+            />
 
-          {/* Right - Content */}
-          <div>
-            <p className="text-gray-700 leading-relaxed mb-6">
-              Companies around the world invest in employee training for their
-              business. GTR Academy helps you achieve your goals faster and in a
-              more cost-effective way.
-            </p>
-            <ul className="space-y-2 mb-6">
-              {[
-                "Flexible Dates",
-                "1-on-1 Training",
-                "Class Recordings (to the participant)",
-                "Certification Desk",
-                "Revision Classes",
-                "4-Hour Sessions",
-                "Lab Extension",
-                "Serving All Time Zones",
-              ].map((item, i) => (
-                <li key={i} className="flex items-center gap-2">
-                  <FaCheckCircle className="text-green-600" />{" "}
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
+            {/* Right - Intro + Checklist */}
+            <div>
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+                Corporate Training at GTR Academy
+              </h2>
+              <p className="text-gray-700 text-lg leading-relaxed mb-6">
+                Companies around the world invest in employee training for their
+                business.
+                <span className="font-semibold text-blue-900">
+                  {" "}
+                  GTR Academy{" "}
+                </span>
+                helps you achieve your goals faster and in a more cost-effective
+                way.
+              </p>
 
-            <p className="text-gray-700 leading-relaxed mb-4">
-              Corporate training is a structured approach to developing employees
-              through various learning programs. It serves as a catalyst for
-              employee success, which directly impacts the success of your business
-              or organization. Implementing training and development is crucial for
-              companies aiming to enhance employee performance. It sharpens employees’
-              job skills and knowledge, ultimately boosting their productivity at
-              the workplace.
+              <ul className="grid sm:grid-cols-2 gap-y-3 gap-x-6">
+                {[
+                  "Flexible Dates",
+                  "1-on-1 Training",
+                  "Class Recordings (to the participant)",
+                  "Certification Desk",
+                  "Revision Classes",
+                  "4-Hour Sessions",
+                  "Lab Extension",
+                  "Serving All Time Zones",
+                ].map((item, i) => (
+                  <li
+                    key={i}
+                    className="flex items-start gap-3 text-gray-800 text-base font-medium"
+                  >
+                    <FaCheckCircle className="text-green-600 mt-1 flex-shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* ======== Bottom Section (Paragraphs full width) ======== */}
+          <div className="space-y-5 text-gray-700 text-base leading-relaxed">
+            <p>
+              Corporate training is a structured approach to developing
+              employees through various learning programs. It serves as a
+              catalyst for employee success, which directly impacts the success
+              of your business or organization. Implementing training and
+              development is crucial for companies aiming to enhance employee
+              performance. It sharpens employees’ job skills and knowledge,
+              ultimately boosting their productivity at the workplace.
             </p>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <p>
               Today’s corporate world requires not only skilled workers but
               up-skilled professionals. With the constant evolution of the
               marketplace, every industry needs individuals who are committed to
-              learning, adapting, and evolving with emerging trends. Your workforce
-              needs to stay up-to-date, and that’s what GTR Academy offers —
-              interactive in-person and online training for individuals or groups
-              across IT, Sales, Operations, Marketing, Management, and Consulting.
+              learning, adapting, and evolving with emerging trends. Your
+              workforce needs to stay up-to-date, and that’s what{" "}
+              <span className="font-semibold text-blue-900">GTR Academy</span>{" "}
+              offers — interactive in-person and online training for individuals
+              or groups across IT, Sales, Operations, Marketing, Management, and
+              Consulting.
             </p>
-            <p className="text-gray-700 leading-relaxed">
-              At GTR Academy, we provide all the necessary tools and resources to help
-              you thrive in a rapidly changing technological landscape. Our
-              experienced in-house corporate trainers deliver the right knowledge to
-              keep you competitive in today’s corporate environment.
+            <p>
+              At{" "}
+              <span className="font-semibold text-blue-900">GTR Academy</span>,
+              we provide all the necessary tools and resources to help you
+              thrive in a rapidly changing technological landscape. Our
+              experienced in-house corporate trainers deliver the right
+              knowledge to keep you competitive in today’s corporate
+              environment.
             </p>
           </div>
         </div>

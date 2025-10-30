@@ -7,6 +7,7 @@ import intructorImg from "../../assets/image.png";
 import MobileBannerImg from "../../assets/Blue.webp";
 import EnrollNow from "../Models/EnrollNow";
 import { useSearch } from "../ContextApi/SearchContext";
+import VideoModal from "../Models/videoModal";
 
 // import { BsDownload, BsFilePdf, BsYoutube } from "react-icons/bs";
 
@@ -15,14 +16,14 @@ import BrochureForm from "../Models/BrochureForm";
 
 const CourseBanner = () => {
   const { slug } = useParams(); // ✅ get slug from URL
-  
+
   const { courses } = useSearch(); // ✅ get all courses from context
 
   const [isModalOpen, setModalOpen] = useState(false);
   const [isModalOpens, setModalOpens] = useState(false);
+  const [isVideoModalOpens, setVideoModalOpens] = useState(false);
 
   const [course, setCourse] = useState(null);
-  
 
   // ✅ find the course by its slug or URL
   useEffect(() => {
@@ -66,7 +67,6 @@ const CourseBanner = () => {
 
           {/* Instructor + Fee + Icons */}
           <div className="flex flex-col space-y-6 mb-6 pl-1">
-            
             {/* <div className="flex items-center text-lg text-gray-800 font-medium">
               <FaUserTie className="text-red-600 text-2xl mr-2" />
               <span>
@@ -90,7 +90,11 @@ const CourseBanner = () => {
 
               <div className="flex items-center space-x-3 text-2xl">
                 <CiShare2 className="text-red-600 cursor-pointer hover:scale-110 transition" />
-                <button className="flex items-center border-[brown] border gap-2 px-3 py-1 rounded-2xl text-[#a9151c] font-bold text-lg cursor-pointer hover:scale-110 transition-all">
+                {/* ✅ Watch Video Button */}
+                <button
+                  onClick={() => setVideoModalOpens(true)}
+                  className="flex items-center border-[brown] border gap-2 px-3 py-1 rounded-2xl text-[#a9151c] font-bold text-lg cursor-pointer hover:scale-110 transition-all"
+                >
                   <span>
                     <SiYoutubemusic />
                   </span>
@@ -137,6 +141,13 @@ const CourseBanner = () => {
         isOpen={isModalOpens}
         onClose={() => setModalOpens(false)}
         brochureUrl={course?.courseBrochure || "#"}
+      />
+      <VideoModal
+        isOpen={isVideoModalOpens}
+        onClose={() => setVideoModalOpens(false)}
+        videoUrl={
+          course?.courseDemoVideo || "https://www.youtube.com/embed/dQw4w9WgXcQ"
+        }
       />
     </section>
   );

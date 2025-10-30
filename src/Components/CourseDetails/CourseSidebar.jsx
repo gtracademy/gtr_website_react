@@ -20,12 +20,12 @@ const CourseSidebar = () => {
       <div className="bg-[#0B3954] text-white p-6 mt-0 rounded-lg shadow-xl">
         <h3 className="text-2xl font-bold mb-4 text-white">SAP EWM S/4 HANA</h3>
         <div className="space-y-4 text-gray-200">
-          <div className="flex items-center space-x-3">
+          {/* <div className="flex items-center space-x-3">
             <FaUserTie className="text-red-500 text-xl" />
             <p className="text-lg">
               Instructor: <span className="font-semibold">Suresh Reddy</span>
             </p>
-          </div>
+          </div> */}
           <div className="flex items-center space-x-3">
             <FaMoneyBillWave className="text-red-500 text-xl" />
             <p className="text-lg">
