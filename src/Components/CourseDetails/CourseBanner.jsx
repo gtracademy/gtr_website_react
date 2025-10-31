@@ -42,9 +42,9 @@ const CourseBanner = () => {
   }
 
   return (
-    <section
+     <section
       id="course-banner"
-      className="bg-white relative overflow-hidden mt-3"
+      className="bg-white relative overflow-hidden"
     >
       {/* Mobile Background Image */}
       <div
