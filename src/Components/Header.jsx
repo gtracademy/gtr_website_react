@@ -92,7 +92,7 @@ const Header = () => {
   };
 
   return (
-    <header className="w-full shadow-md top-0 z-50 bg-[#364D9D] md:bg-white h-14 md:h-22">
+    <header className="w-full shadow-md top-0 z-50 bg-[#364D9D] md:bg-white h-14 md:h-22 py-1 md:py-0 md:mb-0">
       <div className="relative grid grid-cols-5 items-center px-4 md:px-0 md:flex md:justify-between h-full">
         {/* Mobile Login (left) */}
         <div className="md:hidden justify-self-center col-span-1">
@@ -225,10 +225,10 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white border-t border-gray-200 shadow-lg">
+        <div className="md:hidden bg-white border-t border-gray-200 shadow-lg relative z-[1000]">
 
           {/* Search */}
-          <div className="px-4 pb-2">
+          <div className="px-4 pb-4 mt-4">
             <div className="flex items-center gap-3 border border-gray-300 p-2 rounded-full">
               <input
                 type="text"

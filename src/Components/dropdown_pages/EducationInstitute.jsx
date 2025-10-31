@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import saptraining from "../../assets/Sap-Training-.png";
@@ -10,7 +10,29 @@ import campusEngagementImg from "../../assets/capus-engagement.png";
 import educationbanner from "../../assets/education_banner.png";
 
 const EducationInstitute = () => {
-  const [openIndex, setOpenIndex] = useState(0);
+  const [openIndex, setOpenIndex] = useState(0); 
+
+  // SEO meta tags for this page
+  useEffect(() => {
+    const title = "GTR Academy | Job-Ready Corporate & IT Training for College Students";
+    const description =
+      "Empower students with AI, Data Science, SAP, and Power BI training. GTR Academy bridges the gap between education and industry with job-ready certification programs.";
+    const keywords =
+      "GTR Academy, corporate training institute, Data Science certification, SAP training, Power BI course, AI training for students, Generative AI, college partnership program, IT upskilling, placement-ready courses";
+
+    document.title = title;
+    const ensureMeta = (name, content) => {
+      let tag = document.querySelector(`meta[name="${name}"]`);
+      if (!tag) {
+        tag = document.createElement("meta");
+        tag.setAttribute("name", name);
+        document.head.appendChild(tag);
+      }
+      tag.setAttribute("content", content);
+    };
+    ensureMeta("description", description);
+    ensureMeta("keywords", keywords);
+  }, []);
 
   const toggleFAQ = (index) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -43,37 +65,41 @@ const EducationInstitute = () => {
     <div className="w-full font-lato text-[#002147]">
       {/* Hero Section */}
       <section
-        className="relative text-white py-16 md:py-28 px-6 md:px-12 bg-fill bg-center bg-no-repeat p-4"
+        className="relative text-white py-12 md:py-18 px-6 md:px-12 bg-fill bg-center bg-no-repeat"
         style={{
           backgroundImage: `url(${educationbanner})`,
         }}
       >
         <div className="absolute inset-0 bg-black/50"></div>{" "}
         {/* Optional dark overlay for text readability */}
-        <div className="relative max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between">
-          <div className="lg:w-2/3">
-            <h1 className="text-3xl md:text-5xl font-bold leading-tight">
-              Start Learning Today, <br /> Make Your Student Future Ready
-            </h1>
+        <div className="relative max-w-7xl mx-auto flex flex-col items-start gap-4 text-left">
+          <h1 className="text-3xl md:text-5xl font-bold leading-tight">
+            Empowering Careers. Building Futures.
+          </h1>
+          <p className="max-w-3xl text-sm md:text-lg text-gray-100">
+            Start learning today and make your students future-ready with GTR Academy’s corporate training and IT upskilling programs. We bridge academia and industry for job-ready outcomes.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 mt-2">
+            <Link to="#" className="bg-[#C81D25] text-white px-5 py-3 rounded-md font-semibold hover:bg-[#a9151c] transition">Get Started Now</Link>
+            <Link to="#" className="bg-white text-[#002147] px-5 py-3 rounded-md font-semibold hover:bg-gray-100 transition">Partner with Us</Link>
           </div>
-          <div className="lg:w-1/3 mt-8 lg:mt-0 flex justify-center"></div>
         </div>
       </section>
 
       {/* About The Course */}
-      <section className="py-16 px-6 md:px-12 max-w-7xl mx-auto">
-        <h2 className="text-2xl md:text-3xl font-bold mb-4">
-          About The Course
-        </h2>
+      <section className="py-12 md:py-16 px-6 md:px-12 max-w-7xl mx-auto">
+        <h2 className="text-2xl md:text-3xl font-bold mb-4">About The Course</h2>
         <p className="text-gray-700 leading-relaxed mb-4">
-          <strong>Making college student future ready by empowering SAP and Data Science
-          knowledge</strong> <br></br>
-          Are you a college student eager to enhance your skills and
-          prepare for the future job market? GTR Academy is excited to introduce
-          our SAP and Data Science training programs, specifically designed to
-          equip college students with the knowledge and expertise needed to
-          excel in today’s dynamic and competitive industries.
+          <strong>Making College Students Industry-Ready Through Real-World Training</strong><br />
+          At GTR Academy, we empower students to master technologies that shape the modern workplace. Our SAP, Data Science, and Generative AI training programs are designed by certified professionals to give learners hands-on experience in solving real-world business problems.
         </p>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-sm md:text-base">
+          <div className="bg-gray-50 rounded-lg p-4">100% industry-aligned curriculum</div>
+          <div className="bg-gray-50 rounded-lg p-4">Hands-on projects guided by experts</div>
+          <div className="bg-gray-50 rounded-lg p-4">Live sessions, lab access, and revision classes</div>
+          <div className="bg-gray-50 rounded-lg p-4">Placement-oriented learning approach</div>
+        </div>
+        <p className="mt-4 text-[#002147] font-semibold">Empowering over 10,000+ students with skills that drive careers forward.</p>
       </section>
 
       {/* Why Choose Our Data Science Training */}
@@ -83,26 +109,21 @@ const EducationInstitute = () => {
             <img
               src={saptraining}
               alt="Data Science Training"
-              className="rounded-xl shadow-md h-[480px] md:h-[520px] w-full object-cover"
+              className="rounded-xl shadow-md h-64 md:h-80 w-full object-cover"
             />
           </div>
           <div>
-            <h3 className="text-2xl font-semibold mb-4">
-              Why Choose Our Data Science Training?
-            </h3>
+            <h3 className="text-2xl font-semibold mb-4">Why Choose GTR Academy?</h3>
             <p className="mb-4 text-gray-700">
-              Data Science is the most demanding career field in today’s world.
-              Our training empowers students to become experts in data analysis,
-              AI, and predictive modeling — essential skills for the digital
-              age.
+              Your gateway to professional excellence. We customize corporate-aligned training for college students to prepare them for high-demand roles in Data Analytics, AI, Power BI, and SAP.
             </p>
-            <h4 className="font-semibold text-lg mb-2">What You’ll Learn:</h4>
+            <h4 className="font-semibold text-lg mb-2">You’ll Learn:</h4>
             <ul className="list-disc list-inside text-gray-700 space-y-2">
-              <li>Machine Learning Fundamentals</li>
-              <li>Data Analysis and Visualization</li>
-              <li>Python and R Programming</li>
-              <li>Statistical Modeling</li>
-              <li>Real-world Industry Projects</li>
+              <li>Machine Learning & Predictive Analytics</li>
+              <li>Data Modeling and Visualization</li>
+              <li>Generative AI and Prompt Engineering</li>
+              <li>SAP ERP Implementation Basics</li>
+              <li>Power BI Dashboard Design</li>
             </ul>
           </div>
         </div>
@@ -133,7 +154,7 @@ const EducationInstitute = () => {
             <img
               src={dataScience}
               alt="Why Data Science"
-              className="rounded-xl shadow-md h-[480px] md:h-[520px] w-full object-cover"
+              className="rounded-xl shadow-md h-64 md:h-80 w-full object-cover"
             />
           </div>
         </div>
@@ -146,25 +167,19 @@ const EducationInstitute = () => {
             <img
               src={generativeai}
               alt="Generative AI"
-              className="rounded-xl shadow-md h-[480px] md:h-[520px] w-full object-cover"
+              className="rounded-xl shadow-md h-64 md:h-80 w-full object-cover"
             />
           </div>
           <div>
-            <h3 className="text-2xl font-semibold mb-4">
-              Generative AI Training Program
-            </h3>
+            <h3 className="text-2xl font-semibold mb-4">Generative AI Training Program</h3>
             <p className="text-gray-700 mb-4">
-              Experience the power of innovation with Generative AI. Our program
-              teaches students to build AI-powered systems that generate
-              creative content, images, code, and more — skills needed for the
-              future of AI.
+              Build the future with AI innovation. Hands-on Generative AI training with real-world projects on ChatGPT, Claude, and Gemini.
             </p>
-            <h4 className="font-semibold mb-2">What You’ll Learn:</h4>
+            <h4 className="font-semibold mb-2">You’ll Learn:</h4>
             <ul className="list-disc list-inside text-gray-700 space-y-2">
-              <li>Foundation of Generative AI</li>
-              <li>LLMs and Transformer Models</li>
-              <li>Prompt Engineering</li>
-              <li>Hands-on AI Tools (ChatGPT, Claude, Gemini, etc.)</li>
+              <li>Generative AI Foundations</li>
+              <li>LLM Models & Prompt Techniques</li>
+              <li>Applied AI Projects for Businesses</li>
             </ul>
           </div>
         </div>
@@ -174,27 +189,23 @@ const EducationInstitute = () => {
       <section className="px-6 md:px-12 py-12 max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div>
-            <h3 className="text-2xl font-semibold mb-4">
-              VLSI (Very Large Scale Integration) Training Program
-            </h3>
+            <h3 className="text-2xl font-semibold mb-4">SAP Training Program</h3>
             <p className="text-gray-700 mb-4">
-              Explore the backbone of semiconductor design and embedded systems.
-              Our VLSI course empowers students with digital design, ASIC/FPGA
-              flow, and chip verification expertise.
+              Learn SAP — the global standard in business management. Gain expertise across key modules with real-world implementation labs.
             </p>
-            <h4 className="font-semibold mb-2">Key Highlights:</h4>
+            <h4 className="font-semibold mb-2">You’ll Learn:</h4>
             <ul className="list-disc list-inside text-gray-700 space-y-2">
-              <li>Digital Design Concepts</li>
-              <li>ASIC Flow and FPGA Design</li>
-              <li>Simulation and Verification</li>
-              <li>Hands-on Labs and Projects</li>
+              <li>SAP ERP Fundamentals</li>
+              <li>Integration and Configuration</li>
+              <li>Business Process Mapping</li>
+              <li>SAP Project Practice Sessions</li>
             </ul>
           </div>
           <div>
             <img
               src={VLSI}
-              alt="VLSI Training"
-              className="rounded-xl shadow-md h-[480px] md:h-[520px] w-full object-cover"
+              alt="SAP Training"
+              className="rounded-xl shadow-md h-64 md:h-80 w-full object-cover"
             />
           </div>
         </div>
@@ -207,17 +218,13 @@ const EducationInstitute = () => {
             <img
               src={powerBi}
               alt="Power BI"
-              className="rounded-xl shadow-md h-[480px] md:h-[520px] w-full object-cover"
+              className="rounded-xl shadow-md h-64 md:h-80 w-full object-cover"
             />
           </div>
           <div>
-            <h3 className="text-2xl font-semibold mb-4">
-              Power BI Training Program
-            </h3>
+            <h3 className="text-2xl font-semibold mb-4">Power BI Training Program</h3>
             <p className="text-gray-700 mb-4">
-              Discover how to transform data into actionable insights. This
-              training enables students to visualize and analyze data using
-              interactive dashboards and advanced analytics.
+              Turn data into business insights. Create real-time dashboards and actionable BI.
             </p>
             <h4 className="font-semibold mb-2">What You’ll Learn:</h4>
             <ul className="list-disc list-inside text-gray-700 space-y-2">
@@ -231,15 +238,12 @@ const EducationInstitute = () => {
       </section>
 
       {/* Campus Engagements */}
-      <section className="bg-gray-50 px-6 md:px-12 py-16">
+      <section className="bg-gray-50 px-6 md:px-12 py-12 md:py-16">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-center">
           <div>
             <h3 className="text-2xl font-bold mb-4">Our Campus Engagements</h3>
             <p className="text-gray-700 mb-4">
-              At GTR Academy, we engage with colleges to organize
-              skill-development workshops, certification programs, and
-              real-world project sessions that prepare students for professional
-              excellence.
+              Partnering with colleges to empower the next generation. We conduct on-campus workshops, corporate readiness programs, and internship-based learning modules.
             </p>
             <h4 className="font-semibold mb-2">
               Highlights of Our Engagements:
@@ -255,33 +259,26 @@ const EducationInstitute = () => {
             <img
               src={campusEngagementImg}
               alt="Campus Engagement"
-              className="rounded-xl shadow-md h-[480px] md:h-[520px] w-full object-cover"
+              className="rounded-xl shadow-md h-64 md:h-80 w-full object-cover"
             />
           </div>
         </div>
       </section>
 
       {/* Vision Section */}
-      <section className="bg-[#002147] text-white py-16 px-6 md:px-12 text-center">
+      <section className="bg-[#002147] text-white py-12 md:py-16 px-6 md:px-12 text-center">
         <div className="max-w-4xl mx-auto">
           <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
           <p className="text-gray-200 leading-relaxed">
-            At GTR Academy, we fantasize a future where no family is left
-            before, and every existent has the occasion to contribute to the
-            nation’s progress. By supporting the dependents of our stalwart
-            members of the force, we aren’t only recognizing their offerings but
-            also strengthening the foundation of our society. Join us in our
-            charge to make a difference. Together, we can make a brighter future
-            for those who have given everything for our nation. GTR Academy –
-            Empowering Lives, recognizing offerings.
+            Empowering Students. Enriching Futures. We envision a world where every student becomes job-ready, tech-savvy, and future-focused. By integrating education with corporate expertise, we create lifelong learners who thrive in the digital age.
           </p>
         </div>
       </section>
 
       {/* Partner With Us - FAQ Section */}
-      <section className="py-16 px-6 md:px-12 max-w-5xl mx-auto">
+      <section className="py-12 md:py-16 px-6 md:px-12 max-w-5xl mx-auto">
         <h3 className="text-2xl md:text-3xl font-bold text-center mb-8">
-          Partner with GTR Academy: A Win-Win Opportunity for Colleges
+          Partner With GTR Academy
         </h3>
 
         <div className="bg-blue-50 rounded-md shadow-sm border border-blue-100">
@@ -314,6 +311,11 @@ const EducationInstitute = () => {
               {index !== faqs.length - 1 && <hr className="border-blue-200" />}
             </div>
           ))}
+        </div>
+
+        <div className="flex justify-center mt-6 gap-3">
+          <Link to="#" className="bg-[#C81D25] text-white px-5 py-3 rounded-md font-semibold hover:bg-[#a9151c] transition">Schedule a Partnership Call</Link>
+          <Link to="#" className="bg-white border border-[#002147] text-[#002147] px-5 py-3 rounded-md font-semibold hover:bg-gray-50 transition">Join Our College Program</Link>
         </div>
       </section>
     </div>

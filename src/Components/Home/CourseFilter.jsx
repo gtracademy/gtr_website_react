@@ -133,7 +133,7 @@ const CourseFilter = () => {
                     "https://via.placeholder.com/400x250?text=No+Image"
                   }
                   alt={course.courseKeyword}
-                  className="w-full h-40 sm:h-48 md:h-56 object-fill rounded-t-xl"
+                  className="w-full h-40 sm:h-48 md:h-56 object-cover rounded-t-xl"
                 />
                 <div className="bg-white bg-opacity-50 rounded-b-xl p-4">
                   <div className="text-base sm:text-base text-[#2D2D2D] font-semibold font-sans">

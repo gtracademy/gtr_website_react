@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"; // ✅ for slug
 import { FaUserTie, FaMoneyBillAlt } from "react-icons/fa";
@@ -13,7 +14,6 @@ import { useSearch } from "../ContextApi/SearchContext";
 import { SiYoutubemusic } from "react-icons/si";
 import BrochureForm from "../Models/BrochureForm";
 import WatchVideo from "../Models/WatchVideo";
-
 
 const CourseBanner = () => {
   const { slug } = useParams(); // ✅ get slug from URL
@@ -42,32 +42,30 @@ const CourseBanner = () => {
   }
 
   return (
-     <section
-      id="course-banner"
-      className="bg-white relative overflow-hidden"
-    >
+    <section id="course-banner" className="bg-white relative overflow-hidden px-4 md:px-0 pt-4">
       {/* Mobile Background Image */}
       <div
         className="absolute inset-0 md:hidden bg-center bg-cover opacity-15 "
         style={{ backgroundImage: `url(${MobileBannerImg})` }}
       ></div>
 
-      <div className="relative flex flex-col md:flex-row items-center gap-8">
+      <div className="relative flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-6">
         {/* Left Side Content */}
         <div className="w-full md:w-1/2 mb-4">
-          <h2 className="text-3xl md:text-5xl font-extrabold mb-4 text-gray-900 leading-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold mb-3 md:mb-4 text-gray-900 leading-tight">
             <span className="text-[#05254a]">
               {course ? course.courseTitle : "Course Name Coming Soon"}
             </span>
           </h2>
 
-          <p className="text-gray-700 mb-6 leading-relaxed text-lg pl-1">
+          <p className="text-gray-700 mb-5 md:mb-6 leading-relaxed text-base sm:text-lg pl-0 md:pl-1">
             {course?.courseDescription ||
               "Course description will be available soon."}
           </p>
 
           {/* Instructor + Fee + Icons */}
-          <div className="flex flex-col space-y-6 mb-6 pl-1">
+          <div className="flex flex-col space-y-5 md:space-y-6 mb-6 pl-0 md:pl-1">
+            
             {/* <div className="flex items-center text-lg text-gray-800 font-medium">
               <FaUserTie className="text-red-600 text-2xl mr-2" />
               <span>
@@ -78,30 +76,31 @@ const CourseBanner = () => {
               </span>
             </div> */}
 
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 w-full max-w-lg">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 md:gap-6 w-full max-w-lg">
               <div className="flex items-center text-lg text-gray-800 font-medium">
                 <FaMoneyBillAlt className="text-red-600 text-2xl mr-2" />
                 <span>
                   Course Fee:
-                  <span className="text-black font-extrabold text-2xl ml-1">
+                  <span className="text-black font-extrabold text-xl sm:text-2xl ml-1">
                     ₹{course?.coursePrice.offline || "Price Not Available"}
                   </span>
                 </span>
               </div>
-
-              <div className="flex items-center space-x-3 text-2xl">
-                <CiShare2 className="text-red-600 cursor-pointer hover:scale-110 transition" />
-                {/* ✅ Watch Video Button */}
-                <button
-                  onClick={() => setVideoModalOpens(true)}
-                  className="flex items-center border-[brown] border gap-2 px-3 py-1 rounded-2xl text-[#a9151c] font-bold text-lg cursor-pointer hover:scale-110 transition-all"
-                >
-                  <span>
-                    <SiYoutubemusic />
-                  </span>
-                  Watch Video
-                </button> 
-              </div>
+              {course?.courseDemoVideo && (
+                <div className="flex items-center space-x-3 text-2xl">
+                  <CiShare2 className="text-red-600 cursor-pointer hover:scale-110 transition" />
+                  {/* ✅ Watch Video Button */}
+                  <button
+                    onClick={() => setVideoModalOpens(true)}
+                    className="flex items-center border-[brown] border gap-2 px-3 py-1 rounded-2xl text-[#a9151c] font-bold text-lg cursor-pointer hover:scale-110 transition-all"
+                  >
+                    <span>
+                      <SiYoutubemusic />
+                    </span>
+                    Watch Video
+                  </button>
+                </div>
+              )}
             </div>
           </div>
 
@@ -146,9 +145,7 @@ const CourseBanner = () => {
       <WatchVideo
         isOpen={isVideoModalOpens}
         onClose={() => setVideoModalOpens(false)}
-        videoUrl={
-          course?.courseDemoVideo || "https://www.youtube.com/embed/dQw4w9WgXcQ"
-        }
+        videoUrl={course?.courseDemoVideo || " "}
       />
     </section>
   );
