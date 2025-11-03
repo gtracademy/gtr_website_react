@@ -18,6 +18,8 @@ const Footer = () => {
     { name: "Home", path: "/" },
     { name: "About Us", path: "/about" },
     { name: "Contact Us", path: "/contact" },
+    { name: "Our Mentor", path: "/mentors" },
+    { name: "FaqSection ", path: "/faqsection" },
 
   ];
 
@@ -103,7 +105,7 @@ const Footer = () => {
               Our Center
             </h3>
             <ul className="space-y-3">
-              {["Delhi NCR", "Bangalore"].map((center, index) => (
+              {["Delhi NCR", "Bangalore","Gurugram"].map((center, index) => (
                 <li
                   key={index}
                   className="flex items-center text-gray-400 hover:text-red-600 transition-colors duration-300 cursor-default"

@@ -22,6 +22,7 @@ const ContactUs = () => {
           <h3 className="text-2xl font-semibold text-gray-900 mb-4">
             Reach Us
           </h3>
+          ROOTBIX infotech private limited Ground floor, DLF Cyber City, DLF Phase 3, Gurugram, Haryana 122002
 
           {/* Address Cards */}
           <div className="space-y-5">
@@ -59,6 +60,25 @@ const ContactUs = () => {
                 <FaEnvelope className="text-blue-700" /> connect@gtracademy.org
               </p>
             </div>
+
+              <div className="bg-blue-50 border-l-4 border-blue-700 p-5 rounded-xl shadow-sm">
+              <h4 className="font-bold mb-2">Gurugram Office - India</h4>
+              <div className="flex items-start gap-3">
+                <FaMapMarkerAlt className="text-blue-700 mt-1" />
+                <p>
+                  ROOTBIX infotech private limited Ground floor, DLF Cyber City, DLF Phase 3, Gurugram, Haryana 122002
+                </p>
+              </div>
+              <p className="flex items-center gap-2 mt-2">
+                <FaPhoneAlt className="text-blue-700" /> +91 9220248214, +91
+                9220248215, +91 9220248216, +91 9220248217
+              </p>
+              <p className="flex items-center gap-2 mt-2">
+                <FaEnvelope className="text-blue-700" /> connect@gtracademy.org
+              </p>
+            </div>
+
+
           </div>
 
           {/* Socials */}

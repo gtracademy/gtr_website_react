@@ -1,7 +1,17 @@
 import React from "react";
 import { FaChalkboardTeacher, FaVideo,FaTimes } from "react-icons/fa"; // React Icons
 
-const EnrollNow = ({ isOpen, onClose }) => {
+const EnrollNow = ({ isOpen, onClose, coursePricing,courseTitle }) => {
+
+const { price, discount } = coursePricing || {};
+
+console.log(price)
+console.log(discount);
+
+console.log(courseTitle);
+
+
+
   if (!isOpen) return null;
 
   return (
@@ -17,7 +27,7 @@ const EnrollNow = ({ isOpen, onClose }) => {
 
         {/* Title */}
         <h2 className="text-center text-white text-xl md:text-2xl font-bold mb-6">
-          SAP ABAP S/4 HANA
+          {courseTitle}
         </h2>
 
         {/* Cards Container */}
@@ -27,11 +37,11 @@ const EnrollNow = ({ isOpen, onClose }) => {
             <FaChalkboardTeacher className="text-4xl text-[#0B3954] mb-2" />
             <h3 className="text-lg font-semibold mb-2">Live/Online Classes</h3>
             <div className="flex flex-col items-center">
-              <span className="text-gray-400 line-through text-lg">₹60,000</span>
-              <span className="text-red-600 text-2xl font-bold">₹29,500</span>
+              <span className="text-gray-400 line-through text-lg">₹{price?.online}</span>
+              <span className="text-red-600 text-2xl font-bold">₹{discount?.online}</span>
             </div>
             <p className="text-sm text-gray-700 mt-2 text-center">
-              ₹29,500 now and ₹30,000 post-placement after 3 months (GST exclusive).
+              ₹{discount?.online} now and ₹{discount?.online} post-placement after 3 months (GST exclusive).
             </p>
             <button className="mt-4 bg-red-600 text-white px-5 py-2 rounded-lg hover:bg-red-700 transition">
               Enroll Now
@@ -43,11 +53,11 @@ const EnrollNow = ({ isOpen, onClose }) => {
             <FaVideo className="text-4xl text-[#0B3954] mb-2" />
             <h3 className="text-lg font-semibold mb-2">Recorded 12 Months Access</h3>
             <div className="flex flex-col items-center">
-              <span className="text-gray-400 line-through text-lg">₹60,000</span>
-              <span className="text-red-600 text-2xl font-bold">₹29,500</span>
+              <span className="text-gray-400 line-through text-lg">₹{price?.offline}</span>
+              <span className="text-red-600 text-2xl font-bold">₹{discount?.offline}</span>
             </div>
             <p className="text-sm text-gray-700 mt-2 text-center">
-              SAP ABAP S/4 HANA classes with unlimited mocks, a comprehensive
+              {courseTitle} classes with unlimited mocks, a comprehensive
               question bank, and personalized doubt solving.
             </p>
             <button className="mt-4 bg-red-600 text-white px-5 py-2 rounded-lg hover:bg-red-700 transition">

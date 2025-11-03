@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"; // ✅ for slug
 import { FaUserTie, FaMoneyBillAlt } from "react-icons/fa";
@@ -23,8 +22,14 @@ const CourseBanner = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [isModalOpens, setModalOpens] = useState(false);
   const [isVideoModalOpens, setVideoModalOpens] = useState(false);
+  const [selectedCourse, setSelectedCourse] = useState(null);
 
   const [course, setCourse] = useState(null);
+
+  const handleEnrollClick = (course) => {
+    setSelectedCourse(course);
+    setModalOpen(true);
+  };
 
   // ✅ find the course by its slug or URL
   useEffect(() => {
@@ -42,17 +47,20 @@ const CourseBanner = () => {
   }
 
   return (
-    <section id="course-banner" className="bg-white relative overflow-hidden px-4 md:px-0 pt-4">
+    <section
+      id="course-banner"
+      className="bg-white relative overflow-hidden px-4 md:px-0 pt-0 mt-0"
+    >
       {/* Mobile Background Image */}
       <div
-        className="absolute inset-0 md:hidden bg-center bg-cover opacity-15 "
+        className="absolute inset-0 md:hidden bg-center bg-cover opacity-15"
         style={{ backgroundImage: `url(${MobileBannerImg})` }}
       ></div>
 
       <div className="relative flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-6">
         {/* Left Side Content */}
-        <div className="w-full md:w-1/2 mb-4">
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold mb-3 md:mb-4 text-gray-900 leading-tight">
+        <div className="w-full md:w-[60%] mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold mb-3  text-gray-900 leading-tight">
             <span className="text-[#05254a]">
               {course ? course.courseTitle : "Course Name Coming Soon"}
             </span>
@@ -78,17 +86,16 @@ const CourseBanner = () => {
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 md:gap-6 w-full max-w-lg">
               <div className="flex items-center text-lg text-gray-800 font-medium">
-                <FaMoneyBillAlt className="text-red-600 text-2xl mr-2" />
                 <span>
                   Course Fee:
-                  <span className="text-black font-extrabold text-xl sm:text-2xl ml-1">
-                    ₹{course?.coursePrice.offline || "Price Not Available"}
+                  <span className="text-black font-bold text-xl sm:text-xl ml-1">
+                    ₹{course?.courseDiscount?.online || "Price Not Available"}
                   </span>
                 </span>
               </div>
               {course?.courseDemoVideo && (
                 <div className="flex items-center space-x-3 text-2xl">
-                  <CiShare2 className="text-red-600 cursor-pointer hover:scale-110 transition" />
+                  {/* <CiShare2 className="text-red-600 cursor-pointer hover:scale-110 transition" /> */}
                   {/* ✅ Watch Video Button */}
                   <button
                     onClick={() => setVideoModalOpens(true)}
@@ -107,11 +114,12 @@ const CourseBanner = () => {
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 w-full">
             <button
+              onClick={() => handleEnrollClick(course)}
               className="w-full py-4 bg-[#C81D25] text-white rounded-md font-bold text-lg hover:bg-[#a9151c] transition-all transform hover:scale-105 shadow-md"
-              onClick={() => setModalOpen(true)}
             >
               Enroll Now
             </button>
+
             <a
               target="_blank"
               rel="noopener noreferrer"
@@ -124,7 +132,7 @@ const CourseBanner = () => {
         </div>
 
         {/* Instructor Image Section */}
-        <div className="hidden md:flex flex-1 justify-center relative">
+        <div className="hidden md:flex w-[40%] justify-center relative">
           <img
             src={intructorImg}
             alt="Instructor"
@@ -136,7 +144,27 @@ const CourseBanner = () => {
       {/* Bottom Gradient Line */}
       <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-red-700 via-gray-400 to-[#0B3954]"></div>
 
-      <EnrollNow isOpen={isModalOpen} onClose={() => setModalOpen(false)} />
+      {/* <EnrollNow
+        isOpen={isModalOpen}
+        onClose={() => setModalOpen(false)}
+        coursePricing={{
+          price: course?.coursePrice,
+          discount: course?.courseDiscount,
+        }}
+      /> */}
+
+      {selectedCourse && (
+        <EnrollNow
+          isOpen={isModalOpen}
+          onClose={() => setModalOpen(false)}
+          coursePricing={{
+            price: selectedCourse?.coursePrice,
+            discount: selectedCourse?.courseDiscount,
+          }}
+          courseTitle={selectedCourse?.courseKeyword}
+        />
+      )}
+
       <BrochureForm
         isOpen={isModalOpens}
         onClose={() => setModalOpens(false)}

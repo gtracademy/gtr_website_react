@@ -92,7 +92,7 @@ const Header = () => {
   };
 
   return (
-    <header className="w-full shadow-md top-0 z-50 bg-[#364D9D] md:bg-white h-14 md:h-22 py-1 md:py-0 md:mb-0">
+    <header className="w-full shadow-md top-0 z-50 bg-[#364D9D] md:bg-white h-14 md:h-24 py-1 md:py-0 md:mb-0"> 
       <div className="relative grid grid-cols-5 items-center px-4 md:px-0 md:flex md:justify-between h-full">
         {/* Mobile Login (left) */}
         <div className="md:hidden justify-self-center col-span-1">
@@ -116,7 +116,7 @@ const Header = () => {
           onMouseLeave={handleMouseLeave}
         >
           <Link
-            to="/courses"
+          
             className="flex items-center text-lg font-semibold gap-2 text-gray-800 hover:text-[#364D9D] transition"
             aria-haspopup="true"
             aria-expanded={showMegaMenu ? "true" : "false"}

@@ -57,7 +57,7 @@ function CoursePage() {
 
   // ✅ Course found — show full content
   return (
-    <div className="px-3 sm:px-14">
+    <div className="px-3 md:px-14">
       <CourseBanner />
       <div className="hidden lg:block sticky top-0 ">
         <Navbar />

@@ -2,6 +2,7 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import MainLayout from "./Components/Layout/MainLayout";
+import FAQSection from "./Components/faqsection/FAQSection;";
 
 // import ContactUs from "./Components/contact_us/ContactUs";
 
@@ -55,6 +56,9 @@ function App() {
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutUs />} />
+          FAQSection
+          <Route path="/faqsection" element={<FAQSection />} />
+
           <Route path="/contact" element={<ContactUs />} />
 
           <Route path="/all-courses" element={<CourseDetails />} />
