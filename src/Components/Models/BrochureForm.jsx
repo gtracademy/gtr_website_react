@@ -3,7 +3,12 @@ import { AiOutlineClose } from "react-icons/ai";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const BrochureForm = ({ isOpen = true, onClose, brochureUrl }) => {
+
+
+const BrochureForm = ({ isOpen = true, onClose, brochureUrl,}) => {
+
+  
+  
 
   
   const [formData, setFormData] = useState({

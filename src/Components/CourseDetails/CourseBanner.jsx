@@ -19,6 +19,9 @@ const CourseBanner = () => {
 
   const { courses } = useSearch(); // ✅ get all courses from context
 
+  console.log(courses);
+  
+
   const [isModalOpen, setModalOpen] = useState(false);
   const [isModalOpens, setModalOpens] = useState(false);
   const [isVideoModalOpens, setVideoModalOpens] = useState(false);
@@ -162,6 +165,7 @@ const CourseBanner = () => {
             discount: selectedCourse?.courseDiscount,
           }}
           courseTitle={selectedCourse?.courseKeyword}
+            razorpayLink={selectedCourse?.razorpayURL}
         />
       )}
 
@@ -169,6 +173,7 @@ const CourseBanner = () => {
         isOpen={isModalOpens}
         onClose={() => setModalOpens(false)}
         brochureUrl={course?.courseBrochure || "#"}
+      
       />
       <WatchVideo
         isOpen={isVideoModalOpens}
